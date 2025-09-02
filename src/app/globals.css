@@ -7,6 +7,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-space-grotesk);
+  --font-inter: var(--font-inter);
   --font-mono: var(--font-space-grotesk);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -14,6 +15,7 @@
   --color-sidebar-accent: var(--sidebar-accent);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
+  --color-primary-700: var(--primary-700);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
   --color-chart-5: var(--chart-5);
@@ -52,9 +54,10 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.64 0.13 229);
+  --primary-700: #026c8e;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.96 0.02 219);
+  --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -118,5 +121,182 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .font-inter {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Animation utilities */
+  .animate-in {
+    animation: animate-in 0.5s ease-out;
+  }
+
+  .animate-in-up {
+    animation: animate-in-up 0.5s ease-out;
+  }
+
+  .animate-in-down {
+    animation: animate-in-down 0.5s ease-out;
+  }
+
+  .animate-in-left {
+    animation: animate-in-left 0.5s ease-out;
+  }
+
+  .animate-in-right {
+    animation: animate-in-right 0.5s ease-out;
+  }
+
+  .animate-in-fade {
+    animation: animate-in-fade 0.5s ease-out;
+  }
+
+  .animate-in-scale {
+    animation: animate-in-scale 0.5s ease-out;
+  }
+
+  /* Animation keyframes */
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes animate-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes animate-in-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes animate-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes animate-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes animate-in-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes animate-in-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@layer utilities {
+  /* Navbar classes */
+  .navbar {
+    @apply bg-[#e6f5fa] py-[21px];
+  }
+
+  .navbar-container {
+    @apply flex container px-4 mx-auto items-center justify-between w-full;
+  }
+
+  .navbar-logo {
+    @apply flex flex-col gap-2 items-start justify-start pr-[22px] w-[211px];
+  }
+
+  .navbar-logo-image {
+    @apply h-[46.28px] w-24 bg-no-repeat bg-cover;
+  }
+
+  .navbar-menu {
+    @apply flex gap-6 items-center justify-start;
+  }
+
+  .navbar-item {
+    @apply flex flex-col items-start justify-center px-4 py-2 rounded-[12px];
+  }
+
+  .navbar-item-text {
+    @apply font-inter font-normal text-[#546165] text-[18px] leading-[26px] whitespace-pre;
+  }
+
+  .navbar-item-indicator {
+    @apply h-0 w-full relative;
+  }
+
+  .navbar-item-indicator-line {
+    @apply absolute inset-[-1px_-1.96%];
+  }
+
+  .navbar-cta-button {
+    @apply flex gap-1 items-center justify-center px-8 py-3.5 rounded-[12px] shadow-[0px_2px_8px_0px_rgba(83,23,145,0.25)];
+  }
+
+  .navbar-icon-container {
+    @apply relative shrink-0 size-5;
+  }
+
+  .navbar-icon-wrapper {
+    @apply absolute flex inset-[23.61%_13.89%] items-center justify-center;
+  }
+
+  .navbar-icon-arrow {
+    @apply flex-none h-[14.445px] rotate-[270deg] w-[10.556px];
+  }
+
+  .navbar-icon-image {
+    @apply block max-w-none size-full;
+  }
+
+  .navbar-cta-text {
+    @apply font-inter font-semibold text-[16px] leading-[24px] text-white whitespace-pre;
+  }
+
+  .navbar-home-icon {
+    @apply overflow-clip relative shrink-0 size-5;
+  }
+
+  .navbar-home-icon-wrapper {
+    @apply absolute h-[13.534px] left-1/2 translate-x-[-50%] translate-y-[-50%] w-[13px];
   }
 }
