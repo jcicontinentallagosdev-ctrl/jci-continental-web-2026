@@ -21,6 +21,7 @@ import borderlessDesignImage from '@/public/assets/home/borderless-design.png';
 import lifeSkillSeriesImage1 from '@/public/assets/home/life-skill-series-1.jpg';
 import lifeSkillSeriesImage2 from '@/public/assets/home/life-skill-series-2.png';
 import lifeSkillSeriesImage3 from '@/public/assets/home/life-skill-series-3.jpg';
+import jciActivitiesImage1 from '@/public/assets/home/jci-activities-1.png';
 
 export const images = {
   logo: logoImage,
@@ -46,5 +47,5 @@ export const images = {
   lifeSkillSeriesImage1,
   lifeSkillSeriesImage2,
   lifeSkillSeriesImage3,
-  // joinJCIImage: null
+  jciActivitiesImage1,
 };

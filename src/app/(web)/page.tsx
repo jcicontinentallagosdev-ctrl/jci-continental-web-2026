@@ -6,6 +6,7 @@ import { PresidentialTheme } from '@/container/Home/PresidentialTheme';
 import { BorderlessDesign } from '@/container/Home/BorderlessDesign';
 import { LifeSkillSeries } from '@/container/Home/LifeSkillSeries';
 import { JoinJCI } from '@/container/Home/JoinJCI';
+import { JCIActivities } from '@/container/Home/JCIActivities';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <BorderlessDesign />
       <LifeSkillSeries />
       <JoinJCI />
+      <JCIActivities />
     </main>
   );
 }
