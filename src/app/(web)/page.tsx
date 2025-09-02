@@ -2,6 +2,7 @@ import { Hero } from '@/container/Home/Hero';
 import { TechnologySection } from '@/container/Home/TechnologySection';
 import { SectorsSection } from '@/container/Home/SectorsSection';
 import { AreasOfOpportunities } from '@/container/Home/AreasOfOpportunities';
+import { PresidentialTheme } from '@/container/Home/PresidentialTheme';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <TechnologySection />
       <SectorsSection />
       <AreasOfOpportunities />
+      <PresidentialTheme />
     </main>
   );
 }
