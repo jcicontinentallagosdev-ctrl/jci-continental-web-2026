@@ -4,6 +4,7 @@ import { SectorsSection } from '@/container/Home/SectorsSection';
 import { AreasOfOpportunities } from '@/container/Home/AreasOfOpportunities';
 import { PresidentialTheme } from '@/container/Home/PresidentialTheme';
 import { BorderlessDesign } from '@/container/Home/BorderlessDesign';
+import { LifeSkillSeries } from '@/container/Home/LifeSkillSeries';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <AreasOfOpportunities />
       <PresidentialTheme />
       <BorderlessDesign />
+      <LifeSkillSeries />
     </main>
   );
 }

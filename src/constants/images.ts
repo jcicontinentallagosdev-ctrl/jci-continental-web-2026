@@ -18,6 +18,9 @@ import areasOfOpportunitiesDecorative from '@/public/assets/home/areaofopportuni
 import areasOfOpportunitiesImage from '@/public/assets/home/areaofopportunities-illustration.png';
 import presidentialThemeImage from '@/public/assets/home/presidential-theme.png';
 import borderlessDesignImage from '@/public/assets/home/borderless-design.png';
+import lifeSkillSeriesImage1 from '@/public/assets/home/life-skill-series-1.jpg';
+import lifeSkillSeriesImage2 from '@/public/assets/home/life-skill-series-2.png';
+import lifeSkillSeriesImage3 from '@/public/assets/home/life-skill-series-3.jpg';
 
 export const images = {
   logo: logoImage,
@@ -39,5 +42,8 @@ export const images = {
   areasOfOpportunitiesDecorative,
   areasOfOpportunitiesImage,
   presidentialThemeImage,
-  borderlessDesignImage
+  borderlessDesignImage,
+  lifeSkillSeriesImage1,
+  lifeSkillSeriesImage2,
+  lifeSkillSeriesImage3
 };
