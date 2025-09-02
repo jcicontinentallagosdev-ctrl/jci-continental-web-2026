@@ -8,14 +8,6 @@ import { NextMeetingCard } from './NextMeetingCard';
 import { StatsCard } from './StatsCard';
 import { UpcomingEventCard } from './UpcomingEventCard';
 
-// Image assets from Figma
-const imgVector5 =
-  'http://localhost:3845/assets/d1004f619f2a7814fe1a38433ccacce5bfc31a28.svg';
-const img3 =
-  'http://localhost:3845/assets/c1eb7fc5c85fabe9b81e1ad9c91ceb856c69b0b2.svg';
-const imgImage4Colorized =
-  'http://localhost:3845/assets/f8f68b795f64b611216dbff467332b672aa30922.png';
-
 interface HeroProps {
   className?: string;
 }
@@ -81,7 +73,7 @@ export function Hero({ className }: HeroProps) {
         <div className="content-stretch flex gap-4 items-center justify-start relative shrink-0 w-full">
           {/* <StatsCard icon={img3} number="70+" text="Active Members" /> */}
           <StatsCard
-            icon={images.sectorsAndIndustriesIcon}
+            icon={images.heroActiveMembersImage}
             number="70+"
             text="Active Members"
           />
