@@ -5,6 +5,17 @@ import heroTextDecorator from '@/public/assets/home/hero-text-decorator.svg';
 import heroFeatureImage from '@/public/assets/home/hero-feature-image.png';
 import heroActiveMembersImage from '@/public/assets/home/active-members.png';
 import sectorsAndIndustriesIcon from '@/public/assets/home/sectors-icon.png';
+import technologySectionImage from '@/public/assets/home/technology-section-image.png';
+import sectorsSectionUserIcon from '@/public/assets/home/sectors-section-user-icon.svg';
+import sectorsSectionBriefcaseIcon from '@/public/assets/home/sectors-section-briefcase-icon.svg';
+import sectorsSectionConnectionIcon from '@/public/assets/home/sectors-section-connection-icon.svg';
+import sectorsSectionUsersIcon from '@/public/assets/home/sectors-section-users-icon.svg';
+import sectorsSectionDecorativeGroup1 from '@/public/assets/home/sectors-section-decorative-group-1.svg';
+import sectorsSectionDecorativeGroup2 from '@/public/assets/home/sectors-section-decorative-group-2.svg';
+import sectorsSectionDecorativeGroup3 from '@/public/assets/home/sectors-section-decorative-group-3.svg';
+import sectorsSectionDecorativeGroup4 from '@/public/assets/home/sectors-section-decorative-group-4.svg';
+import areasOfOpportunitiesDecorative from '@/public/assets/home/areaofopportunities-decorative.png';
+import areasOfOpportunitiesImage from '@/public/assets/home/areaofopportunities-illustration.png';
 
 export const images = {
   logo: logoImage,
@@ -14,4 +25,15 @@ export const images = {
   heroFeatureImage,
   heroActiveMembersImage,
   sectorsAndIndustriesIcon,
+  technologySectionImage,
+  sectorsSectionUserIcon,
+  sectorsSectionBriefcaseIcon,
+  sectorsSectionConnectionIcon,
+  sectorsSectionUsersIcon,
+  sectorsSectionDecorativeGroup1,
+  sectorsSectionDecorativeGroup2,
+  sectorsSectionDecorativeGroup3,
+  sectorsSectionDecorativeGroup4,
+  areasOfOpportunitiesDecorative,
+  areasOfOpportunitiesImage
 };
