@@ -50,12 +50,13 @@ export function PresidentialTheme() {
 
           {/* Right side - Image and Text */}
           <div className="flex gap-10 items-center justify-start">
-            <div
-              className="bg-center bg-cover bg-no-repeat h-[327px] shrink-0 w-[286.803px]"
-              style={{
-                backgroundImage: `url(${images.presidentialThemeImage.src})`,
-              }}
-            />
+            <div className="h-[327px] shrink-0 w-[286.803px] overflow-hidden">
+              <ObserverImage
+                src={images.presidentialThemeImage}
+                alt="presidential theme"
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div className="flex flex-col font-['Space_Grotesk'] font-bold justify-center leading-[72px] text-[#001319] text-[64px] text-nowrap uppercase">
               <p className="mb-0">Equipped</p>
               <p className="mb-0">Fired</p>

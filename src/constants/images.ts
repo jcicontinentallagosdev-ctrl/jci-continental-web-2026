@@ -17,6 +17,7 @@ import sectorsSectionDecorativeGroup4 from '@/public/assets/home/sectors-section
 import areasOfOpportunitiesDecorative from '@/public/assets/home/areaofopportunities-decorative.png';
 import areasOfOpportunitiesImage from '@/public/assets/home/areaofopportunities-illustration.png';
 import presidentialThemeImage from '@/public/assets/home/presidential-theme.png';
+import borderlessDesignImage from '@/public/assets/home/borderless-design.png';
 
 export const images = {
   logo: logoImage,
@@ -37,5 +38,6 @@ export const images = {
   sectorsSectionDecorativeGroup4,
   areasOfOpportunitiesDecorative,
   areasOfOpportunitiesImage,
-  presidentialThemeImage
+  presidentialThemeImage,
+  borderlessDesignImage
 };
