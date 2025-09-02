@@ -45,5 +45,6 @@ export const images = {
   borderlessDesignImage,
   lifeSkillSeriesImage1,
   lifeSkillSeriesImage2,
-  lifeSkillSeriesImage3
+  lifeSkillSeriesImage3,
+  // joinJCIImage: null
 };

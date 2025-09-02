@@ -5,6 +5,7 @@ import { AreasOfOpportunities } from '@/container/Home/AreasOfOpportunities';
 import { PresidentialTheme } from '@/container/Home/PresidentialTheme';
 import { BorderlessDesign } from '@/container/Home/BorderlessDesign';
 import { LifeSkillSeries } from '@/container/Home/LifeSkillSeries';
+import { JoinJCI } from '@/container/Home/JoinJCI';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <PresidentialTheme />
       <BorderlessDesign />
       <LifeSkillSeries />
+      <JoinJCI />
     </main>
   );
 }
