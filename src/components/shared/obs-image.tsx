@@ -63,7 +63,7 @@ const ObserverImage: React.FC<ObserverImageProps> = ({
           style={{
             width: '100%',
             height: '100%',
-            backgroundColor: '#f0f0f0',
+            backgroundColor: 'transparent',
           }}
         />
       )}

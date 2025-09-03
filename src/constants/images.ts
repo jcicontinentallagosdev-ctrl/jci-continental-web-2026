@@ -1,4 +1,11 @@
 import logoImage from '@/public/assets/jci-logo.png';
+import footerBackgroundImage from '@/public/assets/footer-background.png';
+import whatsappIcon from '@/public/assets/footer/whatsapp.svg';
+import facebookIcon from '@/public/assets/footer/facebook.svg';
+import linkedinIcon from '@/public/assets/footer/linkedin.svg';
+import twitterIcon from '@/public/assets/footer/twitter.svg';
+import youtubeIcon from '@/public/assets/footer/youtube.svg';
+import gmailIcon from '@/public/assets/footer/gmail.svg';
 
 // Home Images
 import heroTextDecorator from '@/public/assets/home/hero-text-decorator.svg';
@@ -26,6 +33,13 @@ import wordsThatDescribeUsImage from '@/public/assets/home/words-that-describe-u
 
 export const images = {
   logo: logoImage,
+  footerBackgroundImage,
+  whatsappIcon,
+  facebookIcon,
+  linkedinIcon,
+  twitterIcon,
+  youtubeIcon,
+  gmailIcon,
 
   // Home Images
   heroTextDecorator,
@@ -49,5 +63,5 @@ export const images = {
   lifeSkillSeriesImage2,
   lifeSkillSeriesImage3,
   jciActivitiesImage1,
-  wordsThatDescribeUsImage
+  wordsThatDescribeUsImage,
 };
