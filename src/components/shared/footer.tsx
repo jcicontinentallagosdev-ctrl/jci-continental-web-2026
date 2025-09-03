@@ -1,6 +1,8 @@
+import { Location } from 'iconsax-react';
+import Link from 'next/link';
+
 import ObserverImage from '@/components/shared/obs-image';
 import { images } from '@/constants';
-import { Location } from 'iconsax-react';
 import { Separator } from '../ui/separator';
 
 const footerLinks = {
@@ -100,13 +102,13 @@ export function Footer() {
                 </h3>
                 <div className="flex flex-col gap-1 items-start justify-start">
                   {footerLinks.resources.map(link => (
-                    <a
+                    <Link
                       key={link.name}
                       href={link.href}
                       className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -118,13 +120,13 @@ export function Footer() {
                 </h3>
                 <div className="flex flex-col gap-1 items-start justify-start">
                   {footerLinks.about.map(link => (
-                    <a
+                    <Link
                       key={link.name}
                       href={link.href}
                       className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -136,13 +138,13 @@ export function Footer() {
                 </h3>
                 <div className="flex flex-col gap-1 items-start justify-start w-full">
                   {footerLinks.more.map(link => (
-                    <a
+                    <Link
                       key={link.name}
                       href={link.href}
                       className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -154,7 +156,7 @@ export function Footer() {
                 </h3>
                 <div className="flex flex-wrap gap-[15.333px] items-center justify-start pt-3 w-full">
                   {socialLinks.map(social => (
-                    <a
+                    <Link
                       key={social.name}
                       href={social.href}
                       className="bg-[#fcf9ec] p-[11.5px] rounded-[11.5px] hover:bg-[#fcf9ec]/80 transition-colors"
@@ -167,7 +169,7 @@ export function Footer() {
                           className="w-full h-full"
                         />
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -181,19 +183,19 @@ export function Footer() {
               Rights Reserved
             </div>
             <div className="flex gap-3 h-10 items-center justify-start">
-              <a
+              <Link
                 href="/terms"
                 className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
               >
                 Term of Use
-              </a>
+              </Link>
               <Separator className="h-10" orientation="vertical" />
-              <a
+              <Link
                 href="/privacy"
                 className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
               >
                 Privacy & Security
-              </a>
+              </Link>
             </div>
           </div>
         </div>

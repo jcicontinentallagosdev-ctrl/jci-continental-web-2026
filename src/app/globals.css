@@ -241,7 +241,7 @@
   }
 
   .navbar-logo {
-    @apply flex flex-col gap-2 items-start justify-start pr-[22px] w-[211px];
+    @apply flex flex-col gap-2 items-start justify-start w-auto;
   }
 
   .navbar-logo-image {
@@ -249,7 +249,7 @@
   }
 
   .navbar-menu {
-    @apply flex gap-6 items-center justify-start;
+    @apply gap-6 items-center justify-start;
   }
 
   .navbar-item {
@@ -269,7 +269,7 @@
   }
 
   .navbar-cta-button {
-    @apply flex gap-1 items-center justify-center px-8 py-3.5 rounded-[12px] shadow-[0px_2px_8px_0px_rgba(83,23,145,0.25)];
+    @apply gap-1 items-center justify-center px-8 py-3.5 rounded-[12px] shadow-[0px_2px_8px_0px_rgba(83,23,145,0.25)];
   }
 
   .navbar-icon-container {
