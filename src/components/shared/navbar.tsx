@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { images } from '@/constants/images';
@@ -18,6 +18,7 @@ interface NavbarProps {
 export function Navbar({ className }: NavbarProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = useMemo(() => {
     return [
@@ -40,15 +41,28 @@ export function Navbar({ className }: NavbarProps) {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // shadow-[0px_2px_15px_0px_#0000001A]
 
   return (
     <div
       className={cn(
-        'bg-[#FEFFFF] overflow-hidden transition-all duration-300 ',
+        'bg-[#FEFFFF] overflow-hidden transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50',
         {
           'lg:h-[100px] h-[521px]': isMobileMenuOpen,
           'lg:h-[100px] h-[77px]': !isMobileMenuOpen,
+          'shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)]': isScrolled,
         }
       )}
     >

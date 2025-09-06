@@ -68,12 +68,159 @@ export function Footer() {
           backgroundImage: `url(${images.footerBackgroundImage.src})`,
           width: '100%',
           height: '100%',
-          // transform: 'translateY(-617px)',
         }}
       />
 
       <div className="container mx-auto px-8 max-w-7xl relative z-10">
-        <div className="flex flex-col gap-20">
+        {/* Mobile Layout */}
+        <div className="flex flex-col gap-15 md:hidden">
+          {/* Logo Section */}
+          <div className="flex flex-col gap-6 items-center justify-center">
+            <div className="h-[86.775px] w-[180px]">
+              <ObserverImage
+                src={images.logo}
+                alt="JCI Continental Lagos"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex gap-3 items-center">
+              <Location variant="Bold" size={18} color="#f3fcff" />
+              <span className="font-['Inter'] font-normal text-[#ece8f1] text-lg leading-[26px]">
+                Lagos, Nigeria
+              </span>
+            </div>
+          </div>
+
+          {/* Navigation Links - Mobile Stacked */}
+          <div className="flex flex-col gap-6 items-center justify-center">
+            {/* Resources */}
+            <div className="flex flex-col gap-4 items-center justify-center w-full">
+              <h3 className="font-['Space_Grotesk'] font-bold text-white text-xl leading-[28px] text-center">
+                Resources
+              </h3>
+              <div className="flex flex-col gap-1 items-center justify-center w-full">
+                {footerLinks.resources.map(link => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* About JCI */}
+            <div className="flex flex-col gap-4 items-center justify-center w-full">
+              <h3 className="font-['Space_Grotesk'] font-bold text-white text-xl leading-[28px] text-center">
+                About JCI Continental Lagos
+              </h3>
+              <div className="flex flex-col gap-1 items-center justify-center w-full">
+                {footerLinks.about.map(link => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* More */}
+            <div className="flex flex-col gap-4 items-center justify-center w-full">
+              <h3 className="font-['Space_Grotesk'] font-bold text-white text-xl leading-[28px] text-center">
+                More
+              </h3>
+              <div className="flex flex-col gap-1 items-center justify-center w-full">
+                {footerLinks.more.map(link => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Social Links - Mobile 2x3 Grid */}
+            <div className="flex flex-col gap-4 items-center justify-center w-full">
+              <h3 className="font-['Space_Grotesk'] font-bold text-white text-xl leading-[28px] text-center">
+                Social Links
+              </h3>
+              <div className="flex flex-col gap-[15.333px] items-center justify-center pt-3 w-full">
+                {/* First row */}
+                <div className="flex gap-[15px] items-center justify-center">
+                  {socialLinks.slice(0, 3).map(social => (
+                    <Link
+                      key={social.name}
+                      href={social.href}
+                      className="bg-[#fcf9ec] p-[11.5px] rounded-[11.5px] hover:bg-[#fcf9ec]/80 transition-colors"
+                    >
+                      <div className="w-[23px] h-[21.25px] relative">
+                        <ObserverImage
+                          src={social.icon}
+                          alt={social.name}
+                          imageClassName="object-contain"
+                          className="w-full h-full"
+                        />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                {/* Second row */}
+                <div className="flex gap-[15px] items-center justify-center">
+                  {socialLinks.slice(3, 6).map(social => (
+                    <Link
+                      key={social.name}
+                      href={social.href}
+                      className="bg-[#fcf9ec] p-[11.5px] rounded-[11.5px] hover:bg-[#fcf9ec]/80 transition-colors"
+                    >
+                      <div className="w-[23px] h-[21.25px] relative">
+                        <ObserverImage
+                          src={social.icon}
+                          alt={social.name}
+                          imageClassName="object-contain"
+                          className="w-full h-full"
+                        />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section - Mobile Stacked */}
+          <div className="flex flex-col gap-6 items-center justify-center py-6 border-t border-[#dddad7]">
+            <div className="font-['Inter'] font-normal text-[#ece8f1] text-base leading-[24px] text-center">
+              &copy; {new Date().getFullYear()}. JCI Continental Lagos. All
+              Rights Reserved
+            </div>
+            <div className="flex gap-3 items-center justify-center">
+              <Link
+                href="/terms"
+                className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
+              >
+                Term of Use
+              </Link>
+              <Separator className="h-10" orientation="vertical" />
+              <Link
+                href="/privacy"
+                className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
+              >
+                Privacy & Security
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:flex flex-col gap-20">
           {/* Main Footer Content */}
           <div className="flex items-start justify-between w-full">
             {/* Logo Section */}

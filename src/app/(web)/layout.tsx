@@ -7,8 +7,8 @@ const WebLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar />
-      {children}
-      {/* <Footer /> */}
+      <div className="lg:pt-[100px] pt-[77px]">{children}</div>
+      <Footer />
     </div>
   );
 };
