@@ -12,7 +12,7 @@ interface StatsCardProps {
 export function StatsCard({ icon, number, text, className }: StatsCardProps) {
   return (
     <div
-      className={`basis-0 bg-[#fcf9ec] box-border content-stretch flex gap-4 grow items-center justify-start min-h-px min-w-px p-[24px] relative rounded-[16px] shrink-0 ${className || ''}`}
+      className={`basis-0 bg-[#fcf9ec] box-border content-stretch flex gap-4 grow items-center justify-start w-full lg:min-h-px lg:min-w-px p-[24px] relative rounded-[16px] lg:shrink-0 ${className || ''}`}
     >
       <div className="absolute border border-[#f7ebc3] border-solid inset-0 pointer-events-none rounded-[16px]" />
       <div className="bg-[#f7ebc3] box-border content-stretch flex gap-2 items-center justify-center p-[18px] relative rounded-[30px] shrink-0 size-[60px]">
@@ -25,7 +25,7 @@ export function StatsCard({ icon, number, text, className }: StatsCardProps) {
           />
         </div>
       </div>
-      <div className="content-stretch flex gap-3 items-center justify-start leading-[0] relative shrink-0">
+      <div className="content-stretch lg:flex-row flex-col flex gap-3 lg:items-center justify-start leading-[0] relative shrink-0">
         <div className="flex flex-col font-bold justify-center relative shrink-0 text-[#001319] text-[24px] text-nowrap">
           <p className="leading-[28px] whitespace-pre">{number}</p>
         </div>
