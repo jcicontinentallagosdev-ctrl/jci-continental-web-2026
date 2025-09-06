@@ -70,7 +70,7 @@ export function JCIActivities() {
   }, [emblaApi]);
 
   return (
-    <section className="bg-[#f3fcff] relative py-24 overflow-hidden">
+    <section className="bg-[#f3fcff] relative py-12 lg:py-24 overflow-hidden">
       {/* Background image with opacity */}
       <div
         className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-30"
@@ -82,8 +82,8 @@ export function JCIActivities() {
         }}
       />
 
-      {/* Navigation arrows */}
-      <div className="absolute left-[43.5px] top-[461px] w-[65.5px] h-[65.5px] z-20">
+      {/* Desktop Navigation arrows - Hidden on mobile */}
+      <div className="absolute left-[43.5px] top-[461px] w-[65.5px] h-[65.5px] z-20 lg:block hidden">
         <button
           onClick={scrollPrev}
           className="w-full cursor-pointer rounded-full h-full flex bg-white items-center justify-center hover:opacity-80 transition-opacity"
@@ -92,7 +92,7 @@ export function JCIActivities() {
         </button>
       </div>
 
-      <div className="absolute right-[43.5px] top-[461px] w-[65.5px] h-[65.5px] z-20">
+      <div className="absolute right-[43.5px] top-[461px] w-[65.5px] h-[65.5px] z-20 lg:block hidden">
         <button
           onClick={scrollNext}
           className="w-full cursor-pointer rounded-full h-full flex bg-white items-center justify-center hover:opacity-80 transition-opacity"
@@ -101,13 +101,13 @@ export function JCIActivities() {
         </button>
       </div>
 
-      <div className="container mx-auto px-8 max-w-7xl relative z-10">
-        <div className="flex flex-col gap-[60px] items-center justify-start">
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+        <div className="flex flex-col gap-10 lg:gap-[60px] items-center justify-start">
           {/* Header */}
-          <div className="flex flex-col gap-10 items-center justify-start w-full">
-            <div className="flex flex-col gap-4 items-center justify-center w-[620px] relative">
-              {/* Decorative vector */}
-              <div className="absolute h-3 left-[212px] top-[30.5px] w-[248px]">
+          <div className="flex flex-col gap-8 lg:gap-10 items-center justify-start w-full">
+            <div className="flex flex-col gap-4 items-center justify-center w-full lg:w-[620px] relative">
+              {/* Desktop decorative vector */}
+              <div className="absolute h-3 left-[212px] top-[30.5px] w-[248px] lg:block hidden">
                 <div className="absolute inset-[-8.33%_-0.02%_-8.32%_-0.01%]">
                   <ObserverImage
                     src={images.heroTextDecorator}
@@ -117,25 +117,36 @@ export function JCIActivities() {
                 </div>
               </div>
 
-              <h2 className="font-bold relative z-20 text-[#001319] text-[36px] leading-[40px]">
+              {/* Mobile decorative vector */}
+              <div className="absolute h-[7.887px] left-1/2 -translate-x-1/2 top-[23.5px] w-[163px] lg:hidden block">
+                <div className="absolute inset-[-8.33%_-0.02%_-8.32%_-0.01%]">
+                  <ObserverImage
+                    src={images.heroTextDecorator}
+                    alt="decorative-vector"
+                    className="block max-w-none size-full"
+                  />
+                </div>
+              </div>
+
+              <h2 className="font-bold relative z-20 text-[#001319] text-[24px] lg:text-[36px] leading-[28px] lg:leading-[40px] text-center">
                 JCI Activities
               </h2>
 
-              <p className="font-['Inter'] font-normal text-[#546165] text-lg leading-[26px] text-center">
+              <p className="font-['Inter'] font-normal text-[#546165] text-base lg:text-lg leading-6 lg:leading-[26px] text-center">
                 Join us for the JCI Activities: a series designed to connect you
                 with essential resources and tools that will enhance your
                 skills, support your personal growth, and advance your career.
               </p>
             </div>
 
-            {/* Carousel */}
+            {/* Unified Carousel */}
             <div className="w-full">
               <div className="embla overflow-hidden" ref={emblaRef}>
-                <div className="embla__container flex gap-6">
+                <div className="embla__container flex gap-3 lg:gap-6">
                   {jciActivities.map(activity => (
                     <div
                       key={activity.id}
-                      className="embla__slide flex-[0_0_384px]"
+                      className="embla__slide flex-[0_0_100%] lg:flex-[0_0_384px]"
                     >
                       <div className="bg-white border border-[#e6f5fa] rounded-xl p-5 h-full">
                         <div className="flex flex-col gap-[22px] h-full">
@@ -151,7 +162,7 @@ export function JCIActivities() {
                           {/* Content */}
                           <div className="flex flex-col gap-5 flex-1">
                             <div className="flex flex-col gap-3">
-                              <h3 className="font-['Space_Grotesk'] font-bold text-[#2b2b3d] text-xl leading-6">
+                              <h3 className="font-['Space_Grotesk'] font-bold text-[#2b2b3d] text-[20px] lg:text-xl leading-[24px] lg:leading-6">
                                 {activity.title}
                               </h3>
 
@@ -186,7 +197,7 @@ export function JCIActivities() {
                               </div>
                             </div>
 
-                            <p className="font-['Inter'] font-normal text-[#546165] text-sm leading-[22px]">
+                            <p className="font-['Inter'] font-normal text-[#546165] text-[14px] lg:text-sm leading-[22px]">
                               {activity.description}
                             </p>
                           </div>
@@ -197,6 +208,23 @@ export function JCIActivities() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Mobile Navigation Buttons - Hidden on desktop */}
+          <div className="lg:hidden flex gap-8 items-center justify-center">
+            <button
+              onClick={scrollPrev}
+              className="bg-white rounded-full w-[65px] h-[65px] flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <ArrowLeft2 className="size-10" color="#0398c8" />
+            </button>
+
+            <button
+              onClick={scrollNext}
+              className="bg-white rounded-full w-[65px] h-[65px] flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <ArrowRight2 className="size-10" color="#0398c8" />
+            </button>
           </div>
 
           {/* View All Button */}

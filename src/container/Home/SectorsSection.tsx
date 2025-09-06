@@ -50,13 +50,13 @@ const sectors = [
 
 export function SectorsSection() {
   return (
-    <section className="bg-[#feffff] py-24">
-      <div className="container mx-auto px-8 max-w-7xl">
-        <div className="flex-col gap-6 grid grid-cols-2">
+    <section className="bg-[#feffff] py-12 lg:py-24">
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6">
           {sectors.map(sector => (
             <div
               key={sector.id}
-              className={`flex-1 ${sector.bgColor} rounded-2xl p-10 flex items-center justify-between relative overflow-hidden`}
+              className={`flex-1 ${sector.bgColor} rounded-2xl px-4 py-6 lg:p-10 flex items-center justify-between relative overflow-hidden`}
             >
               <div className="flex flex-col gap-6">
                 <div
@@ -72,16 +72,16 @@ export function SectorsSection() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col gap-4">
-                  <h3 className="font-['Space_Grotesk'] font-bold text-[#001319] text-2xl leading-7">
+                <div className="flex flex-col gap-3 lg:gap-4">
+                  <h3 className="font-['Space_Grotesk'] font-bold text-[#001319] text-xl lg:text-2xl leading-6 lg:leading-7">
                     {sector.title}
                   </h3>
-                  <p className="font-['Inter'] font-normal text-[#546165] text-lg leading-[26px] max-w-[438px]">
+                  <p className="font-['Inter'] font-normal text-[#546165] text-base lg:text-lg leading-6 lg:leading-[26px] max-w-[438px]">
                     {sector.description}
                   </p>
                 </div>
               </div>
-              <div className="absolute h-[138px] w-[152px] -top-11 -right-0">
+              <div className="absolute h-[138px] w-[152px] -top-11 lg:-top-11 -right-0 lg:-right-0">
                 <Image
                   src={sector.decorativeIcon}
                   alt=""

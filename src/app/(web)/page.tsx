@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Hero />
-      {/* <TechnologySection />
+      <TechnologySection />
       <SectorsSection />
       <AreasOfOpportunities />
       <PresidentialTheme />
@@ -21,7 +21,7 @@ export default function Home() {
       <LifeSkillSeries />
       <JoinJCI />
       <JCIActivities />
-      <WordsThatDescribeUs /> */}
+      <WordsThatDescribeUs />
     </main>
   );
 }
