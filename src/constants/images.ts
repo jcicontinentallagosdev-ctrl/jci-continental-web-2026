@@ -31,6 +31,18 @@ import lifeSkillSeriesImage3 from '@/public/assets/home/life-skill-series-3.jpg'
 import jciActivitiesImage1 from '@/public/assets/home/jci-activities-1.png';
 import wordsThatDescribeUsImage from '@/public/assets/home/words-that-describe-us.png';
 
+// About Images
+import aboutChangemakersEconomiesImage from '@/public/assets/about/economies-image.png';
+import aboutChangemakersWorkforceImage from '@/public/assets/about/workforce-image.png';
+import aboutChangemakersMentalHealthImage from '@/public/assets/about/mental-health-image.png';
+import aboutCoreAreasBackgroundImage from '@/public/assets/about/core-areas-background-image.jpg';
+import aboutCoreAreasIcon from '@/public/assets/about/core-areas-icon.svg';
+import aboutMissionVisionVisionImage from '@/public/assets/about/mission-vision-vision-image.png';
+import aboutMissionVisionMissionImage from '@/public/assets/about/mission-vision-mission-image.png';
+import aboutWhatSetsUsApartImage from '@/public/assets/about/what-sets-us-apart-image.png';
+
+
+
 export const images = {
   logo: logoImage,
   footerBackgroundImage,
@@ -64,4 +76,14 @@ export const images = {
   lifeSkillSeriesImage3,
   jciActivitiesImage1,
   wordsThatDescribeUsImage,
+
+  // About Images
+  aboutChangemakersEconomiesImage,
+  aboutChangemakersWorkforceImage,
+  aboutChangemakersMentalHealthImage,
+  aboutCoreAreasBackgroundImage,
+  aboutCoreAreasIcon,
+  aboutMissionVisionVisionImage,
+  aboutMissionVisionMissionImage,
+  aboutWhatSetsUsApartImage
 };
