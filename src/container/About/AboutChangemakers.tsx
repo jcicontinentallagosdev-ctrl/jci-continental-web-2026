@@ -24,7 +24,7 @@ const AboutChangemakers = () => {
             </p>
           </div>
           <div className="flex flex-col font-inter font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#546165] text-[16px] lg:text-[18px] text-center">
-            <p className="leading-[24px] lg:leading-[26px]">
+            <p className="leading-[24px] lg:leading-[26px] max-w-[846px]">
               We are an exclusive global network of enterprising young
               professionals, aged 18 to 40, dedicated to leading and executing
               the JCI RISE initiative across its three fundamental pillars:

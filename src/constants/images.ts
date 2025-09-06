@@ -41,6 +41,9 @@ import aboutMissionVisionVisionImage from '@/public/assets/about/mission-vision-
 import aboutMissionVisionMissionImage from '@/public/assets/about/mission-vision-mission-image.png';
 import aboutWhatSetsUsApartImage from '@/public/assets/about/what-sets-us-apart-image.png';
 
+// What We Do Images
+import whatWeDoHeroFeatureImage from '@/public/assets/what-we-do/what-we-do-hero-feature-image.jpg';
+
 
 
 export const images = {
@@ -85,5 +88,8 @@ export const images = {
   aboutCoreAreasIcon,
   aboutMissionVisionVisionImage,
   aboutMissionVisionMissionImage,
-  aboutWhatSetsUsApartImage
+  aboutWhatSetsUsApartImage,
+
+  // What We Do Images
+  whatWeDoHeroFeatureImage,
 };
