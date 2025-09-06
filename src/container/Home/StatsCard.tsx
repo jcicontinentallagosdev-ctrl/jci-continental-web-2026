@@ -25,11 +25,11 @@ export function StatsCard({ icon, number, text, className }: StatsCardProps) {
           />
         </div>
       </div>
-      <div className="content-stretch lg:flex-row flex-col flex gap-3 lg:items-center justify-start leading-[0] relative shrink-0">
+      <div className="w-full lg:flex-row flex-col flex gap-3 lg:items-center justify-start leading-[0] relative">
         <div className="flex flex-col font-bold justify-center relative shrink-0 text-[#001319] text-[24px] text-nowrap">
           <p className="leading-[28px] whitespace-pre">{number}</p>
         </div>
-        <div className="flex max-w-[277px] flex-col font-inter font-normal justify-center not-italic relative shrink-0 text-[#546165] text-[18px]">
+        <div className="flex w-full flex-col font-inter font-normal justify-center not-italic relative shrink-0 text-[#546165] text-[18px]">
           <p className="leading-[26px]">{text}</p>
         </div>
       </div>
