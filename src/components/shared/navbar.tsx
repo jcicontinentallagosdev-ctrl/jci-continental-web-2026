@@ -52,6 +52,11 @@ export function Navbar({ className }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when path changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   // shadow-[0px_2px_15px_0px_#0000001A]
 
   return (
