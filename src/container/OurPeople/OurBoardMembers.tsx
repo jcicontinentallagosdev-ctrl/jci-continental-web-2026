@@ -126,7 +126,7 @@ const OurBoardMembers = () => {
       <div
         className="absolute bg-center bg-cover bg-no-repeat h-full left-0 opacity-30 top-0 w-full"
         style={{
-          backgroundImage: `url('http://localhost:3845/assets/61779a38d4e794211b93e4a6a0860db723f0d23d.png')`,
+          backgroundImage: `url(${images.areasOfOpportunitiesDecorative.src})`,
         }}
       />
 
