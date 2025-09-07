@@ -43,6 +43,16 @@ import aboutWhatSetsUsApartImage from '@/public/assets/about/what-sets-us-apart-
 
 // What We Do Images
 import whatWeDoHeroFeatureImage from '@/public/assets/what-we-do/what-we-do-hero-feature-image.jpg';
+import whatWeDoProgramImage1 from '@/public/assets/what-we-do/program-image-1.png';
+import whatWeDoProgramImage2 from '@/public/assets/what-we-do/program-image-2.png';
+import whatWeDoProgramImage3 from '@/public/assets/what-we-do/program-image-3.png';
+import whatWeDoProgramImage4 from '@/public/assets/what-we-do/program-image-4.png';
+import whatWeDoProgramImage5 from '@/public/assets/what-we-do/program-image-5.png';
+import whatWeDoProgramImage6 from '@/public/assets/what-we-do/program-image-6.png';
+import whatWeDoInitiativeImage1 from '@/public/assets/what-we-do/initiative-image-1.png';
+import whatWeDoInitiativeImage2 from '@/public/assets/what-we-do/initiative-image-2.png';
+import whatWeDoInitiativeImage3 from '@/public/assets/what-we-do/initiative-image-3.png';
+import whatWeDoEventLocalImage from '@/public/assets/home/jci-activities-1.png';
 
 
 
@@ -92,4 +102,14 @@ export const images = {
 
   // What We Do Images
   whatWeDoHeroFeatureImage,
+  whatWeDoProgramImage1,
+  whatWeDoProgramImage2,
+  whatWeDoProgramImage3,
+  whatWeDoProgramImage4,
+  whatWeDoProgramImage5,
+  whatWeDoProgramImage6,
+  whatWeDoInitiativeImage1,
+  whatWeDoInitiativeImage2,
+  whatWeDoInitiativeImage3,
+  whatWeDoEventLocalImage,
 };
