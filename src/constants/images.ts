@@ -54,6 +54,27 @@ import whatWeDoInitiativeImage2 from '@/public/assets/what-we-do/initiative-imag
 import whatWeDoInitiativeImage3 from '@/public/assets/what-we-do/initiative-image-3.png';
 import whatWeDoEventLocalImage from '@/public/assets/home/jci-activities-1.png';
 
+// Our People Images
+import ourPeopleHeroFeatureImage from '@/public/assets/our-people/our-people-hero-feature-image.png';
+import ourPeopleBoardPresidentImage from '@/public/assets/our-people/board-president-image.png';
+import ourPeopleBoardVPICImage from '@/public/assets/our-people/board-vpic-image.png';
+import ourPeopleBoardVPBIImage from '@/public/assets/our-people/board-vpbi-image.png';
+import ourPeopleBoardGeneralSecretaryImage from '@/public/assets/our-people/board-general-secretary-image.png';
+import ourPeopleBoardGeneralLegalCounselImage from '@/public/assets/our-people/board-general-legal-counsel-image.png';
+import ourPeopleBoardCFOImage from '@/public/assets/our-people/board-cfo-image.png';
+import ourPeopleBoardDirectorSkillsDevelopmentImage from '@/public/assets/our-people/board-director-skills-development-image.png';
+import ourPeopleBoardDirectorIntlOpportunitiesImage from '@/public/assets/our-people/board-director-intl-opportunities-image.png';
+import ourPeopleBoardDirectorStrategyImage from '@/public/assets/our-people/board-director-strategy-image.png';
+import ourPeopleBoardDirectorProjectsImage from '@/public/assets/our-people/board-director-projects-image.png';
+import ourPeopleBoardDirectorAwardsImage from '@/public/assets/our-people/board-director-awards-image.png';
+import ourPeopleBoardDirectorBusinessPartnershipImage from '@/public/assets/our-people/board-director-business-partnership-image.png';
+import ourPeopleBoardDirectorMembershipImage from '@/public/assets/our-people/board-director-membership-image.png';
+import ourPeopleBoardDirectorBrandMediaImage from '@/public/assets/our-people/board-director-brand-media-image.png';
+import ourPeopleBoardDirectorConventionImage from '@/public/assets/our-people/board-director-convention-image.png';
+import ourPeopleBoardCTOImage from '@/public/assets/our-people/board-cto-image.png';
+import ourPeopleBoardDirectorWelfareImage from '@/public/assets/our-people/board-director-welfare-image.png';
+import ourPeopleBoardExecutiveAssistantImage from '@/public/assets/our-people/board-executive-assistant-image.png';
+
 
 
 export const images = {
@@ -112,4 +133,25 @@ export const images = {
   whatWeDoInitiativeImage2,
   whatWeDoInitiativeImage3,
   whatWeDoEventLocalImage,
+
+  // Our People Images
+  ourPeopleHeroFeatureImage,
+  ourPeopleBoardPresidentImage,
+  ourPeopleBoardVPICImage,
+  ourPeopleBoardVPBIImage,
+  ourPeopleBoardGeneralSecretaryImage,
+  ourPeopleBoardGeneralLegalCounselImage,
+  ourPeopleBoardCFOImage,
+  ourPeopleBoardDirectorSkillsDevelopmentImage,
+  ourPeopleBoardDirectorIntlOpportunitiesImage,
+  ourPeopleBoardDirectorStrategyImage,
+  ourPeopleBoardDirectorProjectsImage,
+  ourPeopleBoardDirectorAwardsImage,
+  ourPeopleBoardDirectorBusinessPartnershipImage,
+  ourPeopleBoardDirectorMembershipImage,
+  ourPeopleBoardDirectorBrandMediaImage,
+  ourPeopleBoardDirectorConventionImage,
+  ourPeopleBoardCTOImage,
+  ourPeopleBoardDirectorWelfareImage,
+  ourPeopleBoardExecutiveAssistantImage
 };
