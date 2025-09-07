@@ -69,7 +69,7 @@ const WhatWeDoInitiatives = () => {
                 </div>
                 <div className="flex flex-col font-inter font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#546165] text-[16px] lg:text-[18px]">
                   <p className="leading-[24px] lg:leading-[26px]">
-                    Mental health matters. JCI's continental campaign is raising
+                    Mental health matters. JCI&apos;s continental campaign is raising
                     awareness of mental health issues and encouraging people to
                     seek help when they need it.
                   </p>
