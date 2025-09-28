@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -56,7 +58,12 @@ export function TechnologySection({ className }: TechnologySectionProps) {
             </div>
 
             {/* CTA Button */}
-            <Button className="w-fit">
+            <Button
+              className="w-fit"
+              onClick={() =>
+                window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
+              }
+            >
               <p>Become A Member</p>
             </Button>
           </div>

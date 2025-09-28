@@ -1,3 +1,5 @@
+'use client';
+
 import ObserverImage from '@/components/shared/obs-image';
 import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
@@ -72,7 +74,14 @@ export function BorderlessDesign() {
             </div>
 
             {/* CTA Button */}
-            <Button className="w-fit">Become A Member</Button>
+            <Button
+              className="w-fit"
+              onClick={() =>
+                window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
+              }
+            >
+              Become A Member
+            </Button>
           </div>
         </div>
       </div>

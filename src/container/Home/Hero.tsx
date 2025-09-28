@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import ObserverImage from '@/components/shared/obs-image';
@@ -61,7 +63,11 @@ export function Hero({ className }: HeroProps) {
                   </p>
                 </div>
               </div>
-              <Button>
+              <Button
+                onClick={() =>
+                  window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
+                }
+              >
                 <p className="leading-[24px] whitespace-pre">Become A Member</p>
               </Button>
             </div>

@@ -98,7 +98,14 @@ export function LifeSkillSeries() {
             </div>
 
             {/* CTA Button */}
-            <Button className="w-fit">Become A Member</Button>
+            <Button
+              className="w-fit"
+              onClick={() =>
+                window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
+              }
+            >
+              Become A Member
+            </Button>
           </div>
 
           {/* Desktop Interactive Images - Hidden on mobile */}

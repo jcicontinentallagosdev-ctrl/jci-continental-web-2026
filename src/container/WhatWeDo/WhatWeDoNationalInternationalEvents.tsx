@@ -16,33 +16,33 @@ import {
 const nationalInternationalEvents = [
   {
     id: 1,
-    type: 'National Event',
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    type: 'International Event',
+    title: '2026 JCI Africa and the Middle East Conference',
+    date: 'May 20-23, 2026',
+    location: "Abidjan, Côte d'Ivoire",
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.whatWeDoEventLocalImage,
+      'Experience powerful leadership forums, cultural exchange, and impactful collaborations that drive sustainable development and unity.',
+    image: images.jciAfricaMiddleEastConferenceImage,
   },
   {
     id: 2,
     type: 'International Event',
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    title: '2026 JCI Asia and the Pacific Conference',
+    date: 'June 11-14, 2026',
+    location: 'Niigata, Japan',
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.whatWeDoEventLocalImage,
+      'Be the Change – For a Brighter Future. Join impactful forums, cultural immersions, and global networking opportunities.',
+    image: images.jciAsiaPacificConferenceImage,
   },
   {
     id: 3,
-    type: 'National Event',
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    type: 'International Event',
+    title: '2025 JCI World Congress',
+    date: 'November 4-8, 2025',
+    location: 'Tunis, Tunisia',
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.whatWeDoEventLocalImage,
+      'Global gathering of over 3,000 young leaders from 120+ countries for leadership training, cross-cultural collaboration, and impactful activities.',
+    image: images.jciWorldCongressImage,
   },
 ];
 

@@ -16,39 +16,39 @@ import {
 const jciActivities = [
   {
     id: 1,
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    title: 'JCI Continental Lagos Annual Convention',
+    date: 'November 2025',
+    location: 'Lagos, Nigeria',
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.jciActivitiesImage1,
+      'End the local organization year with an empowering event to culminate all our activities',
+    image: images.jciAnnualConventionImage,
   },
   {
     id: 2,
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    title: '2026 JCI Africa and the Middle East Conference',
+    date: 'May 20-23, 2026',
+    location: "Abidjan, Côte d'Ivoire",
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.jciActivitiesImage1,
+      'Experience powerful leadership forums, cultural exchange, and impactful collaborations that drive sustainable development and unity.',
+    image: images.jciAfricaMiddleEastConferenceImage,
   },
   {
     id: 3,
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    title: '2026 JCI Asia and the Pacific Conference',
+    date: 'June 11-14, 2026',
+    location: 'Niigata, Japan',
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.jciActivitiesImage1,
+      'Be the Change – For a Brighter Future. Join impactful forums, cultural immersions, and global networking opportunities.',
+    image: images.jciAsiaPacificConferenceImage,
   },
   {
     id: 4,
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    title: '2025 JCI World Congress',
+    date: 'November 4-8, 2025',
+    location: 'Tunis, Tunisia',
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.jciActivitiesImage1,
+      'Global gathering of over 3,000 young leaders from 120+ countries for leadership training, cross-cultural collaboration, and impactful activities.',
+    image: images.jciWorldCongressImage,
   },
 ];
 

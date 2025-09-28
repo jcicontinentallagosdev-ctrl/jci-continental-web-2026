@@ -114,6 +114,9 @@ export function Navbar({ className }: NavbarProps) {
           <Button
             variant="default"
             className="navbar-cta-button lg:flex hidden"
+            onClick={() =>
+              window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
+            }
           >
             Become A Member
           </Button>
@@ -181,7 +184,13 @@ export function Navbar({ className }: NavbarProps) {
             </div>
 
             {/* Mobile CTA Button */}
-            <Button variant="default" className="w-full flex navbar-cta-button">
+            <Button
+              variant="default"
+              className="w-full flex navbar-cta-button"
+              onClick={() =>
+                window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
+              }
+            >
               Become A Member
             </Button>
           </div>

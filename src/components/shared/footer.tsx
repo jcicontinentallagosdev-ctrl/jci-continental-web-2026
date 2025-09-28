@@ -18,7 +18,11 @@ const footerLinks = {
     { name: 'Contact JCI Continental Lagos', href: '/contact' },
   ],
   more: [
-    { name: 'Become A Member', href: '/become-member' },
+    {
+      name: 'Become A Member',
+      href: 'https://forms.gle/stSuRhn9sGTUm15G8',
+      external: true,
+    },
     { name: 'Become A Partner', href: '/become-partner' },
     { name: 'Become A Sponsor', href: '/become-sponsor' },
     { name: 'Join Tech Team', href: '/join-tech-team' },
@@ -139,6 +143,8 @@ export function Footer() {
                   <Link
                     key={link.name}
                     href={link.href}
+                    target={link.external ? '_blank' : undefined}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
                     className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
                   >
                     {link.name}
@@ -288,6 +294,8 @@ export function Footer() {
                     <Link
                       key={link.name}
                       href={link.href}
+                      target={link.external ? '_blank' : undefined}
+                      rel={link.external ? 'noopener noreferrer' : undefined}
                       className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
                     >
                       {link.name}

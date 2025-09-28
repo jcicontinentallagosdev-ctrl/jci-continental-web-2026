@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import { images } from '@/constants';
@@ -74,7 +76,12 @@ const WhatWeDoHero = () => {
           </div>
 
           {/* CTA Button */}
-          <Button className="min-w-[211px]">
+          <Button
+            className="min-w-[211px]"
+            onClick={() =>
+              window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
+            }
+          >
             <p className="leading-[24px] whitespace-pre">Get Involved</p>
           </Button>
         </div>

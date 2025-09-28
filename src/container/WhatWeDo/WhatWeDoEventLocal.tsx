@@ -16,30 +16,30 @@ import {
 const eventLocalData = [
   {
     id: 1,
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    title: 'JCI Continental Lagos Annual Convention',
+    date: 'November 2015',
+    location: 'Lagos, Nigeria',
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.whatWeDoEventLocalImage,
+      'End the local organization year with an empowering event to culminate all our activities',
+    image: images.jciAnnualConventionImage,
   },
   {
     id: 2,
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    title: 'Annual General Meeting',
+    date: 'September 28, 2025',
+    location: 'Water Cress Hotel & Events, Ikeja',
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.whatWeDoEventLocalImage,
+      'Reports, Election and Induction. Join us for our Annual General Meeting to review the year and elect new leaders.',
+    image: images.annualGeneralMeetingImage,
   },
   {
     id: 3,
-    title: 'JCI Africa and Middle East Conference',
-    date: '22nd-25th of may, 2025',
-    location: 'Kigali, Rwanda',
+    title: 'Leadership Circle Meeting',
+    date: 'July 17, 2025',
+    location: 'Lagos, Nigeria',
     description:
-      'Exchange ideas, collaborate and promote positive Change in your communities',
-    image: images.whatWeDoEventLocalImage,
+      'Monthly leadership development and networking session for members to connect and grow together.',
+    image: images.leadershipCircleImage,
   },
 ];
 

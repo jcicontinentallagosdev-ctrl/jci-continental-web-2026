@@ -1,3 +1,5 @@
+'use client';
+
 import ObserverImage from '@/components/shared/obs-image';
 import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
@@ -62,6 +64,9 @@ export function JoinJCI() {
           <Button
             className="bg-[#e4c03d] hover:bg-[#e4c03d]/90 text-[#60511a] shadow-[0px_2px_8px_0px_rgba(223,161,62,0.25)]"
             size="lg"
+            onClick={() =>
+              window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
+            }
           >
             Join the movement
           </Button>

@@ -31,6 +31,14 @@ import lifeSkillSeriesImage3 from '@/public/assets/home/life-skill-series-3.jpg'
 import jciActivitiesImage1 from '@/public/assets/home/jci-activities-1.png';
 import wordsThatDescribeUsImage from '@/public/assets/home/words-that-describe-us.png';
 
+// New Event Images (Placeholders)
+import jciAnnualConventionImage from '@/public/assets/home/jci-activities-1.png';
+import jciAfricaMiddleEastConferenceImage from '@/public/assets/home/AMEC2026.webp';
+import jciAsiaPacificConferenceImage from '@/public/assets/home/ASPAC2026.webp';
+import jciWorldCongressImage from '@/public/assets/home/WC2025.webp';
+import annualGeneralMeetingImage from '@/public/assets/home/jci-activities-1.png';
+import leadershipCircleImage from '@/public/assets/home/jci-activities-1.png';
+
 // About Images
 import aboutChangemakersEconomiesImage from '@/public/assets/about/economies-image.png';
 import aboutChangemakersWorkforceImage from '@/public/assets/about/workforce-image.png';
@@ -110,6 +118,14 @@ export const images = {
   lifeSkillSeriesImage3,
   jciActivitiesImage1,
   wordsThatDescribeUsImage,
+
+  // New Event Images (Placeholders)
+  jciAnnualConventionImage,
+  jciAfricaMiddleEastConferenceImage,
+  jciAsiaPacificConferenceImage,
+  jciWorldCongressImage,
+  annualGeneralMeetingImage,
+  leadershipCircleImage,
 
   // About Images
   aboutChangemakersEconomiesImage,
