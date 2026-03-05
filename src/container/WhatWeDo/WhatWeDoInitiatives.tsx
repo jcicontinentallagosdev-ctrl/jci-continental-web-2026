@@ -8,7 +8,7 @@ const WhatWeDoInitiatives = () => {
       <div className="content-stretch container mx-auto flex flex-col gap-[60px] items-center justify-start px-4 lg:px-8 max-w-[1440px]">
         {/* Three Initiatives Section */}
         <div className="content-stretch flex flex-col gap-20 lg:gap-[100px] items-start justify-start relative shrink-0 w-full">
-          {/* Initiative 1: Theme of 2025 */}
+          {/* Initiative 1: Theme of 2026 */}
           <div className="content-stretch flex flex-col lg:flex-row gap-8 lg:gap-[100px] items-center justify-start relative shrink-0 w-full">
             <div className="lg:basis-0 content-stretch flex flex-col gap-10 grow items-start justify-start min-h-px min-w-px relative shrink-0 w-full lg:w-auto">
               <div className="content-stretch flex flex-col gap-4 items-start justify-start relative shrink-0 w-full">
@@ -23,7 +23,7 @@ const WhatWeDoInitiatives = () => {
                 </div>
                 <div className="flex flex-col font-sans font-bold justify-center leading-[0] min-w-full relative shrink-0 text-[#001319] text-[24px] lg:text-[36px]">
                   <p className="leading-[28px] lg:leading-[40px]">
-                    Theme of 2025
+                    Theme of 2026
                   </p>
                 </div>
                 <div className="flex flex-col font-inter font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#546165] text-[16px] lg:text-[18px]">
@@ -37,7 +37,7 @@ const WhatWeDoInitiatives = () => {
             </div>
             <ObserverImage
               src={images.whatWeDoInitiativeImage1}
-              alt="Theme of 2025"
+              alt="Theme of 2026"
               imageClassName="object-cover rounded-[16px] h-full w-full"
               className="h-[328px] w-full lg:w-[589px]"
             />

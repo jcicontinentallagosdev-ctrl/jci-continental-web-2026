@@ -1,13 +1,48 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+
+function getLastSundayOfMonth(year: number, month: number): Date {
+  const lastDay = new Date(year, month + 1, 0);
+  const dayOfWeek = lastDay.getDay();
+  const lastSunday = new Date(lastDay);
+  lastSunday.setDate(lastDay.getDate() - dayOfWeek);
+  lastSunday.setHours(14, 0, 0, 0);
+  return lastSunday;
+}
+
+function getNextMeetingDate(): Date {
+  const now = new Date();
+  const current = getLastSundayOfMonth(now.getFullYear(), now.getMonth());
+  if (current.getTime() > now.getTime()) return current;
+  const nextMonth = now.getMonth() + 1;
+  const year = nextMonth > 11 ? now.getFullYear() + 1 : now.getFullYear();
+  return getLastSundayOfMonth(year, nextMonth % 12);
+}
+
+function formatMeetingDate(date: Date): string {
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December',
+  ];
+  const day = date.getDate();
+  const suffix =
+    day % 10 === 1 && day !== 11 ? 'st'
+    : day % 10 === 2 && day !== 12 ? 'nd'
+    : day % 10 === 3 && day !== 13 ? 'rd'
+    : 'th';
+  return `${months[date.getMonth()]} ${day}${suffix}, ${date.getFullYear()}`;
+}
 
 interface NextMeetingCardProps {
   className?: string;
 }
 
 export function NextMeetingCard({ className }: NextMeetingCardProps) {
+  const targetDate = useMemo(() => getNextMeetingDate(), []);
+  const formattedDate = useMemo(() => formatMeetingDate(targetDate), [targetDate]);
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -16,9 +51,6 @@ export function NextMeetingCard({ className }: NextMeetingCardProps) {
   });
 
   useEffect(() => {
-    // Target date: September 28th, 2025 at 2:00 PM
-    const targetDate = new Date('2025-09-28T14:00:00');
-
     const updateCountdown = () => {
       const now = new Date().getTime();
       const distance = targetDate.getTime() - now;
@@ -37,14 +69,12 @@ export function NextMeetingCard({ className }: NextMeetingCardProps) {
       }
     };
 
-    // Update immediately
     updateCountdown();
 
-    // Update every second
     const interval = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [targetDate]);
 
   return (
     <div className="bg-[#FBFEFF] border border-[#B1DFEE] rounded-2xl p-6 cursor-pointer">
@@ -90,7 +120,7 @@ export function NextMeetingCard({ className }: NextMeetingCardProps) {
 
       <div className="mt-6 flex items-center justify-between">
         <div className="flex flex-col font-inter font-semibold justify-center relative shrink-0 text-[#001319] text-[16px]">
-          <p className="text-base text-primary">September 28th, 2025</p>
+          <p className="text-base text-primary">{formattedDate}</p>
         </div>
         <div className="border-2 flex items-center justify-center size-[47px] border-primary rounded-full p-2 bg-[#B1DFEE]">
           <ArrowRight size={32} className="text-primary" />

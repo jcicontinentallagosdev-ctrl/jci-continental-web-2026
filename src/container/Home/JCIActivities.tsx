@@ -15,9 +15,9 @@ import {
 
 const jciActivities = [
   {
-    id: 1,
+    id: 1,  
     title: 'JCI Continental Lagos Annual Convention',
-    date: 'November 2025',
+    date: 'November 2026',
     location: 'Lagos, Nigeria',
     description:
       'End the local organization year with an empowering event to culminate all our activities',
@@ -43,8 +43,8 @@ const jciActivities = [
   },
   {
     id: 4,
-    title: '2025 JCI World Congress',
-    date: 'November 4-8, 2025',
+    title: '2026 JCI World Congress',
+    date: 'November 4-8, 2026',
     location: 'Tunis, Tunisia',
     description:
       'Global gathering of over 3,000 young leaders from 120+ countries for leadership training, cross-cultural collaboration, and impactful activities.',

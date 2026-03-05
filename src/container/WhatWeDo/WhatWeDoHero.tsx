@@ -57,7 +57,7 @@ const WhatWeDoHero = () => {
 
                   <div className="flex flex-col font-inter font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#feffff] text-sm lg:text-[16px] text-nowrap">
                     <p className="leading-[24px] whitespace-pre">
-                      22nd-25th of may, 2025
+                      22nd-25th of may, 2026
                     </p>
                   </div>
                 </div>
@@ -67,7 +67,7 @@ const WhatWeDoHero = () => {
                   <Location size="18" color="#0398C8" variant="Bold" />
                   <div className="flex flex-col font-inter font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#feffff] text-sm lg:text-[16px] text-nowrap">
                     <p className="leading-[24px] whitespace-pre">
-                      Kigali, Rwanda
+                      Dubai, UAE
                     </p>
                   </div>
                 </div>

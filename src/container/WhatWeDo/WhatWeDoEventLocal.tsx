@@ -26,7 +26,7 @@ const eventLocalData = [
   {
     id: 2,
     title: 'Annual General Meeting',
-    date: 'September 28, 2025',
+    date: 'September 28, 2026',
     location: 'Water Cress Hotel & Events, Ikeja',
     description:
       'Reports, Election and Induction. Join us for our Annual General Meeting to review the year and elect new leaders.',
@@ -35,7 +35,7 @@ const eventLocalData = [
   {
     id: 3,
     title: 'Leadership Circle Meeting',
-    date: 'July 17, 2025',
+    date: 'July 17, 2026',
     location: 'Lagos, Nigeria',
     description:
       'Monthly leadership development and networking session for members to connect and grow together.',

@@ -37,8 +37,8 @@ const nationalInternationalEvents = [
   {
     id: 3,
     type: 'International Event',
-    title: '2025 JCI World Congress',
-    date: 'November 4-8, 2025',
+    title: '2026 JCI World Congress',
+    date: 'November 4-8, 2026',
     location: 'Tunis, Tunisia',
     description:
       'Global gathering of over 3,000 young leaders from 120+ countries for leadership training, cross-cultural collaboration, and impactful activities.',

@@ -20,9 +20,9 @@ export function PresidentialTheme() {
       />
 
       <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 items-center lg:justify-between">
+        <div className="flex flex-col lg:flex-row gap-10  items-center lg:justify-between">
           {/* Left side - Content */}
-          <div className="flex flex-col gap-8 lg:gap-10 items-center lg:items-start justify-start w-full lg:w-[511px]">
+          <div className="flex flex-col gap-8 lg:gap-10 items-center lg:items-start justify-start w-full lg:w-[50vw]">
             <div className="flex flex-col gap-4 items-center lg:items-start justify-start w-full relative">
               {/* Desktop decorative vector */}
               <div className="absolute h-3 left-[107px] top-[30.5px] w-[248px] lg:block hidden">
@@ -47,13 +47,13 @@ export function PresidentialTheme() {
               </div>
 
               <h2 className="font-bold relative z-20 text-[#001319] text-[24px] lg:text-[36px] leading-[28px] lg:leading-[40px] min-w-full text-center lg:text-left">
-                2025, Presidential Theme
+                2026, Presidential Theme
               </h2>
 
               <p className="font-['Inter'] font-normal text-[#546165] text-base lg:text-lg leading-6 lg:leading-[26px] min-w-full text-center lg:text-left">
-                With a focus on innovation and technology, we aim to disrupt
-                traditional models. Our borderless approach allows us to connect
-                with like-minded individuals from around the world,
+              A beacon provides direction. It signals presence. It stands firm and visible. This year, we are
+positioning our organization and our members to do exactly that. To lead with clarity. To serve
+with intention. To operate at a higher standard.,
               </p>
             </div>
 
@@ -69,19 +69,16 @@ export function PresidentialTheme() {
           </div>
 
           {/* Right side - Image and Text */}
-          <div className="flex gap-[21px] lg:gap-10 items-center justify-start">
-            <div className="h-[172px] lg:h-[327px] shrink-0 w-[151px] lg:w-[286.803px] overflow-hidden">
+          <div className="flex items-center w-full lg:w-[50vw]">
+            <div className="h-[227px] lg:h-[327px] shrink-0 w-full overflow-hidden">
               <ObserverImage
                 src={images.presidentialThemeImage}
                 alt="presidential theme"
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                imageClassName="object-contain"
               />
             </div>
-            <div className="flex flex-col font-['Space_Grotesk'] font-bold justify-center leading-[38px] lg:leading-[72px] text-[#001319] text-[34px] lg:text-[64px] text-nowrap uppercase">
-              <p className="mb-0">Equipped</p>
-              <p className="mb-0">Fired</p>
-              <p className="mb-0">Forged</p>
-            </div>
+ 
           </div>
         </div>
       </div>
