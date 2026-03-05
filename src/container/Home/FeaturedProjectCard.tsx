@@ -7,7 +7,7 @@ interface FeaturedProjectCardProps {
   className?: string;
 }
 
-export function FeaturedProjectCard({ className }: FeaturedProjectCardProps) {
+export function FeaturedProjectCard({}: FeaturedProjectCardProps) {
   return (
     <div className="w-full overflow-hidden rounded-[32px] h-full relative p-4 flex lg:items-center items-end justify-end min-h-[349px]">
       <div className="h-[832px] absolute top-[-130px] inset-0">

@@ -3,7 +3,6 @@
 import ObserverImage from '@/components/shared/obs-image';
 import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
-import Image from 'next/image';
 
 export function PresidentialTheme() {
   return (

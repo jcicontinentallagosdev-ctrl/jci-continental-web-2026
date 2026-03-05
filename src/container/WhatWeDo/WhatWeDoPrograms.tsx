@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import ObserverImage from '@/components/shared/obs-image';
 import { images } from '@/constants';
 import { Button } from '@/components/ui/button';

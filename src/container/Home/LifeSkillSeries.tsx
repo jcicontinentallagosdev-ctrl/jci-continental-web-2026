@@ -110,7 +110,7 @@ export function LifeSkillSeries() {
 
           {/* Desktop Interactive Images - Hidden on mobile */}
           <div className="hidden lg:flex gap-3 h-[352px] items-center justify-start w-[589px]">
-            {lifeSkillItems.map((item, index) => (
+            {lifeSkillItems.map((item) => (
               <motion.div
                 key={item.id}
                 className="flex-1 h-full relative"
@@ -177,7 +177,7 @@ export function LifeSkillSeries() {
                 className="flex transition-transform duration-300 ease-in-out gap-x-3"
                 style={{ transform: `translateX(-${currentSlide * 103}%)` }}
               >
-                {lifeSkillItems.map((item, index) => (
+                {lifeSkillItems.map((item) => (
                   <div key={item.id} className="w-full flex-shrink-0">
                     <div className="bg-white h-[369px] overflow-hidden relative rounded-[12px] mx-auto w-full">
                       {/* Background Image */}

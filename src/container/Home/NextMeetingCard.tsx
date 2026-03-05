@@ -39,7 +39,7 @@ interface NextMeetingCardProps {
   className?: string;
 }
 
-export function NextMeetingCard({ className }: NextMeetingCardProps) {
+export function NextMeetingCard({}: NextMeetingCardProps) {
   const targetDate = useMemo(() => getNextMeetingDate(), []);
   const formattedDate = useMemo(() => formatMeetingDate(targetDate), [targetDate]);
 

@@ -7,7 +7,6 @@ import { images } from '@/constants/images';
 import { cn } from '@/lib/utils';
 
 import ObserverImage from './obs-image';
-import { Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
