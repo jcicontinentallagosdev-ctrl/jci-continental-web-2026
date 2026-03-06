@@ -99,6 +99,7 @@ export const images = {
   twitterIcon,
   youtubeIcon,
   gmailIcon,
+  
 
   // Home Images
   heroTextDecorator,

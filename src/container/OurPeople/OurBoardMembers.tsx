@@ -26,13 +26,13 @@ const boardMembers = [
   {
     id: 4,
     name: 'Oluwadamilola Adegun',
-    position: 'Vice President individual and community',
+    position: 'Vice President Individual & Community',
     image: images.ourPeopleBoardVPICImage,
   },
   {
       id: 5,
     name: 'Otito-Jesu Ayeni',
-    position: 'Vice President Business and International',
+    position: 'Vice President Business & International',
     image: images.ourPeopleBoardVPBIImage,
   },
   {
@@ -68,7 +68,7 @@ const boardMembers = [
   {
     id: 12,
     name: 'Yetunde Mofetoluwa Aransiola',
-    position: 'Director Projects and Community',
+    position: 'Director Projects & Community',
     image: images.ourPeopleBoardDirectorProjectsImage,
   },
   {
@@ -104,7 +104,7 @@ const boardMembers = [
   {
     id: 19,
     name: 'Victoria Njoku',
-    position: 'Director Welfare and Socials',
+    position: 'Director Welfare & Socials',
     image: images.ourPeopleBoardDirectorWelfareImage,
   },
   {
@@ -116,13 +116,13 @@ const boardMembers = [
   {
       id: 21,
     name: ' Olarinde Olanrewaju',
-    position: 'Director of Meeting and Logistics',
+    position: 'Director of Meeting & Logistics',
     image: images.ourPeopleBoardDirectorMeetingAndLogisticsImage,
   },
   {
     id: 22,
     name: 'Olarinde Olanrewaju',
-    position: ' Director of Innovation and Excellence',
+    position: ' Director of Innovation & Excellence',
     image: images.ourPeopleBoardDirectorEfficiencyInnovationAndExcellenceImage,
   },
   {

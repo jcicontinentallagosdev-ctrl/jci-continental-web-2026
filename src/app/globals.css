@@ -241,7 +241,7 @@
   }
 
   .navbar-logo {
-    @apply flex flex-col gap-2 items-start justify-start w-auto;
+    @apply flex flex-row gap-2 items-center w-auto;
   }
 
   .navbar-logo-image {

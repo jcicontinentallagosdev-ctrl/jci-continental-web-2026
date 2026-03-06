@@ -76,8 +76,16 @@ export function Navbar({ className }: NavbarProps) {
           <div className="navbar-logo">
             <ObserverImage
               src={images.logo}
-              alt="logo"
-              className="w-24 h-[46.28px] object-cover"
+              alt="JCI Continental Lagos logo"
+              className="w-16 h-16 sm:w-20 sm:h-24 lg:w-30 lg:h-[80px]"
+              imageClassName="!object-contain"
+            />
+            <div className="h-8 w-px bg-gray-300 sm:h-10" />
+            <ObserverImage
+              src={images.presidentialThemeImage}
+              alt="Presidential theme logo"
+              className="w-16 h-16 sm:w-20 sm:h-24 lg:w-30 lg:h-[80px]"
+              imageClassName="!object-contain"
             />
           </div>
 
