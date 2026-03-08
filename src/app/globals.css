@@ -249,15 +249,15 @@
   }
 
   .navbar-menu {
-    @apply gap-6 items-center justify-start;
+    @apply gap-2 lg:gap-6 items-center justify-start;
   }
 
   .navbar-item {
-    @apply flex flex-col items-start justify-center px-4 py-2 rounded-[12px];
+    @apply flex flex-col items-start justify-center px-2 lg:px-4 py-2 rounded-[12px];
   }
 
   .navbar-item-text {
-    @apply font-inter font-normal text-[#546165] text-[18px] leading-[26px] whitespace-pre;
+    @apply font-inter font-normal text-[#546165] text-sm lg:text-[18px] leading-[26px] whitespace-pre;
   }
 
   .navbar-item-indicator {
@@ -269,7 +269,7 @@
   }
 
   .navbar-cta-button {
-    @apply gap-1 items-center justify-center px-8 py-3.5 rounded-[12px] shadow-[0px_2px_8px_0px_rgba(83,23,145,0.25)];
+    @apply gap-1 items-center justify-center px-4 lg:px-8 py-2.5 lg:py-3.5 text-sm lg:text-base rounded-[12px] shadow-[0px_2px_8px_0px_rgba(83,23,145,0.25)];
   }
 
   .navbar-icon-container {

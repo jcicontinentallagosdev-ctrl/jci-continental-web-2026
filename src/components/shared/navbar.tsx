@@ -64,33 +64,33 @@ export function Navbar({ className }: NavbarProps) {
         'bg-[#FEFFFF] overflow-hidden transition-all duration-300',
         'fixed top-0 left-0 right-0 z-50',
         {
-          'lg:h-[100px] h-[521px]': isMobileMenuOpen,
-          'lg:h-[100px] h-[77px]': !isMobileMenuOpen,
+          'md:h-[100px] h-[521px]': isMobileMenuOpen,
+          'md:h-[100px] h-[77px]': !isMobileMenuOpen,
           'shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)]': isScrolled,
         }
       )}
     >
-      <nav className={cn(`navbar lg:h-[100px] h-[77px]`, className)}>
+      <nav className={cn(`navbar md:h-[100px] h-[77px]`, className)}>
         <div className="navbar-container">
           {/* Logo */}
           <div className="navbar-logo">
             <ObserverImage
               src={images.logo}
               alt="JCI Continental Lagos logo"
-              className="w-16 h-16 sm:w-20 sm:h-24 lg:w-30 lg:h-[80px]"
+              className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-[50px]"
               imageClassName="!object-contain"
             />
-            <div className="h-8 w-px bg-gray-300 sm:h-10" />
+            <div className="h-6 w-px bg-gray-300 sm:h-8 md:h-10" />
             <ObserverImage
               src={images.presidentialThemeImage}
               alt="Presidential theme logo"
-              className="w-16 h-16 sm:w-20 sm:h-24 lg:w-30 lg:h-[80px]"
+              className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-[50px]"
               imageClassName="!object-contain"
             />
           </div>
 
           {/* Navigation Menu */}
-          <div className="navbar-menu lg:flex hidden">
+          <div className="navbar-menu md:flex hidden">
             {navItems.map(item => (
               <Link href={item.href} key={item.label}>
                 <div className={cn('navbar-item group cursor-pointer')}>
@@ -120,7 +120,7 @@ export function Navbar({ className }: NavbarProps) {
           {/* CTA Button */}
           <Button
             variant="default"
-            className="navbar-cta-button lg:flex hidden"
+            className="navbar-cta-button md:flex hidden"
             onClick={() =>
               window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
             }
@@ -132,7 +132,7 @@ export function Navbar({ className }: NavbarProps) {
           <button
             type="button"
             onClick={toggleMobileMenu}
-            className="lg:hidden cursor-pointer rounded-[8px] grid place-items-center w-10 h-[33px] bg-white"
+            className="md:hidden cursor-pointer rounded-[8px] grid place-items-center w-10 h-[33px] bg-white"
           >
             <svg
               width="12"
@@ -153,7 +153,7 @@ export function Navbar({ className }: NavbarProps) {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className="lg:hidden bg-[#feffff] z-50">
+      <div className="md:hidden bg-[#feffff] z-50">
         {/* Mobile Menu Content */}
         <div className="flex gap-2 items-center justify-center px-6 py-10">
           <div className="flex flex-col gap-10 items-center justify-center w-[327px]">

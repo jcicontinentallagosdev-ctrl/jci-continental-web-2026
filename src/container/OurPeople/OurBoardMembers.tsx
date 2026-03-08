@@ -76,6 +76,7 @@ const boardMembers = [
     name: 'Raphael Obakhavbaye',
     position: 'Director Awards & Documentation',
     image: images.ourPeopleBoardDirectorAwardsImage,
+    isPlaceholder: true,
   },
   {
     id: 14,
@@ -100,6 +101,7 @@ const boardMembers = [
     name: 'AbdulMalik Oladeji',
     position: 'Chief Technology Officer',
     image: images.ourPeopleBoardCTOImage,
+    isPlaceholder: true,
   },
   {
     id: 19,
@@ -130,6 +132,7 @@ const boardMembers = [
     name: 'Adebowale Damilola',
     position: 'Executive Assistant to the President',
     image: images.ourPeopleBoardExecutiveAssistantImage,
+    isPlaceholder: true,
   },
 ];
 
@@ -210,12 +213,12 @@ const OurBoardMembers = () => {
                     key={member.id}
                     className="bg-[#feffff] border border-[#b1dfee] rounded-[12px] flex flex-col gap-4 items-start justify-start pb-6 pt-0 px-0 w-full"
                   >
-                    <div className="h-[274px] bg-[#CDEAF4] overflow-hidden rounded-tl-[12px] rounded-tr-[12px] w-full">
+                    <div className={`h-[274px] bg-[#CDEAF4] overflow-hidden rounded-tl-[12px] rounded-tr-[12px] w-full ${member.isPlaceholder ? 'p-8' : ''}`}>
                       <ObserverImage
                         src={member.image}
                         alt="member"
-                        className="w-full h-full object-cover object-top"
-                        imageClassName="object-cover object-top"
+                        className={`w-full h-full ${member.isPlaceholder ? 'object-contain object-center' : 'object-cover object-top'}`}
+                        imageClassName={member.isPlaceholder ? 'object-contain object-center' : 'object-cover object-top'}
                       />
                     </div>
                     <div className="flex flex-col gap-2 items-center lg:items-start justify-start px-6 py-0 w-full text-center lg:text-left">

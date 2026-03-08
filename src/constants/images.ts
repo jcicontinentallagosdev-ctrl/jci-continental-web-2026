@@ -41,21 +41,21 @@ import leadershipCircleImage from '@/public/assets/home/jci-activities-1.png';
 
 // About Images
 import aboutChangemakersEconomiesImage from '@/public/assets/about/economies-image.png';
-import aboutChangemakersWorkforceImage from '@/public/assets/about/workforce-image.png';
+import aboutChangemakersWorkforceImage from '@/public/assets/about/workforce-image.jpg';
 import aboutChangemakersMentalHealthImage from '@/public/assets/about/mental-health-image.png';
 import aboutCoreAreasBackgroundImage from '@/public/assets/about/core-areas-background-image.jpg';
 import aboutCoreAreasIcon from '@/public/assets/about/core-areas-icon.svg';
 import aboutMissionVisionVisionImage from '@/public/assets/about/mission-vision-vision-image.png';
 import aboutMissionVisionMissionImage from '@/public/assets/about/mission-vision-mission-image.png';
-import aboutWhatSetsUsApartImage from '@/public/assets/about/what-sets-us-apart-image.png';
+import aboutWhatSetsUsApartImage from '@/public/assets/about/what-sets-us-apart-image.jpg';
 
 // What We Do Images
 import whatWeDoHeroFeatureImage from '@/public/assets/what-we-do/what-we-do-hero-feature-image.jpg';
-import whatWeDoProgramImage1 from '@/public/assets/what-we-do/program-image-1.png';
+import whatWeDoProgramImage1 from '@/public/assets/what-we-do/program-image-1.jpg';
 import whatWeDoProgramImage2 from '@/public/assets/what-we-do/program-image-2.png';
-import whatWeDoProgramImage3 from '@/public/assets/what-we-do/program-image-3.png';
-import whatWeDoProgramImage4 from '@/public/assets/what-we-do/program-image-4.png';
-import whatWeDoProgramImage5 from '@/public/assets/what-we-do/program-image-5.png';
+import whatWeDoProgramImage3 from '@/public/assets/what-we-do/program-image-3.jpg';
+import whatWeDoProgramImage4 from '@/public/assets/what-we-do/program-image-4.jpg';
+import whatWeDoProgramImage5 from '@/public/assets/what-we-do/program-image-5.jpg';
 import whatWeDoProgramImage6 from '@/public/assets/what-we-do/program-image-6.png';
 import whatWeDoInitiativeImage1 from '@/public/assets/what-we-do/initiative-image-1.png';
 import whatWeDoInitiativeImage2 from '@/public/assets/what-we-do/initiative-image-2.png';

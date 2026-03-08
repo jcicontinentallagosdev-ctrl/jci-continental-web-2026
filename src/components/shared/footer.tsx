@@ -84,7 +84,8 @@ export function Footer() {
               <ObserverImage
                 src={images.logo}
                 alt="JCI Continental Lagos"
-                className="w-full h-full object-contain"
+                className="w-full h-full"
+                imageClassName="!object-contain"
               />
             </div>
             <div className="flex gap-3 items-center">
@@ -235,7 +236,8 @@ export function Footer() {
                 <ObserverImage
                   src={images.logo}
                   alt="JCI Continental Lagos"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full"
+                  imageClassName="!object-contain"
                 />
               </div>
               <div className="flex gap-3 items-center">
