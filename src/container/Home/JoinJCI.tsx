@@ -59,7 +59,7 @@ export function JoinJCI() {
             </div>
 
             <h2 className="font-bold relative z-20 text-[#feffff] text-[24px] lg:text-[36px] leading-[28px] lg:leading-[40px] w-full lg:w-[581px]">
-              Join JCI Continental Lagos today and reach your full potential.
+              Join JCI Continental today and reach your full potential.
             </h2>
           </div>
 

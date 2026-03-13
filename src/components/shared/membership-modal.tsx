@@ -169,7 +169,7 @@ export function MembershipModal() {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-[min(700px,95vw)] max-h-[90vh] overflow-y-auto no-scrollbar rounded-2xl p-0 gap-0 border-0 shadow-2xl">
+      <DialogContent className="max-w-[min(600px,95vw)] max-h-[90vh] overflow-y-auto rounded-2xl p-0 gap-0 border-0 shadow-2xl">
         <AnimatePresence mode="wait">
           {status === 'success' ? (
             <SuccessView onClose={() => handleOpenChange(false)} />
@@ -254,113 +254,110 @@ export function MembershipModal() {
                   {/* Date of Birth & Sex */}
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
-                      <div className="flex items-center gap-1.5">
-                        <Label className="text-sm font-medium text-foreground">
-                          Date of Birth
-                          <span className="text-destructive ml-0.5">*</span>
-                        </Label>
-                        <TooltipProvider delayDuration={200}>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <button
-                                type="button"
-                                className="text-muted-foreground hover:text-foreground transition-colors"
-                              >
-                                <Info className="h-3.5 w-3.5" />
-                              </button>
-                            </TooltipTrigger>
-                            <TooltipContent
-                              side="bottom"
-                              className="max-w-[260px] text-center"
-                            >
-                              Based on the JCI Nigeria Constitution, only
-                              individuals between the ages of 18 and 40 are
-                              eligible for induction.
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </div>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <button
-                            type="button"
-                            className={cn(
-                              'flex h-11 w-full items-center justify-between rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-                              !formData.dateOfBirth && 'text-muted-foreground'
-                            )}
+                      <TooltipProvider delayDuration={0}>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <div className="cursor-default outline-none">
+                              <div className="flex items-center gap-1.5">
+                                <Label className="text-sm font-medium text-foreground">
+                                  Date of Birth
+                                  <span className="text-destructive ml-0.5">*</span>
+                                </Label>
+                                <Info className="h-3.5 w-3.5 text-muted-foreground" />
+                              </div>
+                              <Popover>
+                                <PopoverTrigger asChild>
+                                  <button
+                                    type="button"
+                                    className={cn(
+                                      'flex h-11 w-full items-center justify-between rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+                                      !formData.dateOfBirth && 'text-muted-foreground'
+                                    )}
+                                  >
+                                    {formData.dateOfBirth
+                                      ? new Date(
+                                          formData.dateOfBirth + 'T00:00:00'
+                                        ).toLocaleDateString('en-GB', {
+                                          day: 'numeric',
+                                          month: 'long',
+                                          year: 'numeric',
+                                        })
+                                      : 'Pick a date'}
+                                    <CalendarDays className="h-4 w-4 opacity-50" />
+                                  </button>
+                                </PopoverTrigger>
+                                <PopoverContent
+                                  className="w-auto p-0"
+                                  align="start"
+                                >
+                                  <Calendar
+                                    mode="single"
+                                    selected={
+                                      formData.dateOfBirth
+                                        ? new Date(
+                                            formData.dateOfBirth + 'T00:00:00'
+                                          )
+                                        : undefined
+                                    }
+                                    onSelect={date => {
+                                      if (date) {
+                                        const y = date.getFullYear();
+                                        const m = String(
+                                          date.getMonth() + 1
+                                        ).padStart(2, '0');
+                                        const d = String(date.getDate()).padStart(
+                                          2,
+                                          '0'
+                                        );
+                                        updateField(
+                                          'dateOfBirth',
+                                          `${y}-${m}-${d}`
+                                        );
+                                      }
+                                    }}
+                                    defaultMonth={
+                                      formData.dateOfBirth
+                                        ? new Date(
+                                            formData.dateOfBirth + 'T00:00:00'
+                                          )
+                                        : new Date(
+                                            new Date().getFullYear() - 25,
+                                            0,
+                                            1
+                                          )
+                                    }
+                                    fromYear={new Date().getFullYear() - 40}
+                                    toYear={new Date().getFullYear() - 18}
+                                    captionLayout="dropdown"
+                                    disabled={date => {
+                                      const today = new Date();
+                                      const minDate = new Date(
+                                        today.getFullYear() - 40,
+                                        today.getMonth(),
+                                        today.getDate()
+                                      );
+                                      const maxDate = new Date(
+                                        today.getFullYear() - 18,
+                                        today.getMonth(),
+                                        today.getDate()
+                                      );
+                                      return date > maxDate || date < minDate;
+                                    }}
+                                  />
+                                </PopoverContent>
+                              </Popover>
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent
+                            side="top"
+                            className="max-w-[260px] text-center"
                           >
-                            {formData.dateOfBirth
-                              ? new Date(
-                                  formData.dateOfBirth + 'T00:00:00'
-                                ).toLocaleDateString('en-GB', {
-                                  day: 'numeric',
-                                  month: 'long',
-                                  year: 'numeric',
-                                })
-                              : 'Pick a date'}
-                            <CalendarDays className="h-4 w-4 opacity-50" />
-                          </button>
-                        </PopoverTrigger>
-                        <PopoverContent
-                          className="w-auto p-0"
-                          align="start"
-                        >
-                          <Calendar
-                            mode="single"
-                            selected={
-                              formData.dateOfBirth
-                                ? new Date(
-                                    formData.dateOfBirth + 'T00:00:00'
-                                  )
-                                : undefined
-                            }
-                            onSelect={date => {
-                              if (date) {
-                                const y = date.getFullYear();
-                                const m = String(
-                                  date.getMonth() + 1
-                                ).padStart(2, '0');
-                                const d = String(date.getDate()).padStart(
-                                  2,
-                                  '0'
-                                );
-                                updateField(
-                                  'dateOfBirth',
-                                  `${y}-${m}-${d}`
-                                );
-                              }
-                            }}
-                            defaultMonth={
-                              formData.dateOfBirth
-                                ? new Date(
-                                    formData.dateOfBirth + 'T00:00:00'
-                                  )
-                                : new Date(
-                                    new Date().getFullYear() - 25,
-                                    0,
-                                    1
-                                  )
-                            }
-                            fromYear={new Date().getFullYear() - 40}
-                            toYear={new Date().getFullYear() - 18}
-                            captionLayout="dropdown"
-                            disabled={date => {
-                              const today = new Date();
-                              const minDate = new Date(
-                                today.getFullYear() - 40,
-                                today.getMonth(),
-                                today.getDate()
-                              );
-                              const maxDate = new Date(
-                                today.getFullYear() - 18,
-                                today.getMonth(),
-                                today.getDate()
-                              );
-                              return date > maxDate || date < minDate;
-                            }}
-                          />
-                        </PopoverContent>
-                      </Popover>
+                            Based on the JCI Nigeria Constitution, only
+                            individuals between the ages of 18 and 40 are
+                            eligible for induction.
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                       {errors.dateOfBirth && (
                         <motion.p
                           initial={{ opacity: 0, height: 0 }}
