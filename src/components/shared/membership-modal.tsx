@@ -270,7 +270,7 @@ export function MembershipModal() {
                               </button>
                             </TooltipTrigger>
                             <TooltipContent
-                              side="top"
+                              side="bottom"
                               className="max-w-[260px] text-center"
                             >
                               Based on the JCI Nigeria Constitution, only

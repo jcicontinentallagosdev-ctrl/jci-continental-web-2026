@@ -9,16 +9,16 @@ const SLIDE_INTERVAL_MS = 5000;
 const upcomingEvents = [
   {
     id: 1,
-    title: 'Southern Conference',
+    title: 'JCI Nigeria Southern Conference',
     description:
-      'Join us for the JCI Southern Conference — a gathering of young leaders driving impact across the southern region.',
+      'Join us for the JCI Nigeria Southern Conference — a gathering of young leaders driving impact across the southern region.',
     date: 'April 9–12, 2026',
   },
   {
     id: 2,
-    title: 'JCI World Conference',
+    title: 'JCI World Congress',
     description:
-      'Connect with young active citizens from around the globe at the JCI World Conference.',
+      'Connect with young active citizens from around the globe at the JCI World Congress.',
     date: 'TBD',
   },
   {

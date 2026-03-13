@@ -64,7 +64,7 @@ const WhatWeDoInitiatives = () => {
                 </div>
                 <div className="flex flex-col font-sans font-bold justify-center leading-[0] min-w-full relative shrink-0 text-[#001319] text-[24px] lg:text-[36px]">
                   <p className="leading-[28px] lg:leading-[40px]">
-                    Mental health campaign
+                    Mental Health Campaign
                   </p>
                 </div>
                 <div className="flex flex-col font-inter font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#546165] text-[16px] lg:text-[18px]">

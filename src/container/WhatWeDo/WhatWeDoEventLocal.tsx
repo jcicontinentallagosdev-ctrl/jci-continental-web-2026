@@ -118,7 +118,7 @@ const WhatWeDoEventLocal = () => {
             </div>
 
             <h2 className="font-bold relative z-20 text-[#001319] text-[24px] lg:text-[36px] leading-[28px] lg:leading-[40px] text-center">
-              Event Local
+              Local Events
             </h2>
           </div>
 

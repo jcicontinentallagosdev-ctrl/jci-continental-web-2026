@@ -49,7 +49,7 @@ const words = [
   },
   {
     id: 6,
-    word: 'Boarderless',
+    word: 'Borderless',
     color: 'blue',
     rotation: '1deg',
     position: 'right',
