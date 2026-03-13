@@ -93,7 +93,7 @@ export function LifeSkillSeries() {
 
               <p className="font-['Inter'] font-normal text-[#546165] text-base lg:text-lg leading-6 lg:leading-[26px] w-full lg:w-[480px] text-center lg:text-left">
                 Connect. Learn. Grow: Life Skill Series is an initiative of JCI
-                Continental that connects you with the resources and tools you
+                Continental Lagos that connects you with the resources and tools you
                 need to enhance your skills, aid your personal development, and
                 propel your career forward.
               </p>

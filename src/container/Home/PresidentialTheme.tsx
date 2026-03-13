@@ -49,13 +49,13 @@ export function PresidentialTheme() {
               </div>
 
               <h2 className="font-bold relative z-20 text-[#001319] text-[24px] lg:text-[36px] leading-[28px] lg:leading-[40px] min-w-full text-center lg:text-left">
-                2026, Presidential Theme
+                2026 Presidential Theme
               </h2>
 
               <p className="font-['Inter'] font-normal text-[#546165] text-base lg:text-lg leading-6 lg:leading-[26px] min-w-full text-center lg:text-left">
               A beacon provides direction. It signals presence. It stands firm and visible. This year, we are
 positioning our organization and our members to do exactly that. To lead with clarity. To serve
-with intention. To operate at a higher standard.,
+with intention. To operate at a higher standard.
               </p>
             </div>
 

@@ -123,8 +123,8 @@ const boardMembers = [
   },
   {
     id: 22,
-    name: 'Olarinde Olanrewaju',
-    position: ' Director of Innovation & Excellence',
+    name: 'Scott Itepu',
+    position: ' Director of Efficiency, Innovation & Excellence',
     image: images.ourPeopleBoardDirectorEfficiencyInnovationAndExcellenceImage,
   },
   {
