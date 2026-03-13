@@ -4,8 +4,11 @@ import React from 'react';
 import ObserverImage from '@/components/shared/obs-image';
 import { images } from '@/constants';
 import { Button } from '@/components/ui/button';
+import { useMembershipModal } from '@/context/membership-modal-context';
 
 const AboutWhatSetsUsApart = () => {
+  const { setOpen: openMembershipModal } = useMembershipModal();
+
   return (
     <div className="bg-[#fcf9ec] relative w-full py-[60px] lg:py-[100px] overflow-hidden">
       {/* Background Image */}
@@ -52,9 +55,7 @@ const AboutWhatSetsUsApart = () => {
               {/* CTA Button */}
               <Button
                 className="min-w-[211px]"
-                onClick={() =>
-                  window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
-                }
+                onClick={() => openMembershipModal(true)}
               >
                 <p className="leading-[24px] whitespace-pre font-semibold text-white">
                   Become A Member

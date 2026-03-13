@@ -3,8 +3,11 @@
 import ObserverImage from '@/components/shared/obs-image';
 import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
+import { useMembershipModal } from '@/context/membership-modal-context';
 
 export function AreasOfOpportunities() {
+  const { setOpen: openMembershipModal } = useMembershipModal();
+
   return (
     <section className="bg-[#fcf9ec] relative py-12 lg:py-24 overflow-hidden">
       {/* Background image with opacity */}
@@ -75,9 +78,7 @@ export function AreasOfOpportunities() {
             {/* CTA Button */}
             <Button
               className="w-fit"
-              onClick={() =>
-                window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
-              }
+              onClick={() => openMembershipModal(true)}
             >
               Become A Member
             </Button>

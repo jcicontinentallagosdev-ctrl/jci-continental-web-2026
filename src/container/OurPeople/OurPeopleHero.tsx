@@ -3,8 +3,11 @@
 import React from 'react';
 import { images } from '@/constants';
 import { Button } from '@/components/ui/button';
+import { useMembershipModal } from '@/context/membership-modal-context';
 
 const OurPeopleHero = () => {
+  const { setOpen: openMembershipModal } = useMembershipModal();
+
   return (
     <div className="bg-[#03212a] relative w-full lg:h-[924px] h-[489px] overflow-hidden">
       {/* Background Image */}
@@ -59,9 +62,7 @@ const OurPeopleHero = () => {
           {/* CTA Button */}
           <Button
             className="min-w-[211px]"
-            onClick={() =>
-              window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
-            }
+            onClick={() => openMembershipModal(true)}
           >
             <p className="leading-[24px] whitespace-pre">Get Involved</p>
           </Button>

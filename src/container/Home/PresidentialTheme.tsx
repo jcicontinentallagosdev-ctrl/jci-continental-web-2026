@@ -3,8 +3,11 @@
 import ObserverImage from '@/components/shared/obs-image';
 import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
+import { useMembershipModal } from '@/context/membership-modal-context';
 
 export function PresidentialTheme() {
+  const { setOpen: openMembershipModal } = useMembershipModal();
+
   return (
     <section className="bg-[#f3fcff] relative py-12 lg:py-24 overflow-hidden">
       {/* Background image with opacity */}
@@ -59,9 +62,7 @@ with intention. To operate at a higher standard.,
             {/* CTA Button */}
             <Button
               className="w-fit"
-              onClick={() =>
-                window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
-              }
+              onClick={() => openMembershipModal(true)}
             >
               Become A Member
             </Button>

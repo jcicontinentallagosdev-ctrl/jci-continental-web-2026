@@ -1,9 +1,12 @@
+'use client';
+
 import { Location } from 'iconsax-react';
 import Link from 'next/link';
 
 import ObserverImage from '@/components/shared/obs-image';
 import { images } from '@/constants';
 import { Separator } from '../ui/separator';
+import { useMembershipModal } from '@/context/membership-modal-context';
 
 const footerLinks = {
   resources: [
@@ -20,8 +23,8 @@ const footerLinks = {
   more: [
     {
       name: 'Become A Member',
-      href: 'https://forms.gle/stSuRhn9sGTUm15G8',
-      external: true,
+      href: '#',
+      action: 'membership' as const,
     },
     { name: 'Become A Partner', href: '/become-partner' },
     { name: 'Become A Sponsor', href: '/become-sponsor' },
@@ -63,6 +66,8 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const { setOpen: openMembershipModal } = useMembershipModal();
+
   return (
     <footer className="bg-[#001319] relative py-24 overflow-hidden">
       {/* Background image with opacity */}
@@ -140,17 +145,25 @@ export function Footer() {
                 More
               </h3>
               <div className="flex flex-col gap-1 items-center justify-center w-full">
-                {footerLinks.more.map(link => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    target={link.external ? '_blank' : undefined}
-                    rel={link.external ? 'noopener noreferrer' : undefined}
-                    className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                {footerLinks.more.map(link =>
+                  'action' in link ? (
+                    <button
+                      key={link.name}
+                      onClick={() => openMembershipModal(true)}
+                      className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors cursor-pointer"
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  )
+                )}
               </div>
             </div>
 
@@ -292,17 +305,25 @@ export function Footer() {
                   More
                 </h3>
                 <div className="flex flex-col gap-1 items-start justify-start w-full">
-                  {footerLinks.more.map(link => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      target={link.external ? '_blank' : undefined}
-                      rel={link.external ? 'noopener noreferrer' : undefined}
-                      className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+                  {footerLinks.more.map(link =>
+                    'action' in link ? (
+                      <button
+                        key={link.name}
+                        onClick={() => openMembershipModal(true)}
+                        className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors cursor-pointer text-left"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="py-2 font-['Inter'] font-normal text-[#f3fcff] text-base leading-[24px] hover:text-white transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
 

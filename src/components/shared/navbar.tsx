@@ -5,6 +5,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { images } from '@/constants/images';
 import { cn } from '@/lib/utils';
+import { useMembershipModal } from '@/context/membership-modal-context';
 
 import ObserverImage from './obs-image';
 import { usePathname } from 'next/navigation';
@@ -18,6 +19,7 @@ export function Navbar({ className }: NavbarProps) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { setOpen: openMembershipModal } = useMembershipModal();
 
   const navItems = useMemo(() => {
     return [
@@ -121,9 +123,7 @@ export function Navbar({ className }: NavbarProps) {
           <Button
             variant="default"
             className="navbar-cta-button md:flex hidden"
-            onClick={() =>
-              window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
-            }
+            onClick={() => openMembershipModal(true)}
           >
             Become A Member
           </Button>
@@ -194,9 +194,7 @@ export function Navbar({ className }: NavbarProps) {
             <Button
               variant="default"
               className="w-full flex navbar-cta-button"
-              onClick={() =>
-                window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
-              }
+              onClick={() => openMembershipModal(true)}
             >
               Become A Member
             </Button>

@@ -5,12 +5,15 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import ObserverImage from '@/components/shared/obs-image';
 import { images } from '@/constants';
+import { useMembershipModal } from '@/context/membership-modal-context';
 
 interface TechnologySectionProps {
   className?: string;
 }
 
 export function TechnologySection({ className }: TechnologySectionProps) {
+  const { setOpen: openMembershipModal } = useMembershipModal();
+
   return (
     <section
       className={`bg-[#f3fcff] py-[60px] lg:py-[100px] ${className || ''}`}
@@ -60,9 +63,7 @@ export function TechnologySection({ className }: TechnologySectionProps) {
             {/* CTA Button */}
             <Button
               className="w-fit"
-              onClick={() =>
-                window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
-              }
+              onClick={() => openMembershipModal(true)}
             >
               <p>Become A Member</p>
             </Button>

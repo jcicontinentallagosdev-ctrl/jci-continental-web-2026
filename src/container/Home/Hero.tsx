@@ -5,6 +5,7 @@ import React from 'react';
 import ObserverImage from '@/components/shared/obs-image';
 import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
+import { useMembershipModal } from '@/context/membership-modal-context';
 import { FeaturedProjectCard } from './FeaturedProjectCard';
 import { NextMeetingCard } from './NextMeetingCard';
 import { StatsCard } from './StatsCard';
@@ -15,6 +16,8 @@ interface HeroProps {
 }
 
 export function Hero({ className }: HeroProps) {
+  const { setOpen: openMembershipModal } = useMembershipModal();
+
   return (
     <section
       className={`container px-4 pt-[50px] pb-[60px] mx-auto ${className || ''}`}
@@ -64,9 +67,7 @@ export function Hero({ className }: HeroProps) {
                 </div>
               </div>
               <Button
-                onClick={() =>
-                  window.open('https://forms.gle/stSuRhn9sGTUm15G8', '_blank')
-                }
+                onClick={() => openMembershipModal(true)}
               >
                 <p className="leading-[24px] whitespace-pre">Become A Member</p>
               </Button>
