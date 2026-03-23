@@ -6,7 +6,7 @@ import linkedinIcon from '@/public/assets/footer/linkedin.svg';
 import twitterIcon from '@/public/assets/footer/twitter.svg';
 import youtubeIcon from '@/public/assets/footer/youtube.svg';
 import gmailIcon from '@/public/assets/footer/gmail.svg';
-
+import instagramIcon from '@/public/assets/footer/instagram.svg';
 // Home Images
 import heroTextDecorator from '@/public/assets/home/hero-text-decorator.svg';
 import heroFeatureImage from '@/public/assets/home/hero-feature-image.jpg';
@@ -100,7 +100,7 @@ export const images = {
   twitterIcon,
   youtubeIcon,
   gmailIcon,
-  
+  instagramIcon,
 
   // Home Images
   heroTextDecorator,

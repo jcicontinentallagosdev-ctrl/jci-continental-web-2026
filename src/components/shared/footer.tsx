@@ -32,29 +32,29 @@ const footerLinks = {
 
 const socialLinks = [
   {
-    name: 'WhatsApp',
-    icon: images.whatsappIcon,
-    href: '#',
+    name: 'Instagram',
+    icon: images.instagramIcon,
+    href: 'https://www.instagram.com/jcicontinentallagos/',
   },
   {
     name: 'Facebook',
     icon: images.facebookIcon,
-    href: '#',
+    href: 'https://www.facebook.com/JCIcontinental/',
   },
   {
     name: 'LinkedIn',
     icon: images.linkedinIcon,
-    href: '#',
+    href: 'https://www.linkedin.com/company/jcicontinentallagos/',
   },
   {
     name: 'Twitter',
     icon: images.twitterIcon,
-    href: '#',
+    href: 'https://x.com/jcicontinental',
   },
   {
     name: 'YouTube',
     icon: images.youtubeIcon,
-    href: '#',
+    href: 'https://www.youtube.com/@JCIContinentalLagos',
   },
   {
     name: 'Gmail',
@@ -177,6 +177,7 @@ export function Footer() {
                     <Link
                       key={social.name}
                       href={social.href}
+                      target="_blank"
                       className="bg-[#fcf9ec] p-[11.5px] rounded-[11.5px] hover:bg-[#fcf9ec]/80 transition-colors"
                     >
                       <div className="w-[23px] h-[21.25px] relative">
@@ -196,6 +197,7 @@ export function Footer() {
                     <Link
                       key={social.name}
                       href={social.href}
+                      target="_blank"
                       className="bg-[#fcf9ec] p-[11.5px] rounded-[11.5px] hover:bg-[#fcf9ec]/80 transition-colors"
                     >
                       <div className="w-[23px] h-[21.25px] relative">
@@ -335,6 +337,7 @@ export function Footer() {
                     <Link
                       key={social.name}
                       href={social.href}
+                      target="_blank"
                       className="bg-[#fcf9ec] p-[11.5px] rounded-[11.5px] hover:bg-[#fcf9ec]/80 transition-colors"
                     >
                       <div className="w-[23px] h-[21.25px] relative">

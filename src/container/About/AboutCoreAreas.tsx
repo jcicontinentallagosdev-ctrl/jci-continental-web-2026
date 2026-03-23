@@ -71,7 +71,7 @@ const AboutCoreAreas = () => {
                   </div>
                   <div className="flex flex-col font-sans font-bold justify-center leading-[0] relative shrink-0 text-[#001319] text-[24px] lg:text-[36px] text-center lg:text-left w-full lg:w-[622px]">
                     <p className="leading-[28px] lg:leading-[40px]">
-                      Our Core Areas of Focus encompass
+                      Our Core Areas of Focus
                     </p>
                   </div>
                 </div>

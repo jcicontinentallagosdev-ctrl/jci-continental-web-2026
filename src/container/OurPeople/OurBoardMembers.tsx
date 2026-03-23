@@ -55,13 +55,13 @@ const boardMembers = [
   },
   {
     id: 9,
-    name: 'Toluwani Kennedy-Jinadu,',
+    name: 'Toluwani Kennedy-Jinadu',
     position: 'Director Skills Development',
     image: images.ourPeopleBoardDirectorSkillsDevelopmentImage,
   },
   {
     id: 10,
-    name: 'Kehinde Olajide,',
+    name: 'Kehinde Olajide',
     position: "Director Int'l Opportunities & Socials",
     image: images.ourPeopleBoardDirectorIntlOpportunitiesImage,
   },

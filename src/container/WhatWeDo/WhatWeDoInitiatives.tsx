@@ -98,7 +98,7 @@ const WhatWeDoInitiatives = () => {
                 </div>
                 <div className="flex flex-col font-inter font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#546165] text-[16px] lg:text-[18px]">
                   <p className="leading-[24px] lg:leading-[26px]">
-                    JCI Makes sure everyone have the capability to use the
+                    JCI ensures everyone have the capability to use the
                     internet to do things that benefits them on a day to day
                     basis. Catering for their digital skills, accessibility and
                     connectivity

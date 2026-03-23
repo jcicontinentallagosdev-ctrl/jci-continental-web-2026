@@ -84,7 +84,7 @@ export function NextMeetingCard({}: NextMeetingCardProps) {
 
       <div className="mt-[15px] border-b border-[#B1DFEE] pb-6">
         <div className="flex flex-col font-inter font-semibold justify-center relative shrink-0 text-[#001319] text-[16px] w-full">
-          <p className="leading-[26px]">Annual General Meeting</p>
+          <p className="leading-[26px]">Monthly General Meeting</p>
         </div>
 
         {/* Countdown Timer */}
