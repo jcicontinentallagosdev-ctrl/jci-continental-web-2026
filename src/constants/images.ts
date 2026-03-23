@@ -82,6 +82,7 @@ import ourPeopleBoardDirectorMembershipImage from '@/public/assets/our-people/bo
 import ourPeopleBoardDirectorBrandMediaImage from '@/public/assets/our-people/board-director-brand-media-image.jpg';
 import ourPeopleBoardDirectorConventionImage from '@/public/assets/our-people/board-director-convention-image.png';
 import ourPeopleBoardCTOImage from '@/public/assets/our-people/board-director-placeholder.png';
+import ourPeopleBoardEditorInChiefImage from '@/public/assets/our-people/board-director-placeholder.png';
 import ourPeopleBoardDirectorWelfareImage from '@/public/assets/our-people/board-director-welfare-image.jpg';
 import ourPeopleBoardDirectorSpecialDutiesImage from '@/public/assets/our-people/board-director-special-duties-image.jpg';
 import ourPeopleBoardDirectorMeetingAndLogisticsImage from '@/public/assets/our-people/board-director-meeting-and-logistics-image.jpg';
@@ -180,5 +181,6 @@ export const images = {
   ourPeopleBoardDirectorSpecialDutiesImage,
   ourPeopleBoardDirectorMeetingAndLogisticsImage,
   ourPeopleBoardDirectorEfficiencyInnovationAndExcellenceImage,
-  ourPeopleBoardExecutiveAssistantImage
+  ourPeopleBoardExecutiveAssistantImage,
+  ourPeopleBoardEditorInChiefImage
 };

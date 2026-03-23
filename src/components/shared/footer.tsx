@@ -11,14 +11,12 @@ import { useMembershipModal } from '@/context/membership-modal-context';
 const footerLinks = {
   resources: [
     { name: 'Home', href: '/' },
-    { name: 'Media', href: '/media' },
-    { name: 'E-Books', href: '/e-books' },
-    { name: 'Brand Kits', href: '/brand-kits' },
+    { name: 'Newsletter', href: '/newsletter' },
   ],
   about: [
     { name: 'Our Story', href: '/about' },
-    { name: 'Career Opportunities', href: '/careers' },
-    { name: 'Contact JCI Continental Lagos', href: '/contact' },
+    { name: 'What We Do', href: '/what-we-do' },
+    { name: 'Our People', href: '/our-people' },
   ],
   more: [
     {

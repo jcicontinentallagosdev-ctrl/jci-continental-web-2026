@@ -11,6 +11,8 @@ interface ObserverImageProps {
   alt: string;
   className?: string;
   imageClassName?: string;
+  sizes?: string;
+  quality?: number;
 }
 
 const ObserverImage: React.FC<ObserverImageProps> = ({
@@ -18,6 +20,8 @@ const ObserverImage: React.FC<ObserverImageProps> = ({
   alt,
   className,
   imageClassName,
+  sizes = '100vw',
+  quality = 90,
 }) => {
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -49,14 +53,15 @@ const ObserverImage: React.FC<ObserverImageProps> = ({
     <div ref={imgRef} className={cn('relative w-full h-full', className)}>
       {isInView ? (
         <Image
-          src={(src as StaticImageData)?.src || (src as unknown as string)}
+          src={src}
           alt={alt}
           className={cn(
             'object-cover w-full h-full animate-in-fade',
             imageClassName
           )}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes={sizes}
+          quality={quality}
         />
       ) : (
         <div

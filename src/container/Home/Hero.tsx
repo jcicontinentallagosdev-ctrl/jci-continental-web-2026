@@ -94,13 +94,13 @@ export function Hero({ className }: HeroProps) {
           {/* <StatsCard icon={img3} number="70+" text="Active Members" /> */}
           <StatsCard
             icon={images.heroActiveMembersImage}
-            number="70+"
-            text="Active Members"
+            number="100+"
+            text="Members"
           />
           <StatsCard
             icon={images.sectorsAndIndustriesIcon}
             number="10+"
-            text="Sectors and industries to which our members belong"
+            text="Sectorsg"
           />
         </div>
       </div>

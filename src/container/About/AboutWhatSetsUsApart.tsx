@@ -5,10 +5,11 @@ import ObserverImage from '@/components/shared/obs-image';
 import { images } from '@/constants';
 import { Button } from '@/components/ui/button';
 import { useMembershipModal } from '@/context/membership-modal-context';
+import { useRouter } from 'next/navigation';
 
 const AboutWhatSetsUsApart = () => {
   const { setOpen: openMembershipModal } = useMembershipModal();
-
+  const router = useRouter();
   return (
     <div className="bg-[#fcf9ec] relative w-full py-[60px] lg:py-[100px] overflow-hidden">
       {/* Background Image */}
@@ -55,10 +56,10 @@ const AboutWhatSetsUsApart = () => {
               {/* CTA Button */}
               <Button
                 className="min-w-[211px]"
-                onClick={() => openMembershipModal(true)}
+                onClick={() => router.push('/newsletter')}
               >
                 <p className="leading-[24px] whitespace-pre font-semibold text-white">
-                  Become A Member
+                  Read Our Newsletter
                 </p>
               </Button>
             </div>

@@ -35,6 +35,11 @@ export function Navbar({ className }: NavbarProps) {
         href: '/our-people',
         isActive: pathname === '/our-people',
       },
+      {
+        label: 'Newsletter',
+        href: '/newsletter',
+        isActive: pathname === '/newsletter',
+      },
     ];
   }, [pathname]);
 
@@ -75,7 +80,7 @@ export function Navbar({ className }: NavbarProps) {
       <nav className={cn(`navbar md:h-[100px] h-[77px]`, className)}>
         <div className="navbar-container">
           {/* Logo */}
-          <div className="navbar-logo">
+          <Link href="/" aria-label="Go to homepage" className="navbar-logo">
             <ObserverImage
               src={images.logo}
               alt="JCI Continental Lagos logo"
@@ -89,7 +94,7 @@ export function Navbar({ className }: NavbarProps) {
               className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-[50px]"
               imageClassName="!object-contain"
             />
-          </div>
+          </Link>
 
           {/* Navigation Menu */}
           <div className="navbar-menu md:flex hidden">

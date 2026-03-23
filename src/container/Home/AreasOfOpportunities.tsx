@@ -80,7 +80,7 @@ export function AreasOfOpportunities() {
               className="w-fit"
               onClick={() => openMembershipModal(true)}
             >
-              Become A Member
+              Join Us
             </Button>
           </div>
         </div>

@@ -93,7 +93,7 @@ const boardMembers = [
   {
     id: 16,
     name: 'Damilola Adebowale',
-    position: 'Director Brand Media & Communication',
+    position: 'Director Brand, Media & Communication',
     image: images.ourPeopleBoardDirectorBrandMediaImage,
   },
   {
@@ -129,9 +129,9 @@ const boardMembers = [
   },
   {
     id: 23,
-    name: 'Adebowale Damilola',
-    position: 'Executive Assistant to the President',
-    image: images.ourPeopleBoardExecutiveAssistantImage,
+    name: 'Temioluwa Hamzat',
+    position: 'Editor in Chief',
+    image: images.ourPeopleBoardEditorInChiefImage,
     isPlaceholder: true,
   },
 ];

@@ -13,11 +13,49 @@ import {
   LocationTick,
 } from 'iconsax-react';
 
-const eventLocalData = [
+/** Last calendar Sunday of the given month (local time). */
+function getLastSundayOfMonth(year: number, monthIndex: number): Date {
+  const lastDay = new Date(year, monthIndex + 1, 0);
+  const dow = lastDay.getDay();
+  lastDay.setDate(lastDay.getDate() - dow);
+  lastDay.setHours(0, 0, 0, 0);
+  return lastDay;
+}
+
+/** Next occurrence: last Sunday of this month if still upcoming, else last Sunday of next month. */
+function getNextLastSundayOfMonth(from = new Date()): Date {
+  const today = new Date(from);
+  today.setHours(0, 0, 0, 0);
+
+  let y = today.getFullYear();
+  let m = today.getMonth();
+  let lastSun = getLastSundayOfMonth(y, m);
+
+  if (today > lastSun) {
+    m += 1;
+    if (m > 11) {
+      m = 0;
+      y += 1;
+    }
+    lastSun = getLastSundayOfMonth(y, m);
+  }
+
+  return lastSun;
+}
+
+function formatLastSundayBoardMeetingDate(): string {
+  return getNextLastSundayOfMonth().toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+const staticEventLocalData = [
   {
     id: 1,
     title: 'JCI Continental Lagos Annual Convention',
-    date: 'November 2015',
+    date: 'November 2026',
     location: 'Lagos, Nigeria',
     description:
       'End the local organization year with an empowering event to culminate all our activities',
@@ -32,18 +70,26 @@ const eventLocalData = [
       'Reports, Election and Induction. Join us for our Annual General Meeting to review the year and elect new leaders.',
     image: images.annualGeneralMeetingImage,
   },
-  {
-    id: 3,
-    title: 'Leadership Circle Meeting',
-    date: 'July 17, 2026',
-    location: 'Lagos, Nigeria',
-    description:
-      'Monthly leadership development and networking session for members to connect and grow together.',
-    image: images.leadershipCircleImage,
-  },
-];
+] as const;
+
+const monthlyBoardMeetingBase = {
+  id: 3,
+  title: 'Monthly Board Meeting',
+  location: 'Lagos, Nigeria',
+  description:
+    'Monthly leadership development and networking session for members to connect and grow together.',
+  image: images.leadershipCircleImage,
+};
 
 const WhatWeDoEventLocal = () => {
+  const eventLocalData = [
+    ...staticEventLocalData,
+    {
+      ...monthlyBoardMeetingBase,
+      date: formatLastSundayBoardMeetingDate(),
+    },
+  ];
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     loop: false,
