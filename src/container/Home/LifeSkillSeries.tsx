@@ -100,12 +100,12 @@ export function LifeSkillSeries() {
             </div>
 
             {/* CTA Button */}
-            <Button
+            {/* <Button
               className="w-fit"
               onClick={() => openMembershipModal(true)}
             >
               Become A Member
-            </Button>
+            </Button> */}
           </div>
 
           {/* Desktop Interactive Images - Hidden on mobile */}

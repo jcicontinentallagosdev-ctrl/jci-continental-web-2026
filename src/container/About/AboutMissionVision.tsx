@@ -53,8 +53,7 @@ const AboutMissionVision = () => {
                 </div>
                 <div className="flex flex-col font-inter font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#546165] text-[16px] lg:text-[18px]">
                   <p className="leading-[24px] lg:leading-[26px]">
-                    To become the leading global network of proactive young
-                    citizens.
+                  To be the foremost global network of young leaders.
                   </p>
                 </div>
               </div>
@@ -93,8 +92,8 @@ const AboutMissionVision = () => {
                 </div>
                 <div className="flex flex-col font-inter font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#546165] text-[16px] lg:text-[18px]">
                   <p className="leading-[24px] lg:leading-[26px]">
-                    To empower young people with development opportunities that
-                    inspire and catalyze positive change.
+                  To provide leadership development opportunities that empower young people to
+                  create positive change.
                   </p>
                 </div>
               </div>

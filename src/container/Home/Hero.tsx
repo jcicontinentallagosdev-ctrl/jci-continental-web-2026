@@ -66,11 +66,11 @@ export function Hero({ className }: HeroProps) {
                   </p>
                 </div>
               </div>
-              <Button
+              {/* <Button
                 onClick={() => openMembershipModal(true)}
               >
                 <p className="leading-[24px] whitespace-pre">Become A Member</p>
-              </Button>
+              </Button> */}
             </div>
 
             {/* Right Column - Event Cards */}

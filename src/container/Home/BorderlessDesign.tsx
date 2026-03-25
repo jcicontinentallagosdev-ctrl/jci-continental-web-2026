@@ -80,7 +80,7 @@ export function BorderlessDesign() {
               className="w-fit"
               onClick={() => openMembershipModal(true)}
             >
-              Become A Member
+              Join Training Waitlist
             </Button>
           </div>
         </div>

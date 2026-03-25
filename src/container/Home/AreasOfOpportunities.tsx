@@ -76,12 +76,12 @@ export function AreasOfOpportunities() {
             </div>
 
             {/* CTA Button */}
-            <Button
+            {/* <Button
               className="w-fit"
               onClick={() => openMembershipModal(true)}
             >
               Join Us
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

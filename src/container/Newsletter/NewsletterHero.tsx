@@ -1,8 +1,13 @@
-import React from 'react';
-import Link from 'next/link';
-import { ArrowRight2 } from 'iconsax-react';
+'use client';
 
-const LATEST_ISSUE_HREF = '#';
+import React from 'react';
+import Image from 'next/image';
+import { ArrowRight2 } from 'iconsax-react';
+import {
+  LATEST_NEWSLETTER_ISSUE,
+  NEWSLETTER_ISSUES,
+  NEWSLETTER_OPEN_ISSUE_EVENT,
+} from '@/data/newsletterIssues';
 
 const gridStyle: React.CSSProperties = {
   backgroundImage: `
@@ -55,12 +60,22 @@ function PdfThumbnailIcon() {
 }
 
 const NewsletterHero = () => {
+  const latest = LATEST_NEWSLETTER_ISSUE;
+  const issueCount = NEWSLETTER_ISSUES.length;
+
+  const openLatestModal = () => {
+    window.dispatchEvent(
+      new CustomEvent(NEWSLETTER_OPEN_ISSUE_EVENT, {
+        detail: { id: latest.id },
+      })
+    );
+  };
+
   return (
     <section
       className="relative w-full overflow-hidden bg-[#051020] text-white"
       aria-labelledby="newsletter-hero-heading"
     >
-      {/* Radial glow + grid */}
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_70%_at_100%_-5%,rgba(38,198,218,0.28)_0%,transparent_55%)]"
         aria-hidden
@@ -69,7 +84,6 @@ const NewsletterHero = () => {
 
       <div className="relative z-[1] container mx-auto px-4 py-14 sm:px-6 lg:px-8 lg:py-[4.5rem]">
         <div className="flex flex-col items-stretch gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-          {/* Left column */}
           <div className="flex max-w-xl flex-col gap-8 lg:max-w-none lg:flex-1">
             <div className="inline-flex w-fit items-center rounded-full border border-[#26C6DA]/45 bg-[#26C6DA]/10 px-4 py-1">
               <span className="font-inter text-xs font-semibold tracking-[0.12em] text-[#26C6DA]">
@@ -96,7 +110,7 @@ const NewsletterHero = () => {
 
             <div className="flex flex-col gap-1">
               <p className="font-[family-name:var(--font-newsletter-serif)] text-4xl font-bold text-white sm:text-4xl">
-                6+
+                {issueCount}
               </p>
               <p className="font-inter text-xs text-[#94A3B8]">
                 Issues Published
@@ -104,7 +118,6 @@ const NewsletterHero = () => {
             </div>
           </div>
 
-          {/* Right column — latest issue card */}
           <div className="mx-auto w-full max-w-[340px] shrink-0 lg:mx-0 lg:max-w-[360px]">
             <div
               className="rounded-2xl border border-[#26C6DA]/20 bg-[rgba(10,28,48,0.55)] p-6 shadow-[0_8px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl hover:scale-102 transition-all duration-300"
@@ -119,20 +132,35 @@ const NewsletterHero = () => {
                 </span>
               </div>
 
-              <div className="mb-5 flex min-h-[140px] items-center justify-center rounded-xl bg-[#0a1f35] py-8">
-                <PdfThumbnailIcon />
+              <div className="relative mb-5 flex min-h-[140px] items-center justify-center overflow-hidden rounded-xl bg-[#0a1f35] py-8">
+                {latest.coverImage ? (
+                  <div className="relative aspect-[3/4] w-full max-h-[200px]">
+                    <Image
+                      src={latest.coverImage}
+                      alt={`${latest.title} cover`}
+                      fill
+                      className="object-contain object-top"
+                      sizes="360px"
+                    />
+                  </div>
+                ) : (
+                  <PdfThumbnailIcon />
+                )}
               </div>
 
               <h2 className="font-inter text-sm font-bold leading-snug text-white">
-                The CL Dispatch — Q2 2025
+                {latest.title}
               </h2>
-              <p className="mt-1 font-inter text-xs text-[#94A3B8] font-extralight">
-                June 2025 · Vol. 3 · Issue 2
+              <p className="mt-1 font-inter text-xs font-extralight text-[#94A3B8]">
+                {latest.dateLabel}
+                <span className="px-1.5">·</span>
+                {latest.volumeIssueLabel}
               </p>
 
-              <Link
-                href={LATEST_ISSUE_HREF}
-                className="mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-5 transition-opacity hover:opacity-90"
+              <button
+                type="button"
+                onClick={openLatestModal}
+                className="mt-6 flex w-full items-center justify-between gap-4 border-t border-white/10 pt-5 text-left transition-opacity hover:opacity-90"
               >
                 <span className="font-inter text-xs font-semibold uppercase tracking-wider text-[#26C6DA]">
                   Read now
@@ -143,7 +171,7 @@ const NewsletterHero = () => {
                 >
                   <ArrowRight2 size={20} variant="Bold" color="#FFFFFF" />
                 </span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

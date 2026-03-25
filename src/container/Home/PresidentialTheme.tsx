@@ -64,7 +64,7 @@ with intention. To operate at a higher standard.
               className="w-fit"
               onClick={() => openMembershipModal(true)}
             >
-              Become A Member
+             Get Involved
             </Button>
           </div>
 

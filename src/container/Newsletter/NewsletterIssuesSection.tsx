@@ -1,88 +1,19 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
-import Link from 'next/link';
-import { ArrowRight2, SearchNormal1 } from 'iconsax-react';
-
-type NewsletterIssue = {
-  id: string;
-  title: string;
-  dateLabel: string;
-  year: number;
-  pages: number;
-  volumeIssueLabel: string;
-  excerpt: string;
-  href: string;
-};
-
-const NEWSLETTER_ISSUES: NewsletterIssue[] = [
-  {
-    id: 'q2-2025',
-    title: 'The CL Dispatch — Q2 2025',
-    dateLabel: 'June 2025',
-    year: 2025,
-    pages: 8,
-    volumeIssueLabel: 'Vol. 3 · Issue 2',
-    excerpt:
-      'Youth leadership summit recap, membership spotlight, and all upcoming chapter events for the quarter ahead.',
-    href: '#',
-  },
-  {
-    id: 'q1-2025',
-    title: 'The CL Dispatch — Q1 2025',
-    dateLabel: 'March 2025',
-    year: 2025,
-    pages: 6,
-    volumeIssueLabel: 'Vol. 3 · Issue 1',
-    excerpt:
-      'New year kickoff, JCI World Congress preview, and profiles of our newest active members.',
-    href: '#',
-  },
-  {
-    id: 'q4-2024',
-    title: 'The CL Dispatch — Q4 2024',
-    dateLabel: 'December 2024',
-    year: 2024,
-    pages: 12,
-    volumeIssueLabel: 'Vol. 2 · Issue 4',
-    excerpt:
-      'Year in review: biggest milestones, community impact report, and a message from the chapter president.',
-    href: '#',
-  },
-  {
-    id: 'q3-2024',
-    title: 'The CL Dispatch — Q3 2024',
-    dateLabel: 'September 2024',
-    year: 2024,
-    pages: 8,
-    volumeIssueLabel: 'Vol. 2 · Issue 3',
-    excerpt:
-      'SDG Action Week highlights, new project launches, and member achievements from across our chapters.',
-    href: '#',
-  },
-  {
-    id: 'q2-2024',
-    title: 'The CL Dispatch — Q2 2024',
-    dateLabel: 'June 2024',
-    year: 2024,
-    pages: 8,
-    volumeIssueLabel: 'Vol. 2 · Issue 2',
-    excerpt:
-      'National conference coverage, training workshop roundup, and spotlights on chapter-led innovation.',
-    href: '#',
-  },
-  {
-    id: 'inaugural-2023',
-    title: 'Inaugural Issue',
-    dateLabel: 'January 2023',
-    year: 2023,
-    pages: 4,
-    volumeIssueLabel: 'Vol. 1 · Issue 1',
-    excerpt:
-      "Welcome to JCI CL's very first newsletter — introducing our mission, leadership team, and priorities.",
-    href: '#',
-  },
-];
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import Image from 'next/image';
+import { createPortal } from 'react-dom';
+import {
+  ArrowRight2,
+  CloseSquare,
+  DocumentDownload,
+  SearchNormal1,
+} from 'iconsax-react';
+import {
+  NEWSLETTER_ISSUES,
+  NEWSLETTER_OPEN_ISSUE_EVENT,
+  type NewsletterIssue,
+} from '@/data/newsletterIssues';
 
 const thumbGridStyle: React.CSSProperties = {
   backgroundImage: `
@@ -119,7 +50,13 @@ function PdfThumbnailIcon() {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M24 35h20M24 43h20M24 51h14" stroke="currentColor" strokeOpacity="0.35" strokeWidth="3" strokeLinecap="round" />
+      <path
+        d="M24 35h20M24 43h20M24 51h14"
+        stroke="currentColor"
+        strokeOpacity="0.35"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
       <text
         x="36"
         y="69"
@@ -137,131 +74,99 @@ function PdfThumbnailIcon() {
   );
 }
 
-/** Layered PDF graphic — featured latest-issue card only */
-function FeaturedDoublePdfIcon() {
-  const teal = '#00C7DA';
-  return (
-    <svg
-      width="220"
-      height="150"
-      viewBox="0 0 88 96"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-      className="text-[#26C6DA]"
-    >
-      <g opacity="0.22" transform="translate(14, 6)">
-        <path
-          d="M10 6h28l14 14v54a3 3 0 0 1-3 3H10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3z"
-          fill="currentColor"
-          fillOpacity="0.15"
-          stroke="currentColor"
-          strokeOpacity="0.5"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M38 6v11h11"
-          stroke="currentColor"
-          strokeOpacity="0.5"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </g>
-      <g>
-        <path
-          d="M8 4h32l16 16v60a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"
-          fill="currentColor"
-          fillOpacity="0.14"
-          stroke="currentColor"
-          strokeOpacity="0.45"
-          strokeWidth="2"
-        />
-        <path
-          d="M40 4v12h12"
-          stroke="currentColor"
-          strokeOpacity="0.45"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <rect
-          x="16"
-          y="14"
-          width="12"
-          height="14"
-          rx="1.5"
-          fill={teal}
-          fillOpacity="0.2"
-          stroke={teal}
-          strokeWidth="1"
-        />
-        <path
-          d="M22 18h4M22 21h4"
-          stroke={teal}
-          strokeWidth="1"
-          strokeLinecap="round"
-          opacity="0.9"
-        />
-        <path
-          d="M22 36h36M22 44h36M22 52h28"
-          stroke="currentColor"
-          strokeOpacity="0.38"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-        <text
-          x="40"
-          y="78"
-          textAnchor="middle"
-          fill={teal}
-          style={{
-            fontFamily: 'var(--font-inter), system-ui, sans-serif',
-            fontSize: 11,
-            fontWeight: 700,
-          }}
-        >
-          PDF
-        </text>
-      </g>
-    </svg>
-  );
-}
-
-function FeaturedLatestVisual({ label }: { label: string }) {
+function FeaturedLatestVisual({
+  label,
+  coverImage,
+  alt,
+}: {
+  label: string;
+  coverImage?: string;
+  alt: string;
+}) {
   return (
     <div
-      className="relative flex h-full min-h-[240px] w-full flex-col bg-[#051C33] rounded-t-[18px] lg:rounded-l-[18px] lg:rounded-t-none"
-      style={thumbGridStyle}
+      className="relative flex h-full min-h-[240px] w-full flex-col overflow-hidden bg-[#051C33] rounded-t-[18px] lg:rounded-l-[18px] lg:rounded-t-none"
+      style={coverImage ? undefined : thumbGridStyle}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_65%_at_68%_10%,rgba(38,198,218,0.28)_0%,transparent_64%)]" />
-      <div className="absolute left-4 top-4 z-[1] inline-flex rounded-lg border border-primary/40 bg-[#06314A]/90 px-3 py-1.5">
-        <span className="font-inter text-xs font-semibold tracking-[0.04em] text-primary">
-          {label}
-        </span>
-      </div>
-      <div className="relative z-[1] flex flex-1 items-center justify-center py-14 lg:py-10">
-        <FeaturedDoublePdfIcon />
-      </div>
+      {!coverImage && (
+        <>
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_65%_at_68%_10%,rgba(38,198,218,0.28)_0%,transparent_64%)]" />
+          <div className="absolute left-4 top-4 z-[1] inline-flex rounded-lg border border-primary/40 bg-[#06314A]/90 px-3 py-1.5">
+            <span className="font-inter text-xs font-semibold tracking-[0.04em] text-primary">
+              {label}
+            </span>
+          </div>
+          <div className="relative z-[1] flex flex-1 items-center justify-center py-14 lg:py-10">
+            <PdfThumbnailIcon />
+          </div>
+        </>
+      )}
+      {coverImage && (
+        <>
+          <div className="absolute left-4 top-4 z-[1] inline-flex rounded-lg border border-white/25 bg-black/50 px-3 py-1.5 backdrop-blur-sm">
+            <span className="font-inter text-xs font-semibold tracking-[0.04em] text-primary">
+              {label}
+            </span>
+          </div>
+          <div className="relative h-full min-h-[240px] w-full flex-1">
+            <Image
+              src={coverImage}
+              alt={alt}
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 1024px) 37vw, 100vw"
+              priority
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 }
 
-function IssueThumb({ label }: { label: string }) {
+function IssueThumb({
+  label,
+  coverImage,
+  alt,
+}: {
+  label: string;
+  coverImage?: string;
+  alt: string;
+}) {
   return (
     <div
       className="relative h-[180px] w-full overflow-hidden rounded-t-[14px] bg-[#051b32]"
-      style={thumbGridStyle}
+      style={coverImage ? undefined : thumbGridStyle}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_65%_at_68%_10%,rgba(38,198,218,0.28)_0%,transparent_64%)]" />
-      <div className="absolute left-4 top-4 inline-flex rounded-md border border-primary/30 bg-[#06314A]/85 px-3 py-0.5">
-        <span className="font-inter text-xs font-semibold tracking-[0.04em] text-primary">
-          {label}
-        </span>
-      </div>
-      <div className="absolute inset-0 grid place-items-center">
-        <PdfThumbnailIcon />
-      </div>
+      {!coverImage && (
+        <>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_65%_at_68%_10%,rgba(38,198,218,0.28)_0%,transparent_64%)]" />
+          <div className="absolute left-4 top-4 inline-flex rounded-md border border-primary/30 bg-[#06314A]/85 px-3 py-0.5">
+            <span className="font-inter text-xs font-semibold tracking-[0.04em] text-primary">
+              {label}
+            </span>
+          </div>
+          <div className="absolute inset-0 grid place-items-center">
+            <PdfThumbnailIcon />
+          </div>
+        </>
+      )}
+      {coverImage && (
+        <>
+          <div className="absolute left-4 top-4 z-[1] inline-flex rounded-md border border-white/25 bg-black/45 px-3 py-0.5 backdrop-blur-sm">
+            <span className="font-inter text-xs font-semibold tracking-[0.04em] text-primary">
+              {label}
+            </span>
+          </div>
+          <Image
+            src={coverImage}
+            alt={alt}
+            fill
+            className="object-cover object-top"
+            sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+          />
+        </>
+      )}
     </div>
   );
 }
@@ -290,13 +195,186 @@ function FilterChip({
   );
 }
 
+function IssueModal({
+  issue,
+  onClose,
+}: {
+  issue: NewsletterIssue;
+  onClose: () => void;
+}) {
+  const link =
+    issue.isAvailable && issue.externalLink
+      ? issue.externalLink
+      : issue.href;
+  const canOpenLink =
+    issue.isAvailable && link && link !== '#' && link.length > 1;
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100000] flex items-start justify-center bg-[#0a1f35]/60 px-2 pb-4 pt-24 backdrop-blur-[2px] sm:px-4 sm:pb-6 sm:pt-28 lg:px-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="newsletter-modal-title"
+    >
+      <button
+        type="button"
+        className="fixed inset-0 z-0 cursor-pointer"
+        aria-label="Close dialog"
+        onClick={onClose}
+      />
+      <div className="relative z-10 mx-auto flex h-[min(calc(100dvh-8.5rem),760px)] w-full max-w-[1060px] flex-col overflow-hidden rounded-[20px] border border-[#E5EDF4] bg-white shadow-[0_24px_64px_rgba(16,43,67,0.22)] sm:h-[min(calc(100dvh-10.5rem),660px)]">
+        <div className="relative z-20 flex items-start justify-between gap-3 border-b border-[#E8EEF4] bg-white px-4 py-4 sm:gap-4 sm:px-6">
+          <div className="min-w-0 pr-2">
+            <h2
+              id="newsletter-modal-title"
+              className="font-[family-name:var(--font-newsletter-serif)] text-lg font-bold leading-snug text-[#001A44] sm:text-xl"
+            >
+              {issue.title}
+            </h2>
+            <p className="mt-1 font-inter text-sm text-[#9DB2C6]">
+              {issue.dateLabel}
+              <span className="px-2">·</span>
+              {issue.volumeIssueLabel}
+              <span className="px-2">·</span>
+              {issue.pages} pages
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="grid size-10 shrink-0 place-items-center rounded-md transition-colors hover:border-[#9FBAD0] hover:bg-[#F4F7FA]"
+            aria-label="Close"
+          >
+            <CloseSquare size={24}  color="#13304B" />
+          </button>
+        </div>
+
+        <div className="min-h-0 flex-1 bg-[#F2F4F7] p-0">
+          <div className="h-full overflow-hidden border-y border-[#E8EEF4] bg-[#EFF1F4]">
+            {issue.coverImage && issue.isAvailable ? (
+              <div className="relative h-full min-h-[260px] w-full">
+                <Image
+                  src={issue.coverImage}
+                  alt={`${issue.title} cover`}
+                  fill
+                  className="object-contain object-center"
+                  sizes="(min-width: 1280px) 1000px, 100vw"
+                />
+              </div>
+            ) : (
+              <div className="flex h-full min-h-[260px] flex-col items-center justify-center gap-3 py-12">
+                <PdfThumbnailIcon />
+                <p className="font-inter text-sm font-medium text-[#6B7F92]">
+                  PDF coming soon
+                </p>
+              </div>
+            )}
+          </div>
+
+          {issue.isAvailable && (
+            <div className="border-t border-[#E8EEF4] bg-white px-4 py-3 text-center sm:px-6">
+              {canOpenLink ? (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-inter text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:text-[#00b1c2]"
+                >
+                  Open newsletter (Google Doc)
+                </a>
+              ) : (
+                <p className="font-inter text-sm text-[#6B7F92]">
+                  Add your Google Doc link in{' '}
+                  <code className="rounded bg-[#F4F7FA] px-1 text-xs">
+                    src/data/newsletterIssues.ts
+                  </code>
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+
+        <div className="border-t border-[#E8EEF4] bg-white px-4 py-3 sm:px-6">
+          <div className="flex flex-col items-stretch justify-between gap-3 sm:flex-row sm:items-center">
+            <p className="font-inter text-sm text-[#9DB2C6]">
+              {issue.isAvailable && canOpenLink
+                ? 'Read the full issue online.'
+                : 'PDF coming soon'}
+            </p>
+            {issue.isAvailable && canOpenLink ? (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 font-inter text-sm font-bold text-white transition-colors hover:bg-[#00b1c2]"
+              >
+                <DocumentDownload size={18} variant="Bold" color="#FFFFFF" />
+                Open newsletter
+              </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-primary/35 px-4 py-2.5 font-inter text-sm font-bold text-white opacity-80"
+              >
+                <DocumentDownload size={18} variant="Bold" color="#FFFFFF" />
+                Download PDF
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const NewsletterIssuesSection = () => {
   const [activeYear, setActiveYear] = useState<'all' | number>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedIssue, setSelectedIssue] = useState<NewsletterIssue | null>(
+    null
+  );
+  const [isMounted, setIsMounted] = useState(false);
+
+  const openIssue = useCallback((issue: NewsletterIssue) => {
+    setSelectedIssue(issue);
+  }, []);
+
+  const closeModal = useCallback(() => setSelectedIssue(null), []);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const onOpenIssue = (e: Event) => {
+      const detail = (e as CustomEvent<{ id: string }>).detail;
+      if (!detail?.id) return;
+      const issue = NEWSLETTER_ISSUES.find(i => i.id === detail.id);
+      if (issue) setSelectedIssue(issue);
+    };
+    window.addEventListener(NEWSLETTER_OPEN_ISSUE_EVENT, onOpenIssue);
+    return () =>
+      window.removeEventListener(NEWSLETTER_OPEN_ISSUE_EVENT, onOpenIssue);
+  }, []);
 
   const filterYears = useMemo(
     () =>
-      [...new Set(NEWSLETTER_ISSUES.map(issue => issue.year))].sort((a, b) => b - a),
+      [...new Set(NEWSLETTER_ISSUES.map(issue => issue.year))].sort(
+        (a, b) => b - a
+      ),
     []
   );
 
@@ -320,6 +398,13 @@ const NewsletterIssuesSection = () => {
 
   return (
     <section className="relative z-10 bg-white">
+      {isMounted &&
+        selectedIssue &&
+        createPortal(
+          <IssueModal issue={selectedIssue} onClose={closeModal} />,
+          document.body
+        )}
+
       <div className="sticky top-[77px] z-30 border-b border-[#EEF3F8] bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90 lg:top-[100px] shadow-[0_8px_24px_rgba(16,43,67,0.05)]">
         <div className="container mx-auto px-4 py-2 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -371,7 +456,11 @@ const NewsletterIssuesSection = () => {
 
             <article className="overflow-hidden rounded-[18px] border border-[#EDF2F7] bg-white shadow-[0_8px_24px_rgba(16,43,67,0.08)] transition-all duration-300 hover:translate-y-[-10px]">
               <div className="grid lg:grid-cols-[minmax(0,37%)_1fr] lg:items-stretch">
-                <FeaturedLatestVisual label={latestIssue.volumeIssueLabel} />
+                <FeaturedLatestVisual
+                  label={latestIssue.volumeIssueLabel}
+                  coverImage={latestIssue.coverImage}
+                  alt={`${latestIssue.title} cover`}
+                />
                 <div className="flex flex-col justify-center bg-white px-6 py-10 lg:rounded-r-[18px] lg:px-10">
                   <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-[#E4C502] bg-[#f7eecaa3] px-3 py-1">
                     <span
@@ -390,18 +479,19 @@ const NewsletterIssuesSection = () => {
                     <span className="px-2">·</span>
                     {latestIssue.volumeIssueLabel}
                     <span className="px-2">·</span>
-                    {latestIssue.pages} pages
+                    {/* {latestIssue.pages} pages */}
                   </p>
                   <p className="mt-4 max-w-[54ch] font-inter text-sm leading-relaxed text-[#5B7086]">
                     {latestIssue.excerpt}
                   </p>
-                  <Link
-                    href={latestIssue.href}
+                  <button
+                    type="button"
+                    onClick={() => openIssue(latestIssue)}
                     className="mt-10 inline-flex w-fit items-center gap-2 rounded-lg bg-primary px-5 py-2 font-inter text-sm font-bold text-white transition-colors hover:bg-[#00b1c2]"
                   >
                     Read Issue
                     <ArrowRight2 size={18} variant="Bold" color="#FFFFFF" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </article>
@@ -432,30 +522,41 @@ const NewsletterIssuesSection = () => {
           {filteredIssues.map(issue => (
             <article
               key={issue.id}
-              className="overflow-hidden rounded-[16px] border border-[#DBEBF3] bg-white shadow-[0_5px_16px_rgba(18,58,93,0.06)] hover:translate-y-[-10px] transition-all duration-300"
+              className="overflow-hidden rounded-[16px] border border-[#DBEBF3] bg-white shadow-[0_5px_16px_rgba(18,58,93,0.06)] transition-all duration-300 hover:translate-y-[-10px]"
             >
-              <IssueThumb label={issue.volumeIssueLabel} />
-              <div className="px-5 py-4">
-                <h4 className="font-inter text-[1rem] font-semibold leading-[1.18] text-[#001A44]">
-                  {issue.title}
-                </h4>
-                <p className="mt-1 font-inter text-xs text-[#9DB2C6]">
-                  {issue.dateLabel}
-                  <span className="px-2">·</span>
-                  {issue.pages} pages
-                </p>
-                <p className="mt-3 line-clamp-2 font-inter text-[14px] leading-[1.45] text-[#5B7086]">
-                  {issue.excerpt}
-                </p>
-              </div>
+              <button
+                type="button"
+                onClick={() => openIssue(issue)}
+                className="block w-full text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                <IssueThumb
+                  label={issue.volumeIssueLabel}
+                  coverImage={issue.coverImage}
+                  alt={`${issue.title} cover`}
+                />
+                <div className="px-5 py-4">
+                  <h4 className="font-inter text-[1rem] font-semibold leading-[1.18] text-[#001A44]">
+                    {issue.title}
+                  </h4>
+                  <p className="mt-1 font-inter text-xs text-[#9DB2C6]">
+                    {issue.dateLabel}
+                    <span className="px-2">·</span>
+                    {/* {issue.pages} pages */}
+                  </p>
+                  <p className="mt-3 line-clamp-2 font-inter text-[14px] leading-[1.45] text-[#5B7086]">
+                    {issue.excerpt}
+                  </p>
+                </div>
+              </button>
               <div className="border-t border-[#EDF2F7] px-5 py-2">
-                <Link
-                  href={issue.href}
+                <button
+                  type="button"
+                  onClick={() => openIssue(issue)}
                   className="inline-flex items-center gap-2 font-inter text-[14px] font-semibold uppercase tracking-[0.03em] text-primary"
                 >
                   Read
                   <ArrowRight2 size={18} variant="Bold" color="#00C7DA" />
-                </Link>
+                </button>
               </div>
             </article>
           ))}

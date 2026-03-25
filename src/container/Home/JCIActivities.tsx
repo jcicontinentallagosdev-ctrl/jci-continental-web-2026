@@ -228,12 +228,12 @@ export function JCIActivities() {
           </div>
 
           {/* View All Button */}
-          <Button
+          {/* <Button
             variant="outline"
             className="border-[#0398c8] text-[#0398c8] hover:bg-[#0398c8] hover:text-white"
           >
             View All
-          </Button>
+          </Button> */}
         </div>
       </div>
     </section>
