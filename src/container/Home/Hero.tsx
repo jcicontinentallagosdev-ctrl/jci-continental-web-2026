@@ -3,9 +3,7 @@
 import React from 'react';
 
 import ObserverImage from '@/components/shared/obs-image';
-import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
-import { useMembershipModal } from '@/context/membership-modal-context';
 import { FeaturedProjectCard } from './FeaturedProjectCard';
 import { NextMeetingCard } from './NextMeetingCard';
 import { StatsCard } from './StatsCard';
@@ -16,8 +14,6 @@ interface HeroProps {
 }
 
 export function Hero({ className }: HeroProps) {
-  const { setOpen: openMembershipModal } = useMembershipModal();
-
   return (
     <section
       className={`container px-4 pt-[50px] pb-[60px] mx-auto ${className || ''}`}
@@ -98,17 +94,17 @@ export function Hero({ className }: HeroProps) {
             text="Young Leaders"
           />
           <StatsCard
-            icon={images.sectorsAndIndustriesIcon}
+            icon={images.sectorsSectionUsersIcon}
             number="10+"
             text="Industries Represented"
           />
           <StatsCard
-            icon={images.sectorsAndIndustriesIcon}
+            icon={images.sectorsSectionBriefcaseIcon}
             number="30+"
             text="Impact Projects"
           />
           <StatsCard
-            icon={images.sectorsAndIndustriesIcon}
+            icon={images.sectorsSectionConnectionIcon}
             number="10+"
             text="Strategic Partners"
           />
