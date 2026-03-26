@@ -12,6 +12,9 @@ import instagramIcon from '@/public/assets/footer/instagram.svg';
 import heroTextDecorator from '@/public/assets/home/hero-text-decorator.svg';
 import heroFeatureImage from '@/public/assets/home/hero-feature-image.jpg';
 import heroActiveMembersImage from '@/public/assets/home/active-members.png';
+import industriesIcon from '@/public/assets/home/industries-icon.png';
+import impactProjectsIcon from '@/public/assets/home/impact-projects-icon.png';
+import partnersIcon from '@/public/assets/home/partners-icon.png';
 import sectorsAndIndustriesIcon from '@/public/assets/home/sectors-icon.png';
 import technologySectionImage from '@/public/assets/home/technology-section-image.png';
 import sectorsSectionUserIcon from '@/public/assets/home/sectors-section-user-icon.svg';
@@ -107,6 +110,9 @@ export const images = {
   heroTextDecorator,
   heroFeatureImage,
   heroActiveMembersImage,
+  industriesIcon,
+  impactProjectsIcon,
+  partnersIcon,
   sectorsAndIndustriesIcon,
   technologySectionImage,
   sectorsSectionUserIcon,

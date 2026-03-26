@@ -94,17 +94,17 @@ export function Hero({ className }: HeroProps) {
             text="Young Leaders"
           />
           <StatsCard
-            icon={images.sectorsSectionUsersIcon}
+            icon={images.industriesIcon}
             number="10+"
             text="Industries Represented"
           />
           <StatsCard
-            icon={images.sectorsSectionBriefcaseIcon}
+            icon={images.impactProjectsIcon}
             number="30+"
             text="Impact Projects"
           />
           <StatsCard
-            icon={images.sectorsSectionConnectionIcon}
+            icon={images.partnersIcon}
             number="10+"
             text="Strategic Partners"
           />
