@@ -61,12 +61,12 @@ export function TechnologySection({ className }: TechnologySectionProps) {
             </div>
 
             {/* CTA Button */}
-            <Button
+            {/* <Button
               className="w-fit"
               onClick={() => openMembershipModal(true)}
             >
               <p>Become A Member</p>
-            </Button>
+            </Button> */}
           </div>
 
           {/* Right Column - Image */}

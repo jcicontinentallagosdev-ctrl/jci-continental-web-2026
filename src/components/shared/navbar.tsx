@@ -25,11 +25,11 @@ export function Navbar({ className }: NavbarProps) {
     return [
       { label: 'Home', href: '/', isActive: pathname === '/' },
       { label: 'About Us', href: '/about', isActive: pathname === '/about' },
-      {
-        label: 'What We Do',
-        href: '/what-we-do',
-        isActive: pathname === '/what-we-do',
-      },
+      // {
+      //   label: 'What We Do',
+      //   href: '/what-we-do',
+      //   isActive: pathname === '/what-we-do',
+      // },
       {
         label: 'Our People',
         href: '/our-people',

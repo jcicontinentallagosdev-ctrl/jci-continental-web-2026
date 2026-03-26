@@ -1,4 +1,5 @@
 import logoImage from '@/public/assets/jci-logo.png';
+import footerLogoImage from '@/public/assets/footer-logo.png';
 import footerBackgroundImage from '@/public/assets/footer-background.png';
 import whatsappIcon from '@/public/assets/footer/whatsapp.svg';
 import facebookIcon from '@/public/assets/footer/facebook.svg';
@@ -92,7 +93,7 @@ import ourPeopleBoardDirectorEfficiencyInnovationAndExcellenceImage from '@/publ
 
 
 export const images = {
-  logo: logoImage,
+  logo: logoImage, footerLogo: footerLogoImage,
   footerBackgroundImage,
   whatsappIcon,
   facebookIcon,

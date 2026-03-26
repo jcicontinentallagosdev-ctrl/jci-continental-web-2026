@@ -169,7 +169,7 @@ export function MembershipModal() {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-[min(600px,95vw)] max-h-[90vh] overflow-y-auto rounded-2xl p-0 gap-0 border-0 shadow-2xl">
+      <DialogContent className="max-w-[min(600px,95vw)] max-h-[90vh] overflow-y-auto no-scrollbar rounded-2xl p-0 gap-0 border-0 shadow-2xl">
         <AnimatePresence mode="wait">
           {status === 'success' ? (
             <SuccessView onClose={() => handleOpenChange(false)} />

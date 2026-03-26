@@ -76,12 +76,12 @@ export function BorderlessDesign() {
             </div>
 
             {/* CTA Button */}
-            <Button
+            {/* <Button
               className="w-fit"
               onClick={() => openMembershipModal(true)}
             >
               Join Training Waitlist
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

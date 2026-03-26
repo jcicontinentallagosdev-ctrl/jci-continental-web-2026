@@ -6,7 +6,7 @@ const sectors = [
     id: 1,
     title: 'Individual Development',
     description:
-      'We strive to create positive change by empowering young people to take action and lead with integrity, innovation, and a commitment to service',
+      'Empowering young people to become purpose-driven leaders through mentorship, training, and real-world experience',
     icon: images.sectorsSectionUserIcon,
     decorativeIcon: images.sectorsSectionDecorativeGroup1,
     bgColor: 'bg-[#fcf9ec]',
@@ -17,7 +17,7 @@ const sectors = [
     id: 2,
     title: 'Business & Entrepreneurship',
     description:
-      'Cultivating innovation and economic growth through professional networking.',
+      'Equipping young professionals with skills, networks, and opportunities to build and grow impactful ventures',
     icon: images.sectorsSectionBriefcaseIcon,
     decorativeIcon: images.sectorsSectionDecorativeGroup2,
     bgColor: 'bg-[#e6f5fa]',
@@ -28,7 +28,7 @@ const sectors = [
     id: 3,
     title: 'International Cooperation',
     description:
-      'Fostering cross-cultural collaboration to create a more peaceful and inclusive world.',
+      'Promoting global citizenship through cultural exchange, collaboration, and partnerships for shared progress.',
     icon: images.sectorsSectionConnectionIcon,
     decorativeIcon: images.sectorsSectionDecorativeGroup3,
     bgColor: 'bg-[#e7e1eb]',
@@ -39,7 +39,7 @@ const sectors = [
     id: 4,
     title: 'Community Impact',
     description:
-      'Building better communities through active citizenship and sustainable development.',
+      'Driving sustainable change by empowering youth to take action and solve community challenges.',
     icon: images.sectorsSectionUsersIcon,
     decorativeIcon: images.sectorsSectionDecorativeGroup4,
     bgColor: 'bg-[#f8e7d5]',

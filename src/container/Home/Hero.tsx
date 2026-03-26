@@ -94,14 +94,25 @@ export function Hero({ className }: HeroProps) {
           {/* <StatsCard icon={img3} number="70+" text="Active Members" /> */}
           <StatsCard
             icon={images.heroActiveMembersImage}
-            number="100+"
-            text="Members"
+            number="150+"
+            text="Young Leaders"
           />
           <StatsCard
             icon={images.sectorsAndIndustriesIcon}
             number="10+"
-            text="Sectorsg"
+            text="Industries Represented"
           />
+          <StatsCard
+            icon={images.sectorsAndIndustriesIcon}
+            number="30+"
+            text="Impact Projects"
+          />
+          <StatsCard
+            icon={images.sectorsAndIndustriesIcon}
+            number="10+"
+            text="Strategic Partners"
+          />
+          
         </div>
       </div>
     </section>

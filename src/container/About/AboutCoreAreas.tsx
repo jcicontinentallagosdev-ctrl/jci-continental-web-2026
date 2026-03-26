@@ -7,37 +7,37 @@ const AboutCoreAreas = () => {
     {
       title: 'Youth Entrepreneurship',
       description:
-        'Explore ways to support youth in building their email lists and connecting with new clients.',
+        'Empowering young people to build businesses, create jobs, and drive economic growth...',
       icon: images.aboutCoreAreasIcon,
     },
     {
       title: 'Corporate Governance',
       description:
-        'Find out how to easily grow your email list and get new clients. Learn how to write engaging welcome...',
+        'Promoting ethical leadership, accountability, and transparent systems for lasting success...',
       icon: images.aboutCoreAreasIcon,
     },
     {
       title: 'Personal Leadership',
       description:
-        'Find out how to easily grow your email list and get new clients. Learn how to write engaging welcome...',
+        'Developing confident, values-driven individuals who can lead and create impact...',
       icon: images.aboutCoreAreasIcon,
     },
     {
       title: 'Digital Economy',
       description:
-        'Explore ways to support youth in building their email lists and connecting with new clients.',
+        'Equipping youth with digital skills and opportunities to thrive in a tech-driven world...',
       icon: images.aboutCoreAreasIcon,
     },
     {
       title: 'Social Justice',
       description:
-        'Find out how to easily grow your email list and get new clients. Learn how to write engaging welcome...',
+        'Advocating for equity, inclusion, and equal opportunities while empowering communities to thrive...',
       icon: images.aboutCoreAreasIcon,
     },
     {
       title: 'Sustainable Development',
       description:
-        'Find out how to easily grow your email list and get new clients. Learn how to write engaging welcome...',
+        'Driving solutions that balance economic growth, environmental care, and social impact...',
       icon: images.aboutCoreAreasIcon,
     },
   ];

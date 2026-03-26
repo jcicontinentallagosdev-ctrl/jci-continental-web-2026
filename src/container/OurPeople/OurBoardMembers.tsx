@@ -129,7 +129,7 @@ const boardMembers = [
   },
   {
     id: 23,
-    name: 'Temioluwa Hamzat',
+    name: 'Temiloluwa Hamzat',
     position: 'Editor in Chief',
     image: images.ourPeopleBoardEditorInChiefImage,
     isPlaceholder: true,

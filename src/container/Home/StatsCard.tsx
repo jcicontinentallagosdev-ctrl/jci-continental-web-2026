@@ -25,12 +25,12 @@ export function StatsCard({ icon, number, text, className }: StatsCardProps) {
           />
         </div>
       </div>
-      <div className="w-full lg:flex-row flex-col flex gap-3 lg:items-center justify-start leading-[0] relative">
-        <div className="flex flex-col font-bold justify-center relative shrink-0 text-[#001319] text-[24px] text-nowrap">
-          <p className="leading-[28px] whitespace-pre">{number}</p>
+      <div className="flex w-full min-w-0 flex-col gap-1 justify-start relative">
+        <div className="flex font-bold justify-start text-[#001319] text-[24px] min-w-0">
+          <p className="leading-[28px] whitespace-nowrap">{number}</p>
         </div>
-        <div className="flex w-full flex-col font-inter font-normal justify-center not-italic relative shrink-0 text-[#546165] text-[18px]">
-          <p className="leading-[26px]">{text}</p>
+        <div className="flex w-full min-w-0 flex-col font-inter font-normal justify-start not-italic text-[#546165]">
+          <p className="leading-[24px] whitespace-normal break-words">{text}</p>
         </div>
       </div>
     </div>

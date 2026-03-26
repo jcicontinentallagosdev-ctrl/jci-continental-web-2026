@@ -42,6 +42,12 @@ interface NextMeetingCardProps {
 export function NextMeetingCard({}: NextMeetingCardProps) {
   const targetDate = useMemo(() => getNextMeetingDate(), []);
   const formattedDate = useMemo(() => formatMeetingDate(targetDate), [targetDate]);
+  const calendarDate = useMemo(() => {
+    const year = targetDate.getFullYear();
+    const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const day = String(targetDate.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }, [targetDate]);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -75,6 +81,27 @@ export function NextMeetingCard({}: NextMeetingCardProps) {
 
     return () => clearInterval(interval);
   }, [targetDate]);
+
+  const openCalendar = () => {
+    const startDate = calendarDate.replaceAll('-', '');
+    const endDate = new Date(`${calendarDate}T00:00:00`);
+    endDate.setDate(endDate.getDate() + 1);
+    const endYear = endDate.getFullYear();
+    const endMonth = String(endDate.getMonth() + 1).padStart(2, '0');
+    const endDay = String(endDate.getDate()).padStart(2, '0');
+    const endDateFormatted = `${endYear}${endMonth}${endDay}`;
+    const calendarUrl = new URL('https://calendar.google.com/calendar/render');
+
+    calendarUrl.searchParams.set('action', 'TEMPLATE');
+    calendarUrl.searchParams.set('text', 'JCI Continental Lagos Monthly General Meeting');
+    calendarUrl.searchParams.set(
+      'details',
+      'Monthly General Meeting by JCI Continental Lagos.'
+    );
+    calendarUrl.searchParams.set('dates', `${startDate}/${endDateFormatted}`);
+
+    window.open(calendarUrl.toString(), '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="bg-[#FBFEFF] border border-[#B1DFEE] rounded-2xl p-6 cursor-pointer">
@@ -122,9 +149,14 @@ export function NextMeetingCard({}: NextMeetingCardProps) {
         <div className="flex flex-col font-inter font-semibold justify-center relative shrink-0 text-[#001319] text-[16px]">
           <p className="text-base text-primary">{formattedDate}</p>
         </div>
-        <div className="border-2 flex items-center justify-center size-[47px] border-primary rounded-full p-2 bg-[#B1DFEE]">
+        <button
+          type="button"
+          onClick={openCalendar}
+          aria-label="Add next monthly general meeting to Google Calendar"
+          className="border-2 flex items-center justify-center size-[47px] border-primary rounded-full p-2 bg-[#B1DFEE]"
+        >
           <ArrowRight size={32} className="text-primary" />
-        </div>
+        </button>
       </div>
     </div>
   );
