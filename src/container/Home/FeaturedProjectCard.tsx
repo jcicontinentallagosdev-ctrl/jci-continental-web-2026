@@ -23,7 +23,7 @@ export function FeaturedProjectCard({}: FeaturedProjectCardProps) {
 
       <button
         type="button"
-        className="relative text-left max-w-full lg:max-w-[469px] z-10 bg-[rgba(50,50,52,0.2)] border border-[rgba(251,254,255,0.4)] backdrop-blur-[2.5px] rounded-[16px] shrink-0 lg:w-[469px] p-6 cursor-pointer"
+        className="relative text-left max-w-full lg:max-w-[469px] z-10 bg-[rgba(0,0,0,0.31)] border border-[rgba(251,254,255,0.4)] backdrop-blur-[1.5px] rounded-[16px] shrink-0 lg:w-[469px] p-6 cursor-pointer"
       >
         <div className="bg-[rgba(254,255,255,0.2)] text-[#F3FCFF] uppercase font-semibold rounded-[20px] py-2 px-3 w-fit font-inter text-xs">
           Our Leader
