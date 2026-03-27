@@ -21,6 +21,10 @@ export const NEWSLETTER_EXTERNAL_LINK_PLACEHOLDER = '#';
 /** Dispatched with `detail: { id: string }` to open the issue modal from other components */
 export const NEWSLETTER_OPEN_ISSUE_EVENT = 'newsletter:openIssue';
 
+/** Substack profile — subscribe / free signup */
+export const SUBSTACK_SUBSCRIBE_URL =
+  'https://substack.com/@jcicontinentallagos?utm_source=jci_site&utm_medium=web';
+
 /**
  * Newest first. Timeline starts at 2025; 2025 entries are placeholders (PDF not available).
  */
