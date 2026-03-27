@@ -19,8 +19,7 @@ export const metadata: Metadata = {
   description:
     'Junior Chamber International Continental Lagos - Empowering young active citizens to create positive change',
   icons: {
-    icon: '/assets/footer-logo.png',
-    apple: '/assets/footer-logo.png',
+    icon: '/favicon.ico',
   },
 };
 
