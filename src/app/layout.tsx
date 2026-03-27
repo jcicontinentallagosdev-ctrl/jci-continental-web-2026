@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: 'JCI Continental Lagos',
   description:
     'Junior Chamber International Continental Lagos - Empowering young active citizens to create positive change',
+  icons: {
+    icon: '/assets/footer-logo.png',
+    apple: '/assets/footer-logo.png',
+  },
 };
 
 export default function RootLayout({
