@@ -6,7 +6,7 @@ const sectors = [
     id: 1,
     title: 'Individual Development',
     description:
-      'Empowering young people to become purpose-driven leaders through mentorship, training, and real-world experience',
+      'Empowering young people to become purpose-driven leaders through mentorship, training, and real-world experience.',
     icon: images.sectorsSectionUserIcon,
     decorativeIcon: images.sectorsSectionDecorativeGroup1,
     bgColor: 'bg-[#fcf9ec]',
@@ -17,7 +17,7 @@ const sectors = [
     id: 2,
     title: 'Business & Entrepreneurship',
     description:
-      'Equipping young professionals with skills, networks, and opportunities to build and grow impactful ventures',
+      'Equipping young professionals with skills, networks, and opportunities to build and grow impactful ventures.',
     icon: images.sectorsSectionBriefcaseIcon,
     decorativeIcon: images.sectorsSectionDecorativeGroup2,
     bgColor: 'bg-[#e6f5fa]',

@@ -26,7 +26,7 @@ export function FeaturedProjectCard({}: FeaturedProjectCardProps) {
         className="relative text-left max-w-full lg:max-w-[469px] z-10 bg-[rgba(0,0,0,0.31)] border border-[rgba(251,254,255,0.4)] backdrop-blur-[1.5px] rounded-[16px] shrink-0 lg:w-[469px] p-6 cursor-pointer"
       >
         <div className="bg-[rgba(254,255,255,0.2)] text-[#F3FCFF] uppercase font-semibold rounded-[20px] py-2 px-3 w-fit font-inter text-xs">
-          Our Leader
+          Our Leadership
         </div>
 
         <div className="mt-[15px] border-b border-[rgba(251,254,255,0.4)] pb-6">
@@ -42,7 +42,7 @@ export function FeaturedProjectCard({}: FeaturedProjectCardProps) {
 
         <div className="mt-6 flex items-center justify-between">
           <div className="flex flex-col font-inter font-semibold justify-center relative shrink-0 text-[#FEFFFF] text-[16px]">
-            <p className="text-base text-[#FEFFFF]">Meet Our Leader</p>
+            <p className="text-base text-[#FEFFFF]">Meet Our Leaders</p>
           </div>
           <div className="border-2 flex items-center justify-center size-[47px] border-[#0398C8] rounded-full p-2 bg-[#B1DFEE]">
             <ArrowRight onClick={() => router.push('/our-people')} size={32} className="text-[#0398C8]" />

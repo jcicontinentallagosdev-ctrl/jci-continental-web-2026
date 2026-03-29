@@ -44,9 +44,9 @@ const OurPeopleHero = () => {
             {/* Main Content */}
             <div className="content-stretch flex flex-col gap-3 lg:text-left text-center items-center lg:items-start justify-start leading-[0] relative shrink-0 w-full">
               {/* Main Heading */}
-              <div className="flex flex-col font-sans font-bold justify-center min-w-full relative shrink-0 text-[#feffff] text-xl lg:text-[72px]">
+              <div className="flex flex-col font-sans font-bold justify-center min-w-full relative shrink-0 text-[#feffff] text-xl lg:text-[80px]">
                 <p className="lg:leading-[76px] leading-6">
-                  The People Behind JCI
+                  The People Behind JCI Continental Lagos
                 </p>
               </div>
 

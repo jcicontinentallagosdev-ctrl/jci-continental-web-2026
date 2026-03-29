@@ -22,7 +22,7 @@ const footerLinks = {
   ],
   about: [
     { name: 'About Us', href: '/about' },
-    { name: 'What We Do', href: '/what-we-do' },
+    // { name: 'What We Do', href: '/what-we-do' },
     { name: 'Our People', href: '/our-people' },
   ],
   more: [

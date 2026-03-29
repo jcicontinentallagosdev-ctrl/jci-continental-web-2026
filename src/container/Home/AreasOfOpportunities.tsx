@@ -63,7 +63,7 @@ export function AreasOfOpportunities() {
               </div>
 
               <h2 className="font-bold relative z-20 text-[#001319] text-[24px] lg:text-[36px] leading-[28px] lg:leading-[40px] text-center lg:text-left">
-                Areas of Opportunities
+                Areas of Opportunity
               </h2>
 
               <p className="font-['Inter'] font-normal text-[#546165] text-base lg:text-lg leading-6 lg:leading-[26px] min-w-full text-center lg:text-left">

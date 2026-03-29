@@ -14,8 +14,8 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       <Hero />
       <TechnologySection />
-      <SectorsSection />
       <AreasOfOpportunities />
+      <SectorsSection />
       <PresidentialTheme />
       <BorderlessDesign />
       <LifeSkillSeries />
