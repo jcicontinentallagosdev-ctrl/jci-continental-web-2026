@@ -71,27 +71,27 @@ export function Navbar({ className }: NavbarProps) {
         'bg-[#FEFFFF] overflow-hidden transition-all duration-300',
         'fixed top-0 left-0 right-0 z-50',
         {
-          'md:h-[100px] h-[521px]': isMobileMenuOpen,
-          'md:h-[100px] h-[77px]': !isMobileMenuOpen,
+          'md:h-[110px] h-[521px]': isMobileMenuOpen,
+          'md:h-[110px] h-[80px]': !isMobileMenuOpen,
           'shadow-[0px_2px_15px_0px_rgba(0,0,0,0.1)]': isScrolled,
         }
       )}
     >
-      <nav className={cn(`navbar md:h-[100px] h-[77px]`, className)}>
+      <nav className={cn(`navbar md:h-[110px] h-[80px]`, className)}>
         <div className="navbar-container">
           {/* Logo */}
           <Link href="/" aria-label="Go to homepage" className="navbar-logo">
             <ObserverImage
               src={images.logo}
               alt="JCI Continental Lagos logo"
-              className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-[50px]"
+              className="w-14 h-16 md:w-20 md:h-20 lg:w-30"
               imageClassName="!object-contain"
             />
             <div className="h-6 w-px bg-gray-300 sm:h-8 md:h-10" />
             <ObserverImage
               src={images.presidentialThemeImage}
               alt="Presidential theme logo"
-              className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-[50px]"
+              className="w-20 h-16 md:w-20 md:h-20 lg:w-30"
               imageClassName="!object-contain"
             />
           </Link>

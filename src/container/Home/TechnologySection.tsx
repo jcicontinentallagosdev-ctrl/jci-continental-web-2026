@@ -2,18 +2,15 @@
 
 import React from 'react';
 
-import { Button } from '@/components/ui/button';
 import ObserverImage from '@/components/shared/obs-image';
 import { images } from '@/constants';
-import { useMembershipModal } from '@/context/membership-modal-context';
 
 interface TechnologySectionProps {
   className?: string;
 }
 
 export function TechnologySection({ className }: TechnologySectionProps) {
-  const { setOpen: openMembershipModal } = useMembershipModal();
-
+  
   return (
     <section
       className={`bg-[#f3fcff] py-[60px] lg:py-[100px] ${className || ''}`}

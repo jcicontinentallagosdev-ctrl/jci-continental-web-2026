@@ -241,7 +241,7 @@
 
   /* Navbar classes */
   .navbar {
-    @apply bg-[#e6f5fa] py-[21px];
+    @apply bg-[#e6f5fa] py-1 md:py-3;
   }
 
   .navbar-container {

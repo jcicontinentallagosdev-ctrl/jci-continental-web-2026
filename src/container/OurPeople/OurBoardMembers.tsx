@@ -109,30 +109,31 @@ const boardMembers = [
     position: 'Director Welfare & Socials',
     image: images.ourPeopleBoardDirectorWelfareImage,
   },
+
   {
-    id: 20,
-    name: 'Balogun Ibrahim',
-    position: 'Director of Special Duties',
-    image: images.ourPeopleBoardDirectorSpecialDutiesImage,
-  },
-  {
-      id: 21,
+      id: 20,
     name: ' Olarinde Olanrewaju',
     position: 'Director of Meeting & Logistics',
     image: images.ourPeopleBoardDirectorMeetingAndLogisticsImage,
   },
   {
-    id: 22,
+    id: 21,
+    name: 'Temiloluwa Hamzat',
+    position: 'Editor in Chief',
+    image: images.ourPeopleBoardEditorInChiefImage,
+    isPlaceholder: true,
+  },
+  {
+      id: 22,
     name: 'Scott Itepu',
     position: ' Director of Efficiency, Innovation & Excellence',
     image: images.ourPeopleBoardDirectorEfficiencyInnovationAndExcellenceImage,
   },
   {
     id: 23,
-    name: 'Temiloluwa Hamzat',
-    position: 'Editor in Chief',
-    image: images.ourPeopleBoardEditorInChiefImage,
-    isPlaceholder: true,
+    name: 'Balogun Ibrahim',
+    position: 'Director of Special Duties & Executive Assistant',
+    image: images.ourPeopleBoardDirectorSpecialDutiesImage,
   },
 ];
 

@@ -4,11 +4,9 @@ import React from 'react';
 import ObserverImage from '@/components/shared/obs-image';
 import { images } from '@/constants';
 import { Button } from '@/components/ui/button';
-import { useMembershipModal } from '@/context/membership-modal-context';
 import { useRouter } from 'next/navigation';
 
 const AboutWhatSetsUsApart = () => {
-  const { setOpen: openMembershipModal } = useMembershipModal();
   const router = useRouter();
   return (
     <div className="bg-[#fcf9ec] relative w-full py-[60px] lg:py-[100px] overflow-hidden">

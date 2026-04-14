@@ -4,9 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
 import ObserverImage from '@/components/shared/obs-image';
-import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
-import { useMembershipModal } from '@/context/membership-modal-context';
 
 const lifeSkillItems = [
   {
@@ -35,7 +33,6 @@ const lifeSkillItems = [
 export function LifeSkillSeries() {
   const [hoveredId, setHoveredId] = useState<number | null>(2);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { setOpen: openMembershipModal } = useMembershipModal();
 
   const nextSlide = () => {
     setCurrentSlide(prev => (prev + 1) % lifeSkillItems.length);

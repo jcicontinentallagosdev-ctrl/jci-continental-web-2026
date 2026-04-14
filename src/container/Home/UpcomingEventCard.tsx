@@ -13,8 +13,7 @@ const upcomingEvents = [
     description:
       'Join us for the JCI Nigeria Southern Conference — a gathering of young leaders driving impact across the southern region.',
     date: 'April 9–12, 2026',
-    startDate: '2026-04-09',
-    endDate: '2026-04-12',
+    link: 'https://south.jci.ng/',
   },
   {
     id: 2,
@@ -22,8 +21,7 @@ const upcomingEvents = [
     description:
       'Connect with young active citizens from around the globe at the JCI World Congress.',
     date: 'November 11–15, 2026',
-    startDate: '2026-11-11',
-    endDate: '2026-11-15',
+    link: 'https://jci.cc/events/2026-jci-world-congress/',
   },
   {
     id: 3,
@@ -31,8 +29,7 @@ const upcomingEvents = [
     description:
       'Experience leadership forums, cultural exchange, and collaborations driving sustainable development and unity.',
     date: 'May 20–23, 2026',
-    startDate: '2026-05-20',
-    endDate: '2026-05-23',
+    link: 'https://jci.cc/events/2026-jci-africa-and-the-middle-east-conference/',
   },
 ];
 
@@ -54,33 +51,11 @@ export function UpcomingEventCard({ className }: UpcomingEventCardProps) {
     setActiveIndex(index);
   }, []);
 
-  const toCalendarDate = useCallback((dateString: string) => {
-    return dateString.replaceAll('-', '');
-  }, []);
-
-  const addDays = useCallback((dateString: string, days: number) => {
-    const date = new Date(`${dateString}T00:00:00`);
-    date.setDate(date.getDate() + days);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }, []);
-
   const event = upcomingEvents[activeIndex];
 
-  const openCalendar = useCallback(() => {
-    const start = toCalendarDate(event.startDate);
-    const end = toCalendarDate(addDays(event.endDate, 1));
-    const calendarUrl = new URL('https://calendar.google.com/calendar/render');
-
-    calendarUrl.searchParams.set('action', 'TEMPLATE');
-    calendarUrl.searchParams.set('text', event.title);
-    calendarUrl.searchParams.set('details', event.description);
-    calendarUrl.searchParams.set('dates', `${start}/${end}`);
-
-    window.open(calendarUrl.toString(), '_blank', 'noopener,noreferrer');
-  }, [addDays, event, toCalendarDate]);
+  const openEventLink = useCallback(() => {
+    window.open(event.link, '_blank', 'noopener,noreferrer');
+  }, [event.link]);
 
   return (
     <div className={`bg-secondary flex flex-col rounded-2xl p-6 cursor-pointer overflow-hidden ${className ?? ''}`}>
@@ -124,8 +99,8 @@ export function UpcomingEventCard({ className }: UpcomingEventCardProps) {
         </AnimatePresence>
         <button
           type="button"
-          onClick={openCalendar}
-          aria-label={`Add ${event.title} to Google Calendar`}
+          onClick={openEventLink}
+          aria-label={`Open ${event.title} event page`}
           className="border-2 flex items-center justify-center size-[47px] border-primary rounded-full p-2 bg-[#B1DFEE]"
         >
           <ArrowRight size={32} className="text-primary" />

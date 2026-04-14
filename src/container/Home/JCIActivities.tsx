@@ -4,7 +4,6 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback } from 'react';
 
 import ObserverImage from '@/components/shared/obs-image';
-import { Button } from '@/components/ui/button';
 import { images } from '@/constants';
 import {
   ArrowLeft2,
