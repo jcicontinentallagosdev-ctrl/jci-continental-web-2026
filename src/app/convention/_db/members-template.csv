@@ -1,0 +1,4 @@
+full_name,email,phone,is_financial
+Ada Obi,ada.obi@example.com,08031234567,true
+Tunde Bakare,tunde.bakare@example.com,+2348129876543,true
+Guest Example,guest.example@example.com,08030000000,false
