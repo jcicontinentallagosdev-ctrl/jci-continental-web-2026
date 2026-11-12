@@ -2,10 +2,20 @@
 
 import { useEffect } from "react";
 
-/** Moves focus to an element once, so screen readers announce the page's new state after an action. */
+/**
+ * After register → ticket (or receipt upload), bring the payment/ticket heading into view.
+ * Server-action redirects keep the previous page's scroll, so guests were landing on the
+ * ticket card at the bottom and missing the bank account details above.
+ */
 export function FocusOnMount({ id }: { id: string }) {
   useEffect(() => {
-    document.getElementById(id)?.focus({ preventScroll: true });
+    const el = document.getElementById(id);
+    if (!el) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      return;
+    }
+    el.focus({ preventScroll: true });
+    el.scrollIntoView({ behavior: "auto", block: "start" });
   }, [id]);
   return null;
 }

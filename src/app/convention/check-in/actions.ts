@@ -14,7 +14,7 @@ import {
   rejectReceipt,
   undoCheckIn,
 } from "../_lib/registrations";
-import { endStaffSession, isStaff, startStaffSession } from "../_lib/staff";
+import { endStaffSession, isStaff, isTreasurer, startStaffSession } from "../_lib/staff";
 import { confirmTransfer, recordPaidGuest } from "../_lib/transfers";
 import { readRegistrationForm, validateRegistration, type FieldErrors } from "../_lib/validation";
 
@@ -25,9 +25,15 @@ export type UnlockState = { error?: string };
 export async function unlockDesk(_previous: UnlockState, formData: FormData): Promise<UnlockState> {
   const passcode = String(formData.get("passcode") ?? "");
   const next = String(formData.get("next") ?? "");
-  if (!(await startStaffSession(passcode))) {
+  // Payments unlock only accepts the treasurer passcode — door code must not open that desk.
+  const requireTreasurer = formData.get("requireTreasurer") === "1";
+  if (!(await startStaffSession(passcode, { requireTreasurer }))) {
     await new Promise((resolve) => setTimeout(resolve, 800)); // slow down guessing
-    return { error: "That passcode didn't work. Check with the convention lead." };
+    return {
+      error: requireTreasurer
+        ? "That isn't the treasurer passcode. Ask the convention lead — the door passcode won't open payments."
+        : "That passcode didn't work. Check with the convention lead.",
+    };
   }
   redirect(next.startsWith("/convention/") ? next : "/convention/check-in");
 }
@@ -43,7 +49,15 @@ export type TicketSnapshot = { status: RegistrationStatus; checkedInAt: string |
 
 export type StaffTicketState = {
   snapshot: TicketSnapshot;
-  event?: "checked_in" | "already_checked_in" | "undone" | "now_paid" | "still_unpaid" | "locked" | "error";
+  event?:
+    | "checked_in"
+    | "already_checked_in"
+    | "undone"
+    | "now_paid"
+    | "still_unpaid"
+    | "locked"
+    | "need_treasurer"
+    | "error";
   /** False when the payment was confirmed but the ticket email didn't go out. */
   emailSent?: boolean;
 };
@@ -72,6 +86,8 @@ export async function staffTicketAction(previous: StaffTicketState, formData: Fo
     }
 
     if (intent === "confirm_payment") {
+      // Door staff can check people in; only the treasurer can confirm money.
+      if (!(await isTreasurer())) return { ...previous, event: "need_treasurer" };
       const registration = await findRegistrationByToken(token);
       if (!registration) return { ...previous, event: "error" };
       const { registration: updated, emailSent } = await confirmTransfer(registration.id);
@@ -113,9 +129,9 @@ export type RemindPaymentResult =
   | { ok: true; ticketCode: string; emailSent: boolean }
   | { ok: false };
 
-/** Staff saw the money: confirm in the DB, return at once, email the ticket in the background. */
+/** Treasurer saw the money: confirm in the DB, return at once, email the ticket in the background. */
 export async function confirmPaymentFromList(formData: FormData): Promise<ConfirmPaymentResult> {
-  if (!(await isStaff())) redirect(`/convention/check-in?next=${PAYMENTS}`);
+  if (!(await isTreasurer())) redirect(PAYMENTS);
   const registrationId = String(formData.get("registrationId") ?? "");
   try {
     const { registration, newlyConfirmed } = await acceptTransfer(registrationId);
@@ -137,9 +153,9 @@ export async function confirmPaymentFromList(formData: FormData): Promise<Confir
   }
 }
 
-/** Staff couldn't match the receipt: mark it returned, then email the guest (background). */
+/** Treasurer couldn't match the receipt: mark it returned, then email the guest (background). */
 export async function returnPaymentFromList(formData: FormData): Promise<ReturnPaymentResult> {
-  if (!(await isStaff())) redirect(`/convention/check-in?next=${PAYMENTS}`);
+  if (!(await isTreasurer())) redirect(PAYMENTS);
   const receiptId = String(formData.get("receiptId") ?? "");
   const reason = String(formData.get("reason") ?? "");
   const extra = String(formData.get("note") ?? "").trim().slice(0, 500);
@@ -167,7 +183,7 @@ const REMINDER_COOLDOWN_MS = 2 * 60 * 1000;
 
 /** Re-sends the account details and receipt link to a guest who hasn't sent a receipt yet. */
 export async function remindFromList(formData: FormData): Promise<RemindPaymentResult> {
-  if (!(await isStaff())) redirect(`/convention/check-in?next=${PAYMENTS}`);
+  if (!(await isTreasurer())) redirect(PAYMENTS);
   const registrationId = String(formData.get("registrationId") ?? "");
   try {
     const registration = await findRegistrationById(registrationId);
@@ -199,7 +215,7 @@ export type PaidGuestState =
 
 /** Someone paid outside the site: record them as a confirmed guest and email their ticket. */
 export async function addPaidGuest(_previous: PaidGuestState, formData: FormData): Promise<PaidGuestState> {
-  if (!(await isStaff())) redirect(`/convention/check-in?next=${PAYMENTS}`);
+  if (!(await isTreasurer())) redirect(PAYMENTS);
 
   const method = String(formData.get("paymentMethod") ?? "");
   const paymentMethod = method === "bank_transfer" || method === "cash" ? method : "";
