@@ -1,0 +1,276 @@
+/* Convention design tokens.
+   Bold, flat colour blocks with dark outlines. Every colour block carries --cv-ink text,
+   which passes WCAG AA on all of them (5.8:1 on blue, 7.4:1 on coral, 12:1+ on the rest).
+   White text only ever sits on --cv-ink. */
+:root {
+  --cv-ink: #001319;
+  --cv-text: #1d2733;
+  --cv-muted: #4e5b63;
+  --cv-on-ink-muted: #a9c2cc;
+  --cv-paper: #feffff;
+
+  --cv-brand: #009aca; /* JCI blue: fills and outlines (ink text on top) */
+  --cv-brand-strong: #00779c; /* blue for text and links on white (5.1:1) */
+  --cv-brand-stronger: #00627f;
+  --cv-sun: #ffc72c; /* beacon yellow */
+  --cv-coral: #ff7a59;
+  --cv-sky: #b1dfee;
+  --cv-mint: #9be2c4;
+  --cv-surface: #e6f5fa;
+
+  --cv-line: var(--cv-ink);
+  --cv-input-line: #4e5b63;
+  --cv-on-ink-accent: var(--cv-sun);
+
+  --cv-success: #0b6b3f;
+  --cv-success-bg: #e6f6ed;
+  --cv-warning: #7a4d00;
+  --cv-warning-bg: #fff3d6;
+  --cv-danger: #b42318;
+  --cv-danger-bg: #fdecea;
+
+  --cv-shadow: 4px 4px 0 var(--cv-ink);
+  --cv-shadow-lg: 8px 8px 0 var(--cv-ink);
+
+  /* Shape and depth of the shared buttons, fields and panels. These are Design A's values (square, hard
+     offset shadows); a design only has to override these tokens to restyle every shared component. */
+  --cv-radius: 0px; /* panels and cards */
+  --cv-radius-field: 0px; /* inputs and option tiles */
+  --cv-radius-control: 0px; /* buttons, pills and chips */
+  --cv-control-line: var(--cv-ink); /* outlines on buttons and chosen options */
+  --cv-primary: var(--cv-ink);
+  --cv-on-primary: #fff;
+  --cv-shadow-hover: 6px 6px 0 var(--cv-ink);
+  --cv-shadow-press: 2px 2px 0 var(--cv-ink);
+  --cv-shadow-primary: 4px 4px 0 var(--cv-brand);
+  --cv-shadow-primary-hover: 6px 6px 0 var(--cv-brand);
+  --cv-shadow-primary-press: 2px 2px 0 var(--cv-brand);
+  --cv-shadow-focus: 4px 4px 0 var(--cv-brand); /* focused fields */
+  --cv-shadow-chosen: 4px 4px 0 var(--cv-ink); /* chosen options */
+  --cv-lift: -2px -2px; /* hover nudge on buttons and chosen options */
+  --cv-push: 2px 2px; /* pressed nudge */
+
+  /* Motion: quick to start, soft to land. All of it switches off for "reduce motion". */
+  --cv-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --cv-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cv-stagger: 90ms;
+}
+
+@keyframes cv-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes cv-rise {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cv-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.cv-pop {
+  animation: cv-pop 320ms var(--cv-ease-spring) both;
+}
+
+.cv-rise {
+  animation: cv-rise 240ms ease-out both;
+}
+
+.cv-marquee {
+  animation: cv-marquee 40s linear infinite;
+}
+
+.cv-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-pop,
+  .cv-rise,
+  .cv-marquee {
+    animation: none;
+  }
+}
+
+/* Motion system --------------------------------------------------------------
+   Keyframes leave out their end state, so each animation lands on the element's own styles,
+   and `backwards` fill hands those styles back once it ends (hover lifts keep working). */
+
+@keyframes cv-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+/* Illustrations open like a flower: a little small and turned, then a soft overshoot. */
+@keyframes cv-bloom {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(-6deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04) rotate(1deg);
+  }
+}
+
+/* Movement only, no fade: for the hero figure, which is the page's largest image (keeps LCP fast). */
+@keyframes cv-lift {
+  from {
+    transform: translateY(48px);
+  }
+}
+
+@keyframes cv-sweep {
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* Petals spread from a tight, turned bud. */
+@keyframes cv-unfold {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotate(-35deg);
+  }
+}
+
+@keyframes cv-draw {
+  from {
+    stroke-dashoffset: 30;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero, on load: each piece rises in turn (set --i for the order). CSS only, so it runs before JavaScript. */
+  .cv-enter {
+    animation: cv-reveal 700ms var(--cv-ease-out) backwards;
+    animation-delay: calc(var(--i, 0) * var(--cv-stagger) + 80ms);
+  }
+  .cv-enter-bloom {
+    transform-origin: 20% 60%;
+    animation: cv-bloom 900ms var(--cv-ease-out) backwards;
+    animation-delay: calc(var(--i, 0) * var(--cv-stagger) + 80ms);
+  }
+
+  .cv-enter-lift {
+    animation: cv-lift 900ms var(--cv-ease-out) backwards;
+    animation-delay: calc(var(--i, 0) * var(--cv-stagger) + 80ms);
+  }
+
+  /* The hero flower opens ring by ring, outside in, then its outer petals turn very slowly,
+     the two rings in opposite directions, like a beacon's light going round. */
+  .cv-bloom-art .cv-petals {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cv-unfold 1100ms var(--cv-ease-out) backwards;
+  }
+  .cv-bloom-art .cv-petals-outer {
+    animation:
+      cv-unfold 1100ms var(--cv-ease-out) 150ms backwards,
+      cv-sweep 180s linear infinite;
+  }
+  .cv-bloom-art .cv-petals-middle {
+    animation:
+      cv-unfold 1100ms var(--cv-ease-out) 300ms backwards,
+      cv-sweep 140s linear infinite reverse;
+  }
+  .cv-bloom-art .cv-petals-inner {
+    animation-delay: 450ms;
+  }
+  .cv-bloom-art .cv-petals-centre {
+    animation-name: cv-pop;
+    animation-delay: 650ms;
+  }
+
+  /* Scroll reveals, once each. Hidden only after JavaScript adds .cv-motion, so nothing hides without it. */
+  .cv-motion [data-reveal]:not([data-shown]) {
+    opacity: 0;
+  }
+  .cv-motion [data-shown="animate"] {
+    animation: cv-reveal 700ms var(--cv-ease-out) backwards;
+    animation-delay: calc(var(--i, 0) * var(--cv-stagger));
+  }
+  .cv-motion [data-reveal="bloom"][data-shown="animate"] {
+    animation-name: cv-bloom;
+    animation-duration: 900ms;
+  }
+  .cv-motion [data-reveal="pop"][data-shown="animate"] {
+    animation: cv-pop 420ms var(--cv-ease-spring) backwards;
+    animation-delay: calc(var(--i, 0) * 50ms + 150ms);
+  }
+
+  /* One-off entrances for things that appear after an action. */
+  .cv-bloom-in {
+    animation: cv-bloom 900ms var(--cv-ease-out) backwards;
+  }
+
+  /* Success ticks draw themselves, so "it worked" registers at a glance. */
+  .cv-draw path {
+    stroke-dasharray: 30;
+    animation: cv-draw 450ms var(--cv-ease-out) 180ms backwards;
+  }
+
+  /* FAQ answers slide open where the browser supports animating to auto height; elsewhere they just open. */
+  .cv-scope {
+    interpolate-size: allow-keywords;
+  }
+  .cv-faq::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size 280ms var(--cv-ease-out),
+      content-visibility 280ms allow-discrete;
+  }
+  .cv-faq[open]::details-content {
+    block-size: auto;
+  }
+  .cv-faq[open] .cv-faq-answer {
+    animation: cv-rise 280ms var(--cv-ease-out) backwards;
+  }
+}
+
+@media print {
+  [data-reveal] {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
+
+/* Keep focused fields and messages clear of the site's fixed header when the browser scrolls to them. */
+.cv-scope :is(h1, h2, input, section, [tabindex="-1"]) {
+  scroll-margin-top: calc(130px + var(--convention-banner-h, 0px));
+}
+
+/* All-caps display type for headlines and big numbers. */
+.cv-display {
+  font-family: var(--font-cv-display), var(--font-space-grotesk), system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+
+/* Scale the server-rendered QR SVG to its container. */
+.cv-qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}

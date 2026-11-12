@@ -40,6 +40,11 @@ export function Navbar({ className }: NavbarProps) {
         href: '/newsletter',
         isActive: pathname === '/newsletter',
       },
+      {
+        label: 'Convention',
+        href: '/convention',
+        isActive: pathname?.startsWith('/convention') ?? false,
+      },
     ];
   }, [pathname]);
 
@@ -69,7 +74,8 @@ export function Navbar({ className }: NavbarProps) {
     <div
       className={cn(
         'bg-[#FEFFFF] overflow-hidden transition-all duration-300',
-        'fixed top-0 left-0 right-0 z-50',
+        // Sit below the convention announcement banner when it is present
+        'fixed top-[var(--convention-banner-h,0px)] left-0 right-0 z-50',
         {
           'md:h-[110px] h-[521px]': isMobileMenuOpen,
           'md:h-[110px] h-[80px]': !isMobileMenuOpen,

@@ -1,6 +1,7 @@
 'use client';
 
 import useEmblaCarousel from 'embla-carousel-react';
+import Link from 'next/link';
 import { useCallback } from 'react';
 
 import ObserverImage from '@/components/shared/obs-image';
@@ -14,13 +15,14 @@ import {
 
 const jciActivities = [
   {
-    id: 1,  
+    id: 1,
     title: 'JCI Continental Lagos Annual Convention',
-    date: 'November 2026',
-    location: 'Lagos, Nigeria',
+    date: 'November 29, 2026',
+    location: 'Watercress Hotel, Ikeja',
     description:
-      'End the local organization year with an empowering event to culminate all our activities',
+      'Beacon in Bloom — Annual Convention, Awards & Presidential Investiture. Members attend free.',
     image: images.jciAnnualConventionImage,
+    href: '/convention',
   },
   {
     id: 2,
@@ -142,11 +144,8 @@ export function JCIActivities() {
             <div className="w-full">
               <div className="embla overflow-hidden" ref={emblaRef}>
                 <div className="embla__container flex gap-3 lg:gap-6">
-                  {jciActivities.map(activity => (
-                    <div
-                      key={activity.id}
-                      className="embla__slide flex-[0_0_100%] lg:flex-[0_0_384px]"
-                    >
+                  {jciActivities.map(activity => {
+                    const card = (
                       <div className="bg-white border border-[#e6f5fa] rounded-xl p-5 h-full">
                         <div className="flex flex-col gap-[22px] h-full">
                           {/* Image */}
@@ -202,8 +201,23 @@ export function JCIActivities() {
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+
+                    return (
+                      <div
+                        key={activity.id}
+                        className="embla__slide flex-[0_0_100%] lg:flex-[0_0_384px]"
+                      >
+                        {'href' in activity && activity.href ? (
+                          <Link href={activity.href} className="block h-full">
+                            {card}
+                          </Link>
+                        ) : (
+                          card
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

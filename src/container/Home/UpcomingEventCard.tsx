@@ -9,27 +9,39 @@ const SLIDE_INTERVAL_MS = 5000;
 const upcomingEvents = [
   {
     id: 1,
+    title: 'Beacon in Bloom — 2026 Annual Convention',
+    description:
+      'JCI Continental Lagos Annual Convention, Awards & Presidential Investiture. Members attend free.',
+    date: 'November 29, 2026',
+    link: '/convention',
+    external: false,
+  },
+  {
+    id: 2,
     title: 'JCI Nigeria Southern Conference',
     description:
       'Join us for the JCI Nigeria Southern Conference — a gathering of young leaders driving impact across the southern region.',
     date: 'April 9–12, 2026',
     link: 'https://south.jci.ng/',
+    external: true,
   },
   {
-    id: 2,
+    id: 3,
     title: 'JCI World Congress',
     description:
       'Connect with young active citizens from around the globe at the JCI World Congress.',
     date: 'November 11–15, 2026',
     link: 'https://jci.cc/events/2026-jci-world-congress/',
+    external: true,
   },
   {
-    id: 3,
+    id: 4,
     title: 'Africa & the Middle East Conference',
     description:
       'Experience leadership forums, cultural exchange, and collaborations driving sustainable development and unity.',
     date: 'May 20–23, 2026',
     link: 'https://jci.cc/events/2026-jci-africa-and-the-middle-east-conference/',
+    external: true,
   },
 ];
 
@@ -54,8 +66,13 @@ export function UpcomingEventCard({ className }: UpcomingEventCardProps) {
   const event = upcomingEvents[activeIndex];
 
   const openEventLink = useCallback(() => {
-    window.open(event.link, '_blank', 'noopener,noreferrer');
-  }, [event.link]);
+    // Internal routes stay in-app; external events open in a new tab
+    if (event.external) {
+      window.open(event.link, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    window.location.href = event.link;
+  }, [event.external, event.link]);
 
   return (
     <div className={`bg-secondary flex flex-col rounded-2xl p-6 cursor-pointer overflow-hidden ${className ?? ''}`}>
