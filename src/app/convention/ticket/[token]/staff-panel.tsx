@@ -8,7 +8,6 @@ import { Callout, cx } from "../../_components/ui";
 import { formatDateTime, formatTime } from "../../_lib/format";
 import { staffTicketAction, type StaffTicketState, type TicketSnapshot } from "../../check-in/actions";
 
-
 type WaitingReceipt = { id: string; sentAt: string; isPdf: boolean };
 
 /** What the gate team sees when they scan a ticket. One decision per screen, in big type. */
@@ -18,6 +17,7 @@ export function StaffPanel({
   initial,
   price,
   receipt,
+  canConfirmPayment,
 }: {
   token: string;
   firstName: string;
@@ -25,6 +25,8 @@ export function StaffPanel({
   price: string;
   /** A transfer receipt waiting for review, if the guest has sent one. */
   receipt: WaitingReceipt | null;
+  /** Treasurer only — door staff must send unpaid guests to the payments desk. */
+  canConfirmPayment: boolean;
 }) {
   const [state, formAction] = useActionState<StaffTicketState, FormData>(staffTicketAction, { snapshot: initial });
   const { snapshot, event } = state;
@@ -35,7 +37,9 @@ export function StaffPanel({
         ? {
             tone: "warning" as const,
             title: "Payment not confirmed yet",
-            body: `They sent a transfer receipt on ${formatDateTime(receipt.sentAt)}. Check ${price} is in the chapter's account before confirming.`,
+            body: canConfirmPayment
+              ? `They sent a transfer receipt on ${formatDateTime(receipt.sentAt)}. Check ${price} is in the chapter's account before confirming.`
+              : `They sent a transfer receipt on ${formatDateTime(receipt.sentAt)}. Send them to the payments desk — only the treasurer can confirm.`,
           }
         : { tone: "danger" as const, title: "Not paid. Don't admit yet.", body: "No transfer receipt yet. Send them to the help desk." }
       : snapshot.checkedInAt && event === "checked_in"
@@ -85,29 +89,47 @@ export function StaffPanel({
           </Link>
         </Callout>
       )}
+      {event === "need_treasurer" && (
+        <Callout tone="warning" title="Only the treasurer can confirm payments">
+          <Link className="font-semibold underline" href="/convention/check-in/payments">
+            Open the payments desk
+          </Link>
+        </Callout>
+      )}
       {event === "error" && <Callout tone="danger" title="That didn't save. Check your connection and try again." />}
 
       <form action={formAction} className="flex flex-col gap-2">
         <input type="hidden" name="token" value={token} />
         {snapshot.status !== "confirmed" ? (
-          <>
-            {receipt && (
-              <a
-                href={`/convention/check-in/receipts/${receipt.id}`}
-                target="_blank"
-                rel="noreferrer"
-                className="text-center font-sans font-semibold text-(--cv-brand-strong) underline underline-offset-2"
-              >
-                Open their receipt{receipt.isPdf ? " (PDF)" : ""}
-              </a>
-            )}
-            <input type="hidden" name="intent" value="confirm_payment" />
-            <SubmitButton pendingLabel="Confirming…" variant="secondary" className="w-full">
-              Confirm {price} received
-            </SubmitButton>
-            <p className="text-sm text-(--cv-muted)">Only once you&apos;ve seen the money in the chapter&apos;s account. Their ticket is emailed straight away.</p>
-            {event === "still_unpaid" && <p className="text-sm text-(--cv-danger)">That didn&apos;t confirm. Refresh the page and try again.</p>}
-          </>
+          canConfirmPayment ? (
+            <>
+              {receipt && (
+                <a
+                  href={`/convention/check-in/receipts/${receipt.id}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-center font-sans font-semibold text-(--cv-brand-strong) underline underline-offset-2"
+                >
+                  Open their receipt{receipt.isPdf ? " (PDF)" : ""}
+                </a>
+              )}
+              <input type="hidden" name="intent" value="confirm_payment" />
+              <SubmitButton pendingLabel="Confirming…" variant="secondary" className="w-full">
+                Confirm {price} received
+              </SubmitButton>
+              <p className="text-sm text-(--cv-muted)">
+                Only once you&apos;ve seen the money in the chapter&apos;s account. Their ticket is emailed straight away.
+              </p>
+              {event === "still_unpaid" && <p className="text-sm text-(--cv-danger)">That didn&apos;t confirm. Refresh the page and try again.</p>}
+            </>
+          ) : (
+            <p className="text-center text-sm text-(--cv-muted)">
+              <Link href="/convention/check-in/payments" className="font-semibold text-(--cv-brand-strong) underline underline-offset-2">
+                Payments desk
+              </Link>{" "}
+              — treasurer unlock required to confirm this guest.
+            </p>
+          )
         ) : snapshot.checkedInAt ? (
           <>
             <input type="hidden" name="intent" value="undo" />

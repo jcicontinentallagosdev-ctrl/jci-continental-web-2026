@@ -8,7 +8,10 @@ function required(name: string) {
 
 export const env = {
   databaseUrl: () => required("CONVENTION_DATABASE_URL"),
+  /** Door / check-in team — cannot confirm payments. */
   staffPasscode: () => required("CONVENTION_STAFF_PASSCODE"),
+  /** Treasurer — check-in plus payments desk and confirming money. */
+  treasurerPasscode: () => required("CONVENTION_TREASURER_PASSCODE"),
   resendApiKey: () => process.env.RESEND_API_KEY,
   emailFrom: () =>
     process.env.CONVENTION_EMAIL_FROM ?? "JCI Continental Lagos <onboarding@resend.dev>",

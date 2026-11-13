@@ -5,13 +5,16 @@ import { env } from "./env";
 const COOKIE = "convention_staff";
 const TWELVE_HOURS = 60 * 60 * 12;
 
+export type StaffRole = "staff" | "treasurer";
+
 /**
- * Staff unlock the check-in desk with one shared passcode. The cookie holds an HMAC of the
- * passcode keyed with the database URL (a server-only secret), so it can't be forged, and
- * changing the passcode signs everyone out.
+ * Door staff and the treasurer unlock with different passcodes. The cookie holds an HMAC of
+ * role + that role's passcode, keyed with the database URL, so it can't be forged and changing
+ * a passcode signs that role out.
  */
-function sessionValue() {
-  return createHmac("sha256", env.databaseUrl()).update(`staff:${env.staffPasscode()}`).digest("base64url");
+function sessionValue(role: StaffRole) {
+  const passcode = role === "treasurer" ? env.treasurerPasscode() : env.staffPasscode();
+  return createHmac("sha256", env.databaseUrl()).update(`${role}:${passcode}`).digest("base64url");
 }
 
 function same(a: string, b: string) {
@@ -20,21 +23,52 @@ function same(a: string, b: string) {
   return x.length === y.length && timingSafeEqual(x, y);
 }
 
-export async function isStaff() {
-  const value = (await cookies()).get(COOKIE)?.value;
-  return Boolean(value && same(value, sessionValue()));
-}
-
-export async function startStaffSession(passcode: string) {
-  if (!same(passcode.trim(), env.staffPasscode())) return false;
-  (await cookies()).set(COOKIE, sessionValue(), {
+async function setSession(role: StaffRole) {
+  (await cookies()).set(COOKIE, sessionValue(role), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/convention",
     maxAge: TWELVE_HOURS,
   });
-  return true;
+}
+
+/** Which desk role the browser has unlocked, if any. */
+export async function getStaffRole(): Promise<StaffRole | null> {
+  const value = (await cookies()).get(COOKIE)?.value;
+  if (!value) return null;
+  // Check treasurer first so a mis-matched cookie never elevates by accident.
+  if (same(value, sessionValue("treasurer"))) return "treasurer";
+  if (same(value, sessionValue("staff"))) return "staff";
+  return null;
+}
+
+/** Door staff or treasurer — enough for check-in. */
+export async function isStaff() {
+  return (await getStaffRole()) !== null;
+}
+
+/** Treasurer only — payments desk and confirming money. */
+export async function isTreasurer() {
+  return (await getStaffRole()) === "treasurer";
+}
+
+/**
+ * Unlock with either passcode. Treasurer code wins if both somehow match.
+ * Pass requireTreasurer when unlocking the payments desk so a door code can't sneak in.
+ */
+export async function startStaffSession(passcode: string, opts?: { requireTreasurer?: boolean }) {
+  const trimmed = passcode.trim();
+  if (same(trimmed, env.treasurerPasscode())) {
+    await setSession("treasurer");
+    return true;
+  }
+  if (opts?.requireTreasurer) return false;
+  if (same(trimmed, env.staffPasscode())) {
+    await setSession("staff");
+    return true;
+  }
+  return false;
 }
 
 export async function endStaffSession() {

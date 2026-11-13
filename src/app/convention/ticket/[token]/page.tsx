@@ -7,7 +7,7 @@ import { convention } from "../../_lib/config";
 import { admissionLabel, eventTimeRange, firstName, formatDate, formatNaira, googleCalendarUrl } from "../../_lib/format";
 import { ticketQrSvg } from "../../_lib/qr";
 import { findRegistrationByToken, latestReceipt } from "../../_lib/registrations";
-import { isStaff } from "../../_lib/staff";
+import { isStaff, isTreasurer } from "../../_lib/staff";
 import { StaffPanel } from "./staff-panel";
 import { TransferSteps } from "./transfer-steps";
 
@@ -28,6 +28,7 @@ export default async function TicketPage({ params, searchParams }: Props) {
   if (!registration || registration.status === "cancelled") notFound();
 
   const staff = await isStaff();
+  const treasurer = staff ? await isTreasurer() : false;
   const confirmed = registration.status === "confirmed";
   // Members are confirmed when they register, so only guests ever wait on a transfer.
   const awaitingTransfer = !confirmed && registration.attendeeType === "guest";
@@ -43,6 +44,7 @@ export default async function TicketPage({ params, searchParams }: Props) {
           firstName={name}
           initial={{ status: registration.status, checkedInAt: registration.checkedInAt?.toISOString() ?? null }}
           price={formatNaira(registration.amountDueKobo)}
+          canConfirmPayment={treasurer}
           receipt={
             receipt?.status === "submitted"
               ? { id: receipt.id, sentAt: receipt.createdAt.toISOString(), isPdf: receipt.contentType === "application/pdf" }

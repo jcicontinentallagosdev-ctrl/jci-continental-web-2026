@@ -14,7 +14,7 @@ import {
   type AwaitingTransfer,
   type ReceiptToReview,
 } from "../../_lib/registrations";
-import { isStaff } from "../../_lib/staff";
+import { isTreasurer } from "../../_lib/staff";
 import { UnlockForm } from "../unlock-form";
 import { AddPaidGuest } from "./add-paid-guest";
 import { ConfirmPaymentButton, RemindPaymentButton, ReturnPaymentForm } from "./payment-buttons";
@@ -42,10 +42,11 @@ type Props = {
 export default async function PaymentsPage({ searchParams }: Props) {
   const query = await searchParams;
 
-  if (!(await isStaff())) {
+  // Door staff can open check-in; only the treasurer unlock opens this desk.
+  if (!(await isTreasurer())) {
     return (
       <PageShell className="max-w-md">
-        <UnlockForm next="/convention/check-in/payments" />
+        <UnlockForm mode="payments" next="/convention/check-in/payments" />
       </PageShell>
     );
   }

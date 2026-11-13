@@ -99,7 +99,8 @@ export async function register(_previous: RegisterState, formData: FormData): Pr
 
     // The page shows the account details too, so a failed email doesn't stop them paying.
     await sendTransferDetails(registration);
-    paymentPage = `/convention/ticket/${registration.ticketToken}?new=1`;
+    // Hash jumps to the transfer heading so bank details aren't below the fold after #register scroll.
+    paymentPage = `/convention/ticket/${registration.ticketToken}?new=1#cv-transfer-title`;
   } catch (error) {
     console.error("[convention] Registration failed", error);
     return { status: "error", message: SOMETHING_WENT_WRONG };

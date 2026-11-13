@@ -1,11 +1,11 @@
 import { findReceiptFile } from "../../../_lib/registrations";
-import { isStaff } from "../../../_lib/staff";
+import { isTreasurer } from "../../../_lib/staff";
 
 const EXTENSIONS = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp", "application/pdf": "pdf" } as const;
 
-/** A guest's transfer receipt, for staff only. Opens in the browser; never cached. */
+/** A guest's transfer receipt, for the treasurer only. Opens in the browser; never cached. */
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
-  if (!(await isStaff())) return new Response("Unlock the check-in desk first", { status: 401 });
+  if (!(await isTreasurer())) return new Response("Unlock the payments desk first", { status: 401 });
 
   const { id } = await params;
   if (!/^[0-9a-f-]{36}$/i.test(id)) return new Response("Not found", { status: 404 });

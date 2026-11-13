@@ -45,7 +45,8 @@ export function TransferSteps({ registration, receipt, isNew, justSent, uploadEr
   if (moment === "checking" && receipt) {
     return (
       <div className="space-y-6">
-        {justSent && <FocusOnMount id="cv-transfer-title" />}
+        {/* Scroll to the top of this flow — action redirects keep the old page scroll. */}
+        {(justSent || isNew) && <FocusOnMount id="cv-transfer-title" />}
         <header className="space-y-2 text-center">
           <h1 id="cv-transfer-title" tabIndex={-1} className="cv-display text-4xl text-balance text-(--cv-ink) outline-none">
             {justSent ? `Receipt received, ${name}!` : "We're checking your transfer"}
@@ -78,6 +79,8 @@ export function TransferSteps({ registration, receipt, isNew, justSent, uploadEr
 
   return (
     <div className="space-y-6">
+      {/* New guests come from #register mid-page; force the bank details into view. */}
+      {isNew && <FocusOnMount id="cv-transfer-title" />}
       <header className="space-y-2 text-center">
         <h1 id="cv-transfer-title" tabIndex={-1} className="cv-display text-4xl text-balance text-(--cv-ink) outline-none">
           {moment === "returned" ? "We couldn't confirm your transfer yet" : isNew ? `You're almost in, ${name}` : "Complete your transfer"}
